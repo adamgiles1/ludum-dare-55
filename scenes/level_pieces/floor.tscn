@@ -4,11 +4,11 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk70j"]
 albedo_texture = ExtResource("1_g0hbj")
-uv1_scale = Vector3(100, 100, 100)
+uv1_scale = Vector3(500, 500, 500)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2g5y6"]
 material = SubResource("StandardMaterial3D_fk70j")
-size = Vector3(100, 1, 100)
+size = Vector3(500, 1, 500)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b2en3"]
 size = Vector3(100, 1, 100)

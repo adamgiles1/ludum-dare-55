@@ -2,11 +2,28 @@ extends Camera3D
 
 var mouse := Vector2()
 
+var speed = 5
+var modifier = 5
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func _process(delta):
+	var vel = Vector3.ZERO
+	if Input.is_action_pressed("camera_down"):
+		vel.x = -1
+	if Input.is_action_pressed("camera_up"):
+		vel.x = 1
+	if Input.is_action_pressed("camera_left"):
+		vel.z = -1
+	if Input.is_action_pressed("camera_right"):
+		vel.z = 1
+	var mod = 1
+	if Input.is_action_pressed("camera_fast"):
+		mod = modifier
+	position += vel * delta * speed * mod
 
 func _input(event):
 	if event is InputEventMouse:
