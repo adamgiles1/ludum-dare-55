@@ -6,19 +6,29 @@ var HOVER: Color = Color(1, 1, 0, 1);
 var SELECTED: Color = Color(1, 0, 0, 1);
 
 @export var speed: float = 5
+@export var health: int = 1
+
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var animator: AnimationPlayer = $AnimationPlayer
 @onready var outline: MeshInstance3D = $%Outline
 
 
-enum STATE {IDLE, WALKING, INTERACTING}
+enum STATE {IDLE, WALKING, INTERACTING, DYING}
 var current_state: STATE
 var interacting_with: InteractableThing = null
+var is_dead: bool = false
+var time_dead: float = 0.0
+var death_limit: float = 1.0
 
 func _ready():
 	set_outline(NO_OUTLINE);
 
 func _physics_process(delta):
+	if is_dead:
+		time_dead += delta
+		if death_limit < time_dead:
+			queue_free()
+		return
 	velocity = Vector3.ZERO
 	
 	if not is_on_floor():
@@ -29,12 +39,14 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	if current_state == STATE.WALKING && nav_agent.is_navigation_finished():
+		current_state = STATE.IDLE
+	
 	if current_state != STATE.INTERACTING && interacting_with != null && close_enough_to_interact(interacting_with):
 		start_interaction(interacting_with)
 	
 	match current_state:
 		STATE.WALKING:
-			print("walking")
 			if !animator.is_playing():
 				animator.play("walk")
 		STATE.INTERACTING:
@@ -48,7 +60,6 @@ func calc_dir(delta: float):
 	velocity = dir * speed
 
 func send_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing):
-	print("receiving command: " + str(Globals.COMMAND.keys()[type]))
 	set_outline(NO_OUTLINE);
 	walk_to(location)
 	handle_command(location, type, thing)
@@ -82,3 +93,16 @@ func select():
 	
 func set_outline(color: Color):
 	%Outline.set_instance_shader_parameter("color", color);
+
+func attack_unit(damage: int):
+	health -= damage
+	print("was attacked. hp is: " + str(health))
+	if health <= 0:
+		die()
+
+func die():
+	current_state = STATE.DYING
+	is_dead = true
+	animator.stop()
+	animator.play("die")
+	play_sound("Die")
