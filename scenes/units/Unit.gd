@@ -29,6 +29,9 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	if current_state == STATE.WALKING && nav_agent.is_navigation_finished():
+		current_state = STATE.IDLE
+	
 	if current_state != STATE.INTERACTING && interacting_with != null && close_enough_to_interact(interacting_with):
 		start_interaction(interacting_with)
 	

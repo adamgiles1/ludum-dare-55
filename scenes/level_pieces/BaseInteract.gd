@@ -26,6 +26,10 @@ func interact_with():
 		change_color("red")
 		last_is_red = true
 
+func get_spot() -> Vector3:
+	rotate_spot()
+	return $InteractionPoints.get_child(next_spot).global_position
+
 func change_color(color: String):
 	white.visible = false
 	blue.visible = false

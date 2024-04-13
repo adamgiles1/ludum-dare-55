@@ -16,6 +16,8 @@ func _process(delta):
 func handle_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing):
 	# todo should check if this is thing we can interact with first
 	interacting_with = thing
+	if thing != null:
+		nav_agent.target_position = thing.get_spot()
 
 func close_enough_to_interact(thing: InteractableThing) -> bool:
 	if (self.position.distance_to(thing.position) < 1.5):

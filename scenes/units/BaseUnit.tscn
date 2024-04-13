@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://uwa2ii2d8jgs"]
+[gd_scene load_steps=14 format=3 uid="uid://uwa2ii2d8jgs"]
 
 [ext_resource type="Script" path="res://scenes/units/BaseUnit.gd" id="1_58tdd"]
 [ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="2_fuepo"]
@@ -25,17 +25,6 @@ _surfaces = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8pjdd"]
 
-[sub_resource type="Animation" id="Animation_0buup"]
-resource_name = "walk"
-loop_mode = 2
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.25, 1, 0, 0.5, 0, 0.5, 1, 0, 0, 0, 0.8, 1, 0, 0.5, 0, 1, 1, 0, 0, 0)
-
 [sub_resource type="Animation" id="Animation_3meif"]
 resource_name = "interact"
 loop_mode = 1
@@ -46,6 +35,17 @@ tracks/0/path = NodePath("MeshInstance3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0.5, 1, 0, 0, 0, 0.6, 1, 0, 0.5, 0, 0.7, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_0buup"]
+resource_name = "walk"
+loop_mode = 2
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.25, 1, 0, 0.5, 0, 0.5, 1, 0, 0, 0, 0.8, 1, 0, 0.5, 0, 1, 1, 0, 0, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4rx58"]
 _data = {
