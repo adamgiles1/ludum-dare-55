@@ -40,4 +40,11 @@ func handle_command(location: Vector3, type: Globals.COMMAND):
 	printerr("Unimplemented command for scene: " + self.name)
 
 func walk_to(target: Vector3):
+	play_sound("Walk")
 	nav_agent.target_position = target
+
+func play_sound(sound_name: String):
+	var sounds: Node = get_node(sound_name)
+	var num = randi_range(0, sounds.get_children().size() - 1)
+	var audio: AudioStreamPlayer3D = sounds.get_child(num)
+	audio.play()

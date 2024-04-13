@@ -23,11 +23,13 @@ shape = SubResource("ConcavePolygonShape3D_2sule")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="Ok1" type="AudioStreamPlayer3D" parent="."]
+[node name="Walk" type="Node" parent="."]
+
+[node name="Ok1" type="AudioStreamPlayer3D" parent="Walk"]
 stream = ExtResource("2_npswq")
 
-[node name="Ok2" type="AudioStreamPlayer3D" parent="."]
+[node name="Ok2" type="AudioStreamPlayer3D" parent="Walk"]
 stream = ExtResource("3_t1uhw")
 
-[node name="Ok3" type="AudioStreamPlayer3D" parent="."]
+[node name="Ok3" type="AudioStreamPlayer3D" parent="Walk"]
 stream = ExtResource("4_gjp22")
