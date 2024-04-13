@@ -36,9 +36,11 @@ transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -3.82137e-15, 4.37114e-08,
 
 [node name="BaseUnit" parent="." instance=ExtResource("2_owm64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 1.5, -0.31507)
+speed = null
 
 [node name="BaseUnit2" parent="." instance=ExtResource("2_owm64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 1.5, 2.68493)
+speed = null
 
 [node name="Camera" parent="." instance=ExtResource("3_ojmy0")]
 transform = Transform3D(-2.18557e-08, 0.866025, -0.5, 3.78552e-08, 0.5, 0.866025, 1, -1.77636e-15, -4.37114e-08, -20, 16.2795, 0)

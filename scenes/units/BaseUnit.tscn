@@ -14,6 +14,7 @@
 [node name="BaseUnit" type="CharacterBody3D" groups=["Unit"]]
 collision_layer = 2
 script = ExtResource("1_58tdd")
+speed = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_g4y4o")
