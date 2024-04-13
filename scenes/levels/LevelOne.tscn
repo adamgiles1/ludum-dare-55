@@ -14,6 +14,7 @@ agent_height = 2.0
 agent_radius = 1.0
 
 [node name="LevelOne" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24343, -0.383157, 0.169718)
 script = ExtResource("1_377d4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -35,7 +36,7 @@ transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -3.82137e-15, 4.37114e-08,
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -3.82137e-15, 4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 2.05673, 0.293737, -8.43637)
 
 [node name="BaseUnit" parent="." instance=ExtResource("2_owm64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 1.5, -0.31507)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108944, 1.5, 1.60392)
 
 [node name="BaseUnit2" parent="." instance=ExtResource("2_owm64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 1.5, 2.68493)

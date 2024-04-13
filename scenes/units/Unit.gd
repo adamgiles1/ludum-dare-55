@@ -1,16 +1,20 @@
 class_name Unit
 extends CharacterBody3D
 
+var NO_OUTLINE: Color = Color(0, 0, 0, 0);
+var HOVER: Color = Color(1, 1, 0, 1);
+var SELECTED: Color = Color(1, 0, 0, 1);
 
 @export var speed: float = 5
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var outline: MeshInstance3D = $%Outline
 
 
 enum state {IDLE, WALKING, INTERACTING}
 var interacting_with: Node = null
 
 func _ready():
-	pass
+	set_outline(NO_OUTLINE);
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
@@ -33,6 +37,7 @@ func calc_dir(delta: float):
 
 func send_command(location: Vector3, type: Globals.COMMAND):
 	print("receiving command: " + str(type))
+	set_outline(NO_OUTLINE);
 	walk_to(location)
 	handle_command(location, type)
 
@@ -50,5 +55,9 @@ func play_sound(sound_name: String):
 	audio.play()
 
 func select():
+	set_outline(SELECTED);
 	GameManager.set_active_unit(self)
 	play_sound("Select")
+	
+func set_outline(color: Color):
+	%Outline.set_instance_shader_parameter("color", color);
