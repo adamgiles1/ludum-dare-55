@@ -4,6 +4,7 @@ extends CharacterBody3D
 
 @export var speed: float = 5
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var animator: AnimationPlayer = $AnimationPlayer
 
 
 enum STATE {IDLE, WALKING, INTERACTING}
@@ -14,9 +15,6 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		GameManager.command_active_units(Vector3(10, 0, 10), Globals.COMMAND.MOVE, null)
-	
 	velocity = Vector3.ZERO
 	
 	if not is_on_floor():
@@ -29,6 +27,16 @@ func _physics_process(delta):
 	
 	if current_state != STATE.INTERACTING && interacting_with != null && close_enough_to_interact(interacting_with):
 		start_interaction(interacting_with)
+	
+	match current_state:
+		STATE.WALKING:
+			print("walking")
+			if !animator.is_playing():
+				animator.play("walk")
+		STATE.INTERACTING:
+			animator.play("interact")
+		STATE.IDLE:
+			animator.stop()
 
 func calc_dir(delta: float):
 	var target = nav_agent.get_next_path_position()

@@ -25,8 +25,10 @@ func right_click():
 	
 	if result.collider.is_in_group("walkable"):
 		GameManager.command_active_units(result.position, Globals.COMMAND.MOVE, null)
+		GameManager.spawn_hover_arrow(result.position)
 	if result.collider.is_in_group("interactable"):
 		GameManager.command_active_units(result.position, Globals.COMMAND.INTERACT, result.collider.get_parent())
+		
 
 func left_click():
 	var worldspace = get_world_3d().direct_space_state
