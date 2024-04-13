@@ -10,11 +10,9 @@ enum state {IDLE, WALKING}
 var interacting_with: Node = null
 
 func _ready():
-	# remove this once we can select units properly
-	GameManager.add_active_unit(self)
+	pass
 
 func _physics_process(delta):
-	
 	if Input.is_action_just_pressed("ui_accept"):
 		GameManager.command_active_units(Vector3(10, 0, 10), Globals.COMMAND.MOVE)
 	
@@ -40,11 +38,15 @@ func handle_command(location: Vector3, type: Globals.COMMAND):
 	printerr("Unimplemented command for scene: " + self.name)
 
 func walk_to(target: Vector3):
-	play_sound("Walk")
 	nav_agent.target_position = target
+	play_sound("Walk")
 
 func play_sound(sound_name: String):
 	var sounds: Node = get_node(sound_name)
 	var num = randi_range(0, sounds.get_children().size() - 1)
 	var audio: AudioStreamPlayer3D = sounds.get_child(num)
 	audio.play()
+
+func select():
+	GameManager.set_active_unit(self)
+	play_sound("Select")

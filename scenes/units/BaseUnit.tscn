@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://uwa2ii2d8jgs"]
+[gd_scene load_steps=9 format=3 uid="uid://uwa2ii2d8jgs"]
 
 [ext_resource type="Script" path="res://scenes/units/BaseUnit.gd" id="1_58tdd"]
 [ext_resource type="AudioStream" uid="uid://c1yo00vlbdn5" path="res://assets/audio/voice-lines/okogg.ogg" id="2_npswq"]
 [ext_resource type="AudioStream" uid="uid://kmnq6wxk5yd2" path="res://assets/audio/voice-lines/on-my-way.ogg" id="3_t1uhw"]
 [ext_resource type="AudioStream" uid="uid://borg6bi6u24uu" path="res://assets/audio/voice-lines/you-got-it.ogg" id="4_gjp22"]
+[ext_resource type="AudioStream" uid="uid://bs7yovimpl60g" path="res://assets/audio/voice-lines/yes-question-mark.ogg" id="5_i1jyp"]
+[ext_resource type="AudioStream" uid="uid://b5die2v1jr51y" path="res://assets/audio/voice-lines/yeahogg.ogg" id="6_amg5b"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g4y4o"]
 
@@ -33,3 +35,11 @@ stream = ExtResource("3_t1uhw")
 
 [node name="Ok3" type="AudioStreamPlayer3D" parent="Walk"]
 stream = ExtResource("4_gjp22")
+
+[node name="Select" type="Node" parent="."]
+
+[node name="Select1" type="AudioStreamPlayer3D" parent="Select"]
+stream = ExtResource("5_i1jyp")
+
+[node name="Select2" type="AudioStreamPlayer3D" parent="Select"]
+stream = ExtResource("6_amg5b")
