@@ -5,8 +5,7 @@
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_r3nl7")
 
-[node name="MenuHolder" type="Control" parent="."]
-unique_name_in_owner = true
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -21,7 +20,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Main" type="VBoxContainer" parent="MenuHolder"]
+[node name="Main" type="VBoxContainer" parent="Control"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,37 +28,37 @@ offset_top = 31.0
 offset_right = 37.0
 offset_bottom = 132.0
 
-[node name="PlayButton" type="Button" parent="MenuHolder/Main"]
+[node name="PlayButton" type="Button" parent="Control/Main"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Play"
 
-[node name="OptionsButton" type="Button" parent="MenuHolder/Main"]
+[node name="OptionsButton" type="Button" parent="Control/Main"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Options"
 
-[node name="ExitButton" type="Button" parent="MenuHolder/Main"]
+[node name="ExitButton" type="Button" parent="Control/Main"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Exit"
 
-[node name="Option" type="VBoxContainer" parent="MenuHolder"]
+[node name="Option" type="VBoxContainer" parent="Control"]
 visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MenuHolder/Option"]
+[node name="Label" type="Label" parent="Control/Option"]
 layout_mode = 2
 text = "Music Volume"
 
-[node name="HSlider" type="HSlider" parent="MenuHolder/Option"]
+[node name="HSlider" type="HSlider" parent="Control/Option"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="MenuHolder/Option"]
+[node name="Label2" type="Label" parent="Control/Option"]
 layout_mode = 2
 text = "General Volume"
 
-[node name="HSlider2" type="HSlider" parent="MenuHolder/Option"]
+[node name="HSlider2" type="HSlider" parent="Control/Option"]
 layout_mode = 2
