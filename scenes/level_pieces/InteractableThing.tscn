@@ -13,7 +13,7 @@ script = ExtResource("1_xaojc")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_yl56e")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Interactable"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["interactable"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_u1s6t")

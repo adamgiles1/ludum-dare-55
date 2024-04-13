@@ -26,6 +26,8 @@ func right_click():
 	print(result.collider)
 	if result.collider.is_in_group("walkable"):
 		GameManager.command_active_units(result.position, Globals.COMMAND.MOVE)
+	if result.collider.is_in_group("interactable"):
+		GameManager.command_active_units(result.position, Globals.COMMAND.INTERACT)
 
 func left_click():
 	var worldspace = get_world_3d().direct_space_state

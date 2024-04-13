@@ -1,3 +1,3 @@
 extends Node
 
-enum COMMAND {MOVE}
+enum COMMAND {MOVE, INTERACT}
