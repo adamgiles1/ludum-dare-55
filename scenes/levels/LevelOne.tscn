@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://by3bqe6ijfx0p"]
+[gd_scene load_steps=9 format=3 uid="uid://by3bqe6ijfx0p"]
 
 [ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
 [ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c8o8ryo7nkn3g" path="res://scenes/Camera.tscn" id="3_ojmy0"]
 [ext_resource type="PackedScene" uid="uid://qpgecwf8k8mh" path="res://scenes/level_pieces/box.tscn" id="3_x1ygm"]
 [ext_resource type="PackedScene" uid="uid://b8rbix4uljxaw" path="res://scenes/level_pieces/InteractableThing.tscn" id="6_cps07"]
+[ext_resource type="PackedScene" uid="uid://dqjfdli3511dj" path="res://scenes/level_pieces/base_unit_summoner.tscn" id="7_rkko5"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_mmttv"]
 vertices = PackedVector3Array(-4.25, 0.793738, -13.75, -3, 0.793738, -14.5, -3, 0.793738, -49, -49, 0.793738, -49, -49, 0.793738, -12.5, -49, 0.793738, -12.5, -4.25, 0.793738, -12.25, -4.25, 0.793738, -13.75, -2.25, 0.793738, -14.5, -1.5, 0.793738, -13.5, 0.75, 0.793738, -13.5, 1.5, 0.793738, -14.5, 2.25, 0.793738, -49, -3, 0.793738, -49, -3, 0.793738, -49, -3, 0.793738, -14.5, -2.25, 0.793738, -14.5, 1.5, 0.793738, -14.5, 2.25, 0.793738, -14.5, 2.25, 0.793738, -49, 2.25, 0.793738, -49, 2.25, 0.793738, -14.5, 3.5, 0.793738, -13.75, 49, 0.793738, -11.75, 49, 0.793738, -49, 3.5, 0.793738, -13.75, 3.5, 0.793738, -11.75, 49, 0.793738, -11.75, -49, 0.793738, -4.25, -4.25, 0.793738, -4.5, -4.25, 0.793738, -12.25, -49, 0.793738, -12.5, 3.5, 0.793738, -5, 49, 0.793738, -5, 49, 0.793738, -11.75, 3.5, 0.793738, -11.75, 0.75, 2.79374, -10.25, 1.5, 3.04374, -11.25, -2.25, 3.04374, -11.25, -1.5, 2.79374, -10.25, 2.25, 0.793738, 49, 2.25, 0.793738, -2.25, 1.5, 0.793738, -2.25, 0.75, 0.793738, -3, 0.75, 2.79374, -10.25, -1.5, 2.79374, -10.25, -1.5, 0.793738, -3, -1.5, 0.793738, -3, -2.25, 0.793738, -2.25, -3, 0.793738, 49, 2.25, 0.793738, 49, 1.5, 0.793738, -2.25, 0.75, 0.793738, -3, -2.25, 0.793738, -2.25, -3, 0.793738, -2.25, -3, 0.793738, 49, 49, 0.793738, -5, 3.5, 0.793738, -5, 3.5, 0.793738, -3, 49, 0.793738, -5, 3.5, 0.793738, -3, 2.25, 0.793738, -2.25, 2.25, 0.793738, 49, 49, 0.793738, 49, -4.25, 0.793738, -3, -4.25, 0.793738, -4.5, -49, 0.793738, -4.25, -3, 0.793738, -2.25, -4.25, 0.793738, -3, -49, 0.793738, -4.25, -49, 0.793738, 49, -3, 0.793738, 49)
@@ -36,13 +37,18 @@ transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -3.82137e-15, 4.37114e-08,
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -3.82137e-15, 4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 2.05673, 0.293737, -8.43637)
 
 [node name="BaseUnit" parent="." instance=ExtResource("2_owm64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108944, 1.5, 1.60392)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 1.5, -0.31507)
+speed = 5.0
 
 [node name="BaseUnit2" parent="." instance=ExtResource("2_owm64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 1.5, 2.68493)
+speed = 5.0
 
 [node name="Camera" parent="." instance=ExtResource("3_ojmy0")]
 transform = Transform3D(-2.18557e-08, 0.866025, -0.5, 3.78552e-08, 0.5, 0.866025, 1, -1.77636e-15, -4.37114e-08, -20, 16.2795, 0)
 
 [node name="InteractableThing" parent="." instance=ExtResource("6_cps07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04568, 1.5, 7.37018)
+
+[node name="BaseUnitSummoner" parent="." instance=ExtResource("7_rkko5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79309, 0.500001, 5.21987)

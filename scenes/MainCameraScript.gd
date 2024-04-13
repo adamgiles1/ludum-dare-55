@@ -23,11 +23,12 @@ func right_click():
 	var end = project_position(mouse, 1000)
 	var result = worldspace.intersect_ray(PhysicsRayQueryParameters3D.create(start, end))
 	
-	print(result.collider)
 	if result.collider.is_in_group("walkable"):
-		GameManager.command_active_units(result.position, Globals.COMMAND.MOVE)
+		GameManager.command_active_units(result.position, Globals.COMMAND.MOVE, null)
+		GameManager.spawn_hover_arrow(result.position)
 	if result.collider.is_in_group("interactable"):
-		GameManager.command_active_units(result.position, Globals.COMMAND.INTERACT)
+		GameManager.command_active_units(result.position, Globals.COMMAND.INTERACT, result.collider.get_parent())
+		
 
 func left_click():
 	var worldspace = get_world_3d().direct_space_state
