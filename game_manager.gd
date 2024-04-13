@@ -10,7 +10,8 @@ func _process(delta):
 
 func command_active_units(location: Vector3, command: Globals.COMMAND, thing: InteractableThing):
 	for unit in active_units:
-		unit.send_command(location, command, thing)
+		if is_instance_valid(unit):
+			unit.send_command(location, command, thing)
 
 func set_active_unit(unit: Unit):
 	active_units = []
