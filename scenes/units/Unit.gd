@@ -14,6 +14,7 @@ var SELECTED: Color = Color(1, 0, 0, 1);
 enum STATE {IDLE, WALKING, INTERACTING}
 var current_state: STATE
 var interacting_with: InteractableThing = null
+var is_dead: bool = false
 
 func _ready():
 	set_outline(NO_OUTLINE);
@@ -37,7 +38,6 @@ func _physics_process(delta):
 	
 	match current_state:
 		STATE.WALKING:
-			print("walking")
 			if !animator.is_playing():
 				animator.play("walk")
 		STATE.INTERACTING:
