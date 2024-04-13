@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://by3bqe6ijfx0p"]
+[gd_scene load_steps=7 format=3 uid="uid://by3bqe6ijfx0p"]
 
 [ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
 [ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
 [ext_resource type="PackedScene" uid="uid://uwa2ii2d8jgs" path="res://scenes/units/BaseUnit.tscn" id="2_owm64"]
 [ext_resource type="PackedScene" uid="uid://c8o8ryo7nkn3g" path="res://scenes/Camera.tscn" id="3_ojmy0"]
+[ext_resource type="PackedScene" uid="uid://qpgecwf8k8mh" path="res://scenes/level_pieces/box.tscn" id="3_x1ygm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_mmttv"]
 vertices = PackedVector3Array(-49.5, 1, -49.5, -49.5, 1, 49.5, 49.5, 1, 49.5, 49.5, 1, -49.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+agent_height = 2.0
 
 [node name="LevelOne" type="Node3D"]
 script = ExtResource("1_377d4")
@@ -20,6 +22,9 @@ shadow_enabled = true
 navigation_mesh = SubResource("NavigationMesh_mmttv")
 
 [node name="Floor" parent="NavigationRegion3D" instance=ExtResource("1_e4awv")]
+
+[node name="Box" parent="NavigationRegion3D" instance=ExtResource("3_x1ygm")]
+transform = Transform3D(-4.37114e-08, 8.57914e-16, 1, -1.49012e-08, 1, -8.88178e-16, -1, -1.49012e-08, -4.37114e-08, -0.226578, 0.293737, -7.43637)
 
 [node name="BaseUnit" parent="." instance=ExtResource("2_owm64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 4, -0.31507)
