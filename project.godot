@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="Ludum-dare-55"
+run/main_scene="res://scenes/levels/LevelOne.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Signals="*res://signals.gd"
+Globals="*res://globals.gd"
+GameManager="*res://game_manager.gd"
 
 [display]
 
@@ -23,3 +30,7 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="Ludum-dare-55"
+
+[layer_names]
+
+3d_navigation/layer_1="Ground"

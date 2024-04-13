@@ -50,6 +50,11 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="BackButton" type="Button" parent="MenuHolder/Option"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
 [node name="Label" type="Label" parent="MenuHolder/Option"]
 layout_mode = 2
 text = "Music Volume"
