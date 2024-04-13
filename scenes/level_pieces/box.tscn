@@ -11,7 +11,7 @@ data = PackedVector3Array(-5, 0.25, 2.5, 5, 0.25, 2.5, -5, -0.25, 2.5, 5, 0.25, 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_a25go")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" groups=["walkable"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["walkable"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ga18u")

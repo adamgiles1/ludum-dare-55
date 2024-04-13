@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://qpgecwf8k8mh" path="res://scenes/level_pieces/box.tscn" id="3_x1ygm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_mmttv"]
-vertices = PackedVector3Array(-49.5, 1, -49.5, -49.5, 1, 49.5, 49.5, 1, 49.5, 49.5, 1, -49.5)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(-4.25, 0.793738, -13.75, -3, 0.793738, -14.5, -3, 0.793738, -49, -49, 0.793738, -49, -49, 0.793738, -12.5, -49, 0.793738, -12.5, -4.25, 0.793738, -12.25, -4.25, 0.793738, -13.75, -2.25, 0.793738, -14.5, -1.5, 0.793738, -13.5, 0.75, 0.793738, -13.5, 1.5, 0.793738, -14.5, 2.25, 0.793738, -49, -3, 0.793738, -49, -3, 0.793738, -49, -3, 0.793738, -14.5, -2.25, 0.793738, -14.5, 1.5, 0.793738, -14.5, 2.25, 0.793738, -14.5, 2.25, 0.793738, -49, 2.25, 0.793738, -49, 2.25, 0.793738, -14.5, 3.5, 0.793738, -13.75, 49, 0.793738, -11.75, 49, 0.793738, -49, 3.5, 0.793738, -13.75, 3.5, 0.793738, -11.75, 49, 0.793738, -11.75, -49, 0.793738, -4.25, -4.25, 0.793738, -4.5, -4.25, 0.793738, -12.25, -49, 0.793738, -12.5, 3.5, 0.793738, -5, 49, 0.793738, -5, 49, 0.793738, -11.75, 3.5, 0.793738, -11.75, 0.75, 2.79374, -10.25, 1.5, 3.04374, -11.25, -2.25, 3.04374, -11.25, -1.5, 2.79374, -10.25, 2.25, 0.793738, 49, 2.25, 0.793738, -2.25, 1.5, 0.793738, -2.25, 0.75, 0.793738, -3, 0.75, 2.79374, -10.25, -1.5, 2.79374, -10.25, -1.5, 0.793738, -3, -1.5, 0.793738, -3, -2.25, 0.793738, -2.25, -3, 0.793738, 49, 2.25, 0.793738, 49, 1.5, 0.793738, -2.25, 0.75, 0.793738, -3, -2.25, 0.793738, -2.25, -3, 0.793738, -2.25, -3, 0.793738, 49, 49, 0.793738, -5, 3.5, 0.793738, -5, 3.5, 0.793738, -3, 49, 0.793738, -5, 3.5, 0.793738, -3, 2.25, 0.793738, -2.25, 2.25, 0.793738, 49, 49, 0.793738, 49, -4.25, 0.793738, -3, -4.25, 0.793738, -4.5, -49, 0.793738, -4.25, -3, 0.793738, -2.25, -4.25, 0.793738, -3, -49, 0.793738, -4.25, -49, 0.793738, 49, -3, 0.793738, 49)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(7, 6, 5), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 13), PackedInt32Array(11, 13, 12), PackedInt32Array(16, 15, 14), PackedInt32Array(19, 18, 17), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 24), PackedInt32Array(22, 24, 23), PackedInt32Array(27, 26, 25), PackedInt32Array(29, 28, 30), PackedInt32Array(30, 28, 31), PackedInt32Array(35, 34, 32), PackedInt32Array(32, 34, 33), PackedInt32Array(39, 38, 36), PackedInt32Array(36, 38, 37), PackedInt32Array(42, 41, 40), PackedInt32Array(46, 45, 43), PackedInt32Array(43, 45, 44), PackedInt32Array(52, 51, 47), PackedInt32Array(47, 51, 48), PackedInt32Array(48, 51, 50), PackedInt32Array(48, 50, 49), PackedInt32Array(55, 54, 53), PackedInt32Array(58, 57, 56), PackedInt32Array(60, 59, 61), PackedInt32Array(61, 59, 62), PackedInt32Array(62, 59, 63), PackedInt32Array(66, 65, 64), PackedInt32Array(68, 67, 69), PackedInt32Array(69, 67, 71), PackedInt32Array(69, 71, 70)]
 agent_height = 2.0
+agent_radius = 1.0
 
 [node name="LevelOne" type="Node3D"]
 script = ExtResource("1_377d4")
@@ -24,10 +25,19 @@ navigation_mesh = SubResource("NavigationMesh_mmttv")
 [node name="Floor" parent="NavigationRegion3D" instance=ExtResource("1_e4awv")]
 
 [node name="Box" parent="NavigationRegion3D" instance=ExtResource("3_x1ygm")]
-transform = Transform3D(-4.37114e-08, 8.57914e-16, 1, -1.49012e-08, 1, -8.88178e-16, -1, -1.49012e-08, -4.37114e-08, -0.226578, 0.293737, -7.43637)
+transform = Transform3D(-4.37114e-08, 8.57914e-16, 1, 0.258819, 0.965926, 1.13133e-08, -0.965926, 0.258819, -4.22219e-08, -0.226578, 1.29374, -7.43637)
+
+[node name="Box2" parent="NavigationRegion3D" instance=ExtResource("3_x1ygm")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -3.82137e-15, 4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -2.94327, 0.293737, -8.43637)
+
+[node name="Box3" parent="NavigationRegion3D" instance=ExtResource("3_x1ygm")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -3.82137e-15, 4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 2.05673, 0.293737, -8.43637)
 
 [node name="BaseUnit" parent="." instance=ExtResource("2_owm64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 4, -0.31507)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 1.5, -0.31507)
+
+[node name="BaseUnit2" parent="." instance=ExtResource("2_owm64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 1.5, 2.68493)
 
 [node name="Camera" parent="." instance=ExtResource("3_ojmy0")]
 transform = Transform3D(-2.18557e-08, 0.866025, -0.5, 3.78552e-08, 0.5, 0.866025, 1, -1.77636e-15, -4.37114e-08, -20, 16.2795, 0)
