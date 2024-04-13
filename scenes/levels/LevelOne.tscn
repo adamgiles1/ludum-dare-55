@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://by3bqe6ijfx0p"]
+[gd_scene load_steps=10 format=3 uid="uid://by3bqe6ijfx0p"]
 
 [ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
 [ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
 [ext_resource type="PackedScene" uid="uid://uwa2ii2d8jgs" path="res://scenes/units/BaseUnit.tscn" id="2_owm64"]
+[ext_resource type="PackedScene" uid="uid://dkcud0puxf2vo" path="res://scenes/UI/Resource Counts.tscn" id="2_uoyca"]
 [ext_resource type="PackedScene" uid="uid://c8o8ryo7nkn3g" path="res://scenes/Camera.tscn" id="3_ojmy0"]
 [ext_resource type="PackedScene" uid="uid://qpgecwf8k8mh" path="res://scenes/level_pieces/box.tscn" id="3_x1ygm"]
 [ext_resource type="PackedScene" uid="uid://b8rbix4uljxaw" path="res://scenes/level_pieces/InteractableThing.tscn" id="6_cps07"]
@@ -17,6 +18,8 @@ agent_radius = 1.0
 [node name="LevelOne" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24343, -0.383157, 0.169718)
 script = ExtResource("1_377d4")
+
+[node name="Resource Counts" parent="." instance=ExtResource("2_uoyca")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -38,11 +41,9 @@ transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -3.82137e-15, 4.37114e-08,
 
 [node name="BaseUnit" parent="." instance=ExtResource("2_owm64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 1.5, -0.31507)
-speed = 5.0
 
 [node name="BaseUnit2" parent="." instance=ExtResource("2_owm64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338194, 1.5, 2.68493)
-speed = 5.0
 
 [node name="Camera" parent="." instance=ExtResource("3_ojmy0")]
 transform = Transform3D(-2.18557e-08, 0.866025, -0.5, 3.78552e-08, 0.5, 0.866025, 1, -1.77636e-15, -4.37114e-08, -20, 16.2795, 0)

@@ -11,7 +11,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouse:
 		mouse = event.position
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and !UI.mouse_in_ui(mouse):
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			right_click()
 		elif event.button_index == MOUSE_BUTTON_LEFT:

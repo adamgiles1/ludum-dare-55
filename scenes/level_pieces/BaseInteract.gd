@@ -24,6 +24,7 @@ func interact_with():
 		last_is_red = false
 	else:
 		change_color("red")
+		UI.increase_wood(1)
 		last_is_red = true
 
 func change_color(color: String):

@@ -5,4 +5,3 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_uxi8t")
-shader_parameter/color = Color(0, 0, 0, 1)
