@@ -65,12 +65,12 @@ func calc_dir(delta: float):
 	var dir = global_position.direction_to(target)
 	velocity = dir * speed * UI.get_unit_speed()
 
-func send_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing):
+func send_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing, offset: Vector3):
 	set_outline(NO_OUTLINE);
 	walk_to(location, true)
-	handle_command(location, type, thing)
+	handle_command(location, type, thing, offset)
 
-func handle_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing):
+func handle_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing, offset: Vector3):
 	printerr("Unimplemented command for scene: " + self.name)
 
 func walk_to(target: Vector3, with_audio: bool):

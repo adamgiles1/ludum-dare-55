@@ -21,13 +21,13 @@ func _process(delta):
 	GameManager.hover(hovers)
 		
 	var vel = Vector3.ZERO
-	if Input.is_action_pressed("camera_down"):
+	if Input.is_action_pressed("camera_down") && position.x > -100:
 		vel.x = -1
-	if Input.is_action_pressed("camera_up"):
+	if Input.is_action_pressed("camera_up") && position.x < 100:
 		vel.x = 1
-	if Input.is_action_pressed("camera_left"):
+	if Input.is_action_pressed("camera_left") && position.z > -100:
 		vel.z = -1
-	if Input.is_action_pressed("camera_right"):
+	if Input.is_action_pressed("camera_right") && position.z < 100:
 		vel.z = 1
 	var mod = 1
 	if Input.is_action_pressed("camera_fast"):

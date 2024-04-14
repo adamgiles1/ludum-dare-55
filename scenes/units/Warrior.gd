@@ -36,10 +36,13 @@ func _process(delta):
 			STATE.IDLE:
 				animator.stop()
 
-func handle_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing):
+func handle_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing, offset: Vector3):
 	if thing != null && thing.is_in_group("attackable"):
 		interacting_with = thing
 		nav_agent.target_position = thing.get_spot()
+	else:
+		if offset != Vector3.ZERO:
+			walk_to(location + offset, false)
 
 func close_enough_to_interact(thing: InteractableThing) -> bool:
 	if (self.position.distance_to(thing.position) < ATTACK_RANGE):

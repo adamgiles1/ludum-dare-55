@@ -35,9 +35,7 @@ func spawn_unit():
 	unit.position = self.position
 	unit.set_spawned(self)
 	if is_worker && has_last_command:
-		print("sending command")
-		print(command_vector)
-		unit.send_command(command_vector, Globals.COMMAND.INTERACT, command_thing)
+		unit.send_command(command_vector, Globals.COMMAND.INTERACT, command_thing, Vector3.ZERO)
 	
 	get_tree().root.add_child(unit)
 

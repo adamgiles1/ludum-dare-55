@@ -14,7 +14,7 @@ func _process(delta):
 				interacting_with.interact_with()
 			time_till_next_resource = 3
 
-func handle_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing):
+func handle_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing, offset: Vector3):
 	# todo should check if this is thing we can interact with first
 	interacting_with = thing
 	if thing != null:
