@@ -25,7 +25,7 @@ func update_drag(cast_position: Vector3):
 	global_position = Vector3(x_min + x_length/2, SELECTION_HEIGHT/2, z_min + z_length/2)
 	scale = Vector3(x_length, SELECTION_HEIGHT, z_length)
 
-func cancel_drag():
+func end_drag():
 	set_instance_shader_parameter("color", DISABLED_COLOR);
 
 func match_position(position: Vector3):

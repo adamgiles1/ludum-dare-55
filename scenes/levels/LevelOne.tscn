@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://by3bqe6ijfx0p"]
+[gd_scene load_steps=20 format=3 uid="uid://by3bqe6ijfx0p"]
 
 [ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
 [ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
@@ -11,8 +11,9 @@
 [ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="10_e20s7"]
 [ext_resource type="PackedScene" uid="uid://co0hacth5elo5" path="res://scenes/level_pieces/warrior_summoner.tscn" id="10_kipc5"]
 [ext_resource type="Script" path="res://scenes/levels/Selection Area.gd" id="11_yetwi"]
-[ext_resource type="PackedScene" uid="uid://bcbla1pf3udgb" path="res://scenes/level_pieces/archer_summoner.tscn" id="12_5h7km"]
-[ext_resource type="PackedScene" uid="uid://dn6xget4o555i" path="res://scenes/level_pieces/EnemySummoner.tscn" id="12_r0ss6"]
+[ext_resource type="PackedScene" uid="uid://dvcuc3xxivrm1" path="res://scenes/level_pieces/archer_summoner.tscn" id="12_5h7km"]
+[ext_resource type="PackedScene" uid="uid://ccj7stkekpnly" path="res://scenes/level_pieces/EnemySummoner.tscn" id="12_r0ss6"]
+[ext_resource type="Script" path="res://scenes/levels/PlacementPreview.gd" id="14_1jnww"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_mmttv"]
 vertices = PackedVector3Array(-4.25, 0.793737, -13.75, -3, 0.793737, -14.5, -3, 0.793737, -249, -249, 0.793737, -249, -249, 0.793737, -12.5, -249, 0.793737, -12.5, -4.25, 0.793737, -12.25, -4.25, 0.793737, -13.75, -2.25, 0.793737, -14.5, -1.5, 0.793737, -13.5, 0.75, 0.793737, -13.5, 1.5, 0.793737, -14.5, 2.25, 0.793737, -249, -3, 0.793737, -249, -3, 0.793737, -249, -3, 0.793737, -14.5, -2.25, 0.793737, -14.5, 1.5, 0.793737, -14.5, 2.25, 0.793737, -14.5, 2.25, 0.793737, -249, 2.25, 0.793737, -249, 2.25, 0.793737, -14.5, 3.5, 0.793737, -13.75, 249, 0.793737, -11.75, 249, 0.793737, -249, 3.5, 0.793737, -13.75, 3.5, 0.793737, -11.75, 249, 0.793737, -11.75, -249, 0.793737, -4.25, -4.25, 0.793737, -4.5, -4.25, 0.793737, -12.25, -249, 0.793737, -12.5, 3.5, 0.793737, -5, 249, 0.793737, -5, 249, 0.793737, -11.75, 3.5, 0.793737, -11.75, -2.75, 0.793737, -2.25, -2.5, 0.793737, 5.75, -1.25, 0.793737, 5.75, -1.5, 0.793737, -3, -2.75, 0.793737, -2.25, -1.25, 0.793737, 5.75, -0.5, 0.793737, 6.75, 1.75, 0.793737, -2.25, 0.75, 0.793737, -3, 0.75, 0.793737, -3, 0.75, 3.04374, -11.25, -1.5, 3.04374, -11.25, -1.5, 0.793737, -3, 2.75, 0.793737, -2.25, 1.75, 0.793737, -2.25, -0.5, 0.793737, 6.75, 3.5, 0.793737, -3, 2.75, 0.793737, -2.25, -0.5, 0.793737, 6.75, -0.5, 0.793737, 8, 249, 0.793737, 8, 249, 0.793737, -5, 249, 0.793737, -5, 3.5, 0.793737, -5, 3.5, 0.793737, -3, -2.5, 0.793737, 5.75, -2.75, 0.793737, -2.25, -3.5, 0.793737, -2.25, -2.5, 0.793737, 5.75, -3.5, 0.793737, -2.25, -4.25, 0.793737, -3, -3.75, 0.793737, 6.75, -4.25, 0.793737, -3, -4.25, 0.793737, -4.5, -249, 0.793737, -4.25, -3.75, 0.793737, 7.5, -3.75, 0.793737, 6.75, -4.25, 0.793737, -3, -249, 0.793737, -4.25, -249, 0.793737, 7.5, -2, 0.793737, 249, -2, 0.793737, 9, -2.75, 0.793737, 9, -2, 0.793737, 249, -2.75, 0.793737, 9, -3.75, 0.793737, 7.5, -249, 0.793737, 7.5, -249, 0.793737, 249, -1.25, 0.793737, 9, -2, 0.793737, 9, -2, 0.793737, 249, -0.5, 0.793737, 8, -1.25, 0.793737, 9, -2, 0.793737, 249, 249, 0.793737, 249, 249, 0.793737, 8)
@@ -24,8 +25,11 @@ agent_radius = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dl4yg"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_gacok"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bmxer"]
+
 [node name="LevelOne" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24343, -0.383157, 0.169718)
 script = ExtResource("1_377d4")
 
 [node name="GameButtons" parent="." instance=ExtResource("2_x3jxv")]
@@ -88,3 +92,25 @@ team_id = 2
 
 [node name="BaseUnitSummoner3" parent="." instance=ExtResource("12_5h7km")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6442, 0.5, 6.91848)
+
+[node name="PlacementPreview" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.6, 2.6)
+mesh = SubResource("QuadMesh_gacok")
+surface_material_override/0 = ExtResource("10_e20s7")
+script = ExtResource("14_1jnww")
+
+[node name="Collision Area" type="Area3D" parent="PlacementPreview"]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlacementPreview/Collision Area"]
+shape = SubResource("CylinderShape3D_bmxer")
+
+[node name="Link Area" type="Area3D" parent="PlacementPreview"]
+transform = Transform3D(8, 0, 0, 0, -3.49691e-07, -8, 0, 8, -3.49691e-07, 0, 0, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlacementPreview/Link Area"]
+shape = SubResource("CylinderShape3D_bmxer")

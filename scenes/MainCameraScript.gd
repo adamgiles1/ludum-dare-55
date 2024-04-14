@@ -1,16 +1,21 @@
 extends Camera3D
+class_name MainCamera
+
+enum Mode { NEUTRAL, SELECTION_AREA, PLACEMENT_PREVIEW }
 
 var speed = 5
 var modifier = 5
 
-var left_mouse_held: bool = false;
+var mode: Mode = Mode.NEUTRAL
+#var left_mouse_held: bool = false;
 
 var hovers: Array[CollisionObject3D] = [] 
 @onready var selection_area: SelectionArea = $"../SelectionArea"
+@onready var placement_preview: PlacementPreview = $"../PlacementPreview"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	UI.register_camera(self)
 
 func _process(delta):
 	GameManager.hover(hovers)
@@ -39,13 +44,25 @@ func get_mouse_ray_intersect(mouse_position: Vector2):
 func _input(event):
 	if !event is InputEventMouse:
 		return
-		
-	if left_mouse_held:
-		left_held_event(event)
-	elif !UI.mouse_in_ui(event.position):
-		regular_event(event)
+	
+	match mode:
+		Mode.PLACEMENT_PREVIEW:
+			preview_event(event)
+		Mode.SELECTION_AREA:	
+			left_held_event(event)
+		Mode.NEUTRAL:
+			regular_event(event)
 
-# Level 2		
+# Level 2
+func preview_event(event: InputEvent):
+	if event is InputEventMouseMotion:
+		drag_preview(event.position)
+	elif event is InputEventMouseButton:
+		if event.is_released() and event.button_index == MOUSE_BUTTON_LEFT and !UI.mouse_in_ui(event.position):
+			confirm_preview()
+		elif event.is_pressed() and event.button_index == MOUSE_BUTTON_RIGHT:
+			cancel_preview()
+			
 func left_held_event(event: InputEvent):
 	if event is InputEventMouseMotion:
 		drag_selection(event.position)
@@ -59,12 +76,14 @@ func left_held_event(event: InputEvent):
 			cancel_selection()
 			
 func regular_event(event: InputEvent):
+	if UI.mouse_in_ui(event.position):
+		return
+		
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			begin_selection(event)
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			interact(event)
-			
+			interact(event)			
 	elif event is InputEventMouseMotion:
 		hover(event)
 
@@ -88,7 +107,7 @@ func interact(event: InputEvent): # Right click
 	GameManager.spawn_hover_arrow(result.position)
 
 func begin_selection(event: InputEvent): #Left mouse button down
-	left_mouse_held = true
+	mode = Mode.SELECTION_AREA
 	var result = get_mouse_ray_intersect(event.position)
 	selection_area.begin_drag(result.position)
 
@@ -102,12 +121,12 @@ func drag_selection(mouse_position: Vector2): #Moving mouse with left button hel
 	# HEY THIS IS STUPID WHY
 	
 func cancel_selection(): #Right clicking or releasing left button in ui zone during drag selection
-	left_mouse_held = false
-	selection_area.cancel_drag()
+	mode = Mode.NEUTRAL
+	selection_area.end_drag()
 	hovers = []
 	
 func confirm_selection(mouse_position: Vector2): #Releasing left button outside of ui zones during drag selection
-	left_mouse_held = false
+	mode = Mode.NEUTRAL
 	var result = get_mouse_ray_intersect(mouse_position)
 	if selection_area.match_position(result.position):
 		if result.collider.is_in_group("Unit"):
@@ -117,5 +136,23 @@ func confirm_selection(mouse_position: Vector2): #Releasing left button outside 
 	else:
 		var units = selection_area.get_selection()
 		GameManager.select(units)
-	selection_area.cancel_drag()
+	selection_area.end_drag()
 	hovers = []
+
+func begin_preview():
+	mode = Mode.PLACEMENT_PREVIEW
+	
+func drag_preview(mouse_position: Vector2):
+	var result = get_mouse_ray_intersect(mouse_position)
+	placement_preview.update_drag(result.position)
+
+func cancel_preview():
+	mode = Mode.NEUTRAL
+	UI.cancel_preview()
+	placement_preview.end_drag()
+
+func confirm_preview():
+	if placement_preview.confirm_position():
+		UI.confirm_preview(placement_preview.spawn_position())
+		mode = Mode.NEUTRAL
+		placement_preview.end_drag()
