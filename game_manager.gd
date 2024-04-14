@@ -3,6 +3,7 @@ extends Node
 @onready var hover_arrow_scen: PackedScene = preload("res://scenes/effects/ClickedArrow.tscn")
 
 var active_units: Array[Unit] = []
+var active_hovers: Array = [] #TODO HELP
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
@@ -13,15 +14,21 @@ func command_active_units(location: Vector3, command: Globals.COMMAND, thing: In
 		if is_instance_valid(unit):
 			unit.send_command(location, command, thing)
 
-func set_active_unit(unit: Unit):
-	active_units = []
-	active_units.append(unit)
-
-func set_active_units(units: Array[Unit]):
+func select(units: Array[Unit]):
+	for unit in active_units:
+		unit.deselect()
 	active_units = units
+	for unit in units:
+		unit.select()
 
-func deselect():
-	active_units = []
+func hover(hovers: Array): #TODO type hint real
+	for hover in active_hovers:
+		if hover.is_in_group("Unit"):
+			hover.dehover()
+	active_hovers = hovers
+	for hover in hovers:
+		if hover.is_in_group("Unit"):
+			hover.hover()
 
 func spawn_hover_arrow(location: Vector3):
 	Signals.HOVER_ARROW_SPAWNED.emit()

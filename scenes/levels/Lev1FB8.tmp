@@ -70,7 +70,6 @@ surface_material_override/0 = ExtResource("10_e20s7")
 script = ExtResource("11_yetwi")
 
 [node name="Area3D" type="Area3D" parent="SelectionArea"]
-collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SelectionArea/Area3D"]
 shape = SubResource("BoxShape3D_dl4yg")

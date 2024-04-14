@@ -88,8 +88,16 @@ func play_sound(sound_name: String):
 
 func select():
 	set_outline(SELECTED);
-	GameManager.set_active_unit(self)
 	play_sound("Select")
+
+func deselect():
+	set_outline(NO_OUTLINE);
+
+func hover():
+	set_outline(HOVER);
+
+func dehover():
+	set_outline(NO_OUTLINE);
 	
 func set_outline(color: Color):
 	%Outline.set_instance_shader_parameter("color", color);

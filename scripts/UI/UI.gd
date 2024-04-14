@@ -49,8 +49,8 @@ func check_stone(amount: int) -> bool:
 func check_metal(amount: int) -> bool:
 	return metal_count.quantity >= amount;
 	
-func mouse_in_ui(mouse: Vector2) -> bool:
+func mouse_in_ui(mouse_position: Vector2) -> bool:
 	for ui_zone in ui_zones:
-		if Rect2(ui_zone.position, ui_zone.size).has_point(mouse):
+		if Rect2(ui_zone.position, ui_zone.size).has_point(mouse_position):
 			return true;
 	return false;
