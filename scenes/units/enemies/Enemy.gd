@@ -18,6 +18,7 @@ var current_anim: String = ""
 var is_dead := false
 var dead_time := 0.0
 var health := 5
+var spawned_from: EnemySpawner
 
 func _physics_process(delta):
 	if is_dead:
@@ -77,10 +78,13 @@ func attack_enemy(damage: int):
 		die()
 
 func die():
-	print("died")
 	is_dead = true
 	anim_player.stop()
 	anim_player.play("die")
+	spawned_from.unit_died(self)
 
 func get_spot() -> Vector3:
 	return self.position
+
+func set_spawner(spawner: EnemySpawner):
+	spawned_from = spawner

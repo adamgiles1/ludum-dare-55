@@ -20,11 +20,13 @@ var is_dead: bool = false
 var time_dead: float = 0.0
 var death_limit: float = 1.0
 var anim_overriden = false
+var stun_time_left: float = 0.0
 
 func _ready():
 	set_outline(NO_OUTLINE);
 
 func _physics_process(delta):
+	stun_time_left -= delta
 	if is_dead:
 		time_dead += delta
 		if death_limit < time_dead:
@@ -38,7 +40,8 @@ func _physics_process(delta):
 	if !nav_agent.is_navigation_finished():
 		calc_dir(delta)
 	
-	move_and_slide()
+	if stun_time_left <= 0:
+		move_and_slide()
 	
 	if current_state == STATE.WALKING && nav_agent.is_navigation_finished():
 		current_state = STATE.IDLE

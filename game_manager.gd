@@ -5,6 +5,8 @@ extends Node
 var active_units: Array[Unit] = []
 var active_hovers: Array = [] #TODO HELP
 
+var summoners: Array[EnemySpawner] = []
+
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		Signals.SPAWN_UNITS.emit()
@@ -24,11 +26,11 @@ func select(units: Array[Unit]):
 
 func hover(hovers: Array): #TODO type hint real
 	for hover in active_hovers:
-		if hover.is_in_group("Unit"):
+		if is_instance_valid(hover) && hover.is_in_group("Unit"):
 			hover.dehover()
 	active_hovers = hovers
 	for hover in hovers:
-		if hover.is_in_group("Unit"):
+		if is_instance_valid(hover) && hover.is_in_group("Unit"):
 			hover.hover()
 
 func spawn_hover_arrow(location: Vector3):
@@ -36,3 +38,14 @@ func spawn_hover_arrow(location: Vector3):
 	var inst = hover_arrow_scen.instantiate()
 	inst.position = location
 	add_child(inst)
+
+func register_enemy_summoner(spawner: EnemySpawner, team_id: int):
+	summoners.append(spawner)
+
+func summoner_empty(team_id: int):
+	var all_out = true
+	for summoner in summoners:
+		if summoner.team_id == team_id && summoner.units.size() > 0:
+			all_out = false
+	if all_out:
+		Signals.TEAM_ELIMINATED.emit(team_id)

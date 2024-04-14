@@ -1,6 +1,7 @@
 extends Unit
 
-const ATTACK_RANGE := 2
+@export
+var ATTACK_RANGE := 2
 const DAMAGE := 3
 
 @onready var aggro_area: Area3D = $AggroArea
@@ -11,6 +12,9 @@ func _ready():
 
 func _process(delta):
 	time_till_next_attack -= delta
+	if stun_time_left > 0:
+		return
+	
 	if current_state == STATE.INTERACTING:
 		if interacting_with == null || !is_instance_valid(interacting_with) || interacting_with.is_dead:
 			interacting_with = null
@@ -48,6 +52,7 @@ func attack(thing: Enemy):
 	velocity = Vector3.ZERO
 	thing.attack_enemy(DAMAGE)
 	time_till_next_attack = 2
+	stun_time_left = 1.0
 
 func find_new_target():
 	var enemies = aggro_area.get_overlapping_bodies()

@@ -10,7 +10,8 @@ func _process(delta):
 	if current_state == STATE.INTERACTING:
 		time_till_next_resource -= delta
 		if time_till_next_resource <= 0:
-			interacting_with.interact_with()
+			if is_instance_valid(interacting_with):
+				interacting_with.interact_with()
 			time_till_next_resource = 3
 
 func handle_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing):

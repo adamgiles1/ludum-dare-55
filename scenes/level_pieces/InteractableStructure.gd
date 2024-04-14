@@ -12,11 +12,11 @@ func _process(delta):
 	pass
 
 func start_interacting():
-	print("starting interaction")
+	pass
 	
 
 func interact_with():
-	print("interacted with")
+	pass
 
 func get_spot() -> Vector3:
 	print("getting spot")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcbla1pf3udgb"]
+
+[ext_resource type="Script" path="res://scenes/level_pieces/unit_summon_script.gd" id="1_ce0fo"]
+[ext_resource type="PackedScene" uid="uid://d1j7rfo3t7xas" path="res://scenes/units/Archer.tscn" id="2_qxo26"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2q0an"]
+albedo_color = Color(1, 1, 0.294118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2d1pu"]
+material = SubResource("StandardMaterial3D_2q0an")
+size = Vector3(1, 0.2, 1)
+
+[node name="BaseUnitSummoner" type="Node3D"]
+script = ExtResource("1_ce0fo")
+unit_to_summon = ExtResource("2_qxo26")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2d1pu")
