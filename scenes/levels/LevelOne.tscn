@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://by3bqe6ijfx0p"]
+[gd_scene load_steps=21 format=3 uid="uid://by3bqe6ijfx0p"]
 
 [ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
 [ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
@@ -12,8 +12,8 @@
 [ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="10_e20s7"]
 [ext_resource type="PackedScene" uid="uid://co0hacth5elo5" path="res://scenes/level_pieces/warrior_summoner.tscn" id="10_kipc5"]
 [ext_resource type="Script" path="res://scenes/levels/Selection Area.gd" id="11_yetwi"]
-[ext_resource type="PackedScene" uid="uid://dvcuc3xxivrm1" path="res://scenes/level_pieces/archer_summoner.tscn" id="12_5h7km"]
-[ext_resource type="PackedScene" uid="uid://ccj7stkekpnly" path="res://scenes/level_pieces/EnemySummoner.tscn" id="12_r0ss6"]
+[ext_resource type="PackedScene" uid="uid://bcbla1pf3udgb" path="res://scenes/level_pieces/archer_summoner.tscn" id="12_5h7km"]
+[ext_resource type="PackedScene" uid="uid://dn6xget4o555i" path="res://scenes/level_pieces/EnemySummoner.tscn" id="12_r0ss6"]
 [ext_resource type="PackedScene" uid="uid://breihy2in4f0" path="res://scenes/units/enemies/ArcherEnemy.tscn" id="13_wcaf8"]
 [ext_resource type="Script" path="res://scenes/levels/PlacementPreview.gd" id="14_1jnww"]
 

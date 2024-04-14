@@ -19,6 +19,8 @@ func handle_command(location: Vector3, type: Globals.COMMAND, thing: Interactabl
 	interacting_with = thing
 	if thing != null:
 		nav_agent.target_position = thing.get_spot()
+		if Globals.COMMAND.INTERACT == type:
+			spawned_from.set_last_command(location, thing)
 
 func close_enough_to_interact(thing: InteractableThing) -> bool:
 	if (self.position.distance_to(thing.position) < 3):
