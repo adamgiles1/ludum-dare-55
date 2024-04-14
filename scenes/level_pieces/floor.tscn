@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkpas823tjkr5"]
 
-[ext_resource type="Texture2D" uid="uid://c0bwhaxxnh6me" path="res://assets/textures/grass.png" id="1_g0hbj"]
+[ext_resource type="Texture2D" uid="uid://7b7w2odrx1w8" path="res://assets/textures/snow.png" id="1_njjej"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk70j"]
-albedo_texture = ExtResource("1_g0hbj")
+albedo_texture = ExtResource("1_njjej")
 uv1_scale = Vector3(500, 500, 500)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2g5y6"]

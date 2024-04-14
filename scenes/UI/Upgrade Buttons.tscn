@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bti2e1ypog064"]
-
-[ext_resource type="Script" path="res://scripts/UI/Upgrade Button.gd" id="1_280r8"]
+[gd_scene format=3 uid="uid://bti2e1ypog064"]
 
 [node name="Upgrade Buttons" type="Control"]
 layout_mode = 3
@@ -19,4 +17,3 @@ offset_top = 281.0
 offset_right = 296.0
 offset_bottom = 361.0
 text = "Double Speed"
-script = ExtResource("1_280r8")

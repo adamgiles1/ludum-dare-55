@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1j7rfo3t7xas"]
+[gd_scene load_steps=23 format=3 uid="uid://d1j7rfo3t7xas"]
 
 [ext_resource type="Script" path="res://scenes/units/Warrior.gd" id="1_8vrh7"]
 [ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="2_me3ot"]
@@ -10,6 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://0xer7vpwvuhq" path="res://assets/audio/voice-lines/aaaah.ogg" id="8_gkuni"]
 [ext_resource type="AudioStream" uid="uid://pbv3u0h5lylx" path="res://assets/audio/voice-lines/oof.ogg" id="9_6r70a"]
 [ext_resource type="AudioStream" uid="uid://b8ejeogots466" path="res://assets/audio/voice-lines/OOOF.ogg" id="10_vxlny"]
+[ext_resource type="AudioStream" uid="uid://c5voisno7diqs" path="res://assets/audio/voice-lines/charge.ogg" id="11_g2q4i"]
+[ext_resource type="AudioStream" uid="uid://62falebqpyns" path="res://assets/audio/voice-lines/kill.ogg" id="12_g66yr"]
+[ext_resource type="AudioStream" uid="uid://boiksvx6fsrpx" path="res://assets/audio/voice-lines/for-glory.ogg" id="13_0h87x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qipwq"]
 albedo_color = Color(1, 1, 0, 1)
@@ -137,3 +140,14 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea"]
 shape = SubResource("CylinderShape3D_afd5a")
+
+[node name="Attack" type="Node" parent="."]
+
+[node name="Attack1" type="AudioStreamPlayer3D" parent="Attack"]
+stream = ExtResource("11_g2q4i")
+
+[node name="Attack2" type="AudioStreamPlayer3D" parent="Attack"]
+stream = ExtResource("12_g66yr")
+
+[node name="Attack3" type="AudioStreamPlayer3D" parent="Attack"]
+stream = ExtResource("13_0h87x")

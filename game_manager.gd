@@ -10,18 +10,21 @@ var summoners: Array[EnemySpawner] = []
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		Signals.SPAWN_UNITS.emit()
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		Signals.GAME_WON.emit()
 
 func command_active_units(location: Vector3, command: Globals.COMMAND, thing: InteractableThing):
 	var offset_locations = get_offsets(active_units.size())
 	var offset_idx = 0
 	for unit in active_units:
-		var offset = Vector3.ZERO
-		if active_units.size() > 1:
-			offset = offset_locations[offset_idx]
-			offset_idx += 1
-			if offset_idx >= offset_locations.size():
-				offset_idx = 0
 		if is_instance_valid(unit):
+			var offset = Vector3.ZERO
+			if active_units.size() > 1:
+				offset = offset_locations[offset_idx]
+				offset_idx += 1
+				if offset_idx >= offset_locations.size():
+					offset_idx = 0
 			unit.send_command(location, command, thing, offset)
 
 func select(units: Array[Unit]):
@@ -67,7 +70,7 @@ func check_if_game_over():
 	print("yay")
 
 func get_offsets(count: int) -> Array[Vector3]:
-	var mult := 1.5
+	var mult := 2
 	var grid_size: float = 10
 	for i in 10:
 		if i * i >= count:
@@ -78,7 +81,7 @@ func get_offsets(count: int) -> Array[Vector3]:
 	var offsets: Array[Vector3] = []
 	for x: float in grid_size:
 		for z: float in grid_size:
-			offsets.append(Vector3((x - minus) * mult, 0, (z - minus) * mult))
+			offsets.append(Vector3((z - minus) * mult, 0, (x - minus) * mult))
 	return offsets
 	return [
 			Vector3(0, 0, 0),

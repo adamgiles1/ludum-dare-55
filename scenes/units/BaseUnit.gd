@@ -5,9 +5,15 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 var time_till_next_resource: float = 3
+var time_alive_left = 35
 
 func _process(delta):
-	if current_state == STATE.INTERACTING:
+	time_alive_left -= delta
+	if time_alive_left <= 0 && !is_dead:
+		die()
+		return
+	
+	if current_state == STATE.INTERACTING && !is_dead:
 		time_till_next_resource -= delta
 		if time_till_next_resource <= 0:
 			if is_instance_valid(interacting_with):

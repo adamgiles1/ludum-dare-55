@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://by3bqe6ijfx0p"]
+[gd_scene load_steps=26 format=3 uid="uid://by3bqe6ijfx0p"]
 
 [ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
 [ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
@@ -31,6 +31,22 @@ agent_radius = 1.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bmxer"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smub6"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r3u0y"]
+material = SubResource("StandardMaterial3D_smub6")
+size = Vector2(189, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3ghr"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_pofsu"]
+material = SubResource("StandardMaterial3D_g3ghr")
+inner_radius = 100.0
+outer_radius = 99.0
+rings = 5
+
 [node name="LevelOne" type="Node3D"]
 script = ExtResource("1_377d4")
 
@@ -59,20 +75,20 @@ transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -3.82137e-15, 4.37114e-08,
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -3.82137e-15, 4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 2.05673, 0.293737, -8.43637)
 
 [node name="InteractableThing" parent="NavigationRegion3D" instance=ExtResource("6_cps07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04568, 1.5, 7.37018)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.046, 1.5, 13.3702)
 
 [node name="Camera" parent="." instance=ExtResource("3_ojmy0")]
-transform = Transform3D(-2.18557e-08, 0.866025, -0.5, 3.78552e-08, 0.5, 0.866025, 1, -1.77636e-15, -4.37114e-08, -20, 16.2795, 0)
+transform = Transform3D(2.18557e-08, 0.866025, -0.5, 3.78552e-08, 0.5, 0.866025, 1, -3.78552e-08, -2.18557e-08, -131, 16.2795, 0)
 current = true
 
 [node name="BaseUnitSummoner" parent="." instance=ExtResource("7_rkko5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79309, 0.500001, 5.21987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0.5, 0)
 
 [node name="BaseUnitSummoner2" parent="." instance=ExtResource("10_kipc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71198, 0.5, 8.00369)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.712, 0.5, 8.00369)
 
 [node name="SelectionArea" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108, 1, 0)
 mesh = SubResource("BoxMesh_jfl7i")
 skeleton = NodePath("Area3D")
 surface_material_override/0 = ExtResource("10_e20s7")
@@ -85,18 +101,26 @@ collision_mask = 2
 shape = SubResource("BoxShape3D_dl4yg")
 
 [node name="EnemySummoner" parent="." instance=ExtResource("12_r0ss6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35721, 0.5, -17.9183)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0.5, -100)
 
-[node name="EnemySummoner2" parent="." instance=ExtResource("12_r0ss6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63636, 0.5, -21.4492)
-summon_type = ExtResource("13_wcaf8")
+[node name="EnemySummoner4" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0.5, -70)
+team_id = 4
 
-[node name="EnemySummoner3" parent="." instance=ExtResource("12_r0ss6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63636, 0.5, 11.5508)
+[node name="EnemySummoner5" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0.5, 70)
+team_id = 3
+
+[node name="EnemySummoner6" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0.5, 100)
 team_id = 2
 
+[node name="EnemySummoner2" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.636, 0.5, -21.4492)
+summon_type = ExtResource("13_wcaf8")
+
 [node name="BaseUnitSummoner3" parent="." instance=ExtResource("12_5h7km")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6442, 0.5, 6.91848)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.644, 0.5, 6.91848)
 
 [node name="PlacementPreview" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.6, 2.6)
@@ -119,3 +143,32 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlacementPreview/Link Area"]
 shape = SubResource("CylinderShape3D_bmxer")
+
+[node name="PentagramLine1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.948324, 0, 0.317305, 0, 1, 0, -0.317305, 0, 0.948324, -9.47249, 1, -29.3335)
+visible = false
+mesh = SubResource("PlaneMesh_r3u0y")
+
+[node name="PentagramLine2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.953717, 0, -0.300706, 0, 1, 0, 0.300706, 0, 0.953717, -9.47249, 1, 28.9911)
+visible = false
+mesh = SubResource("PlaneMesh_r3u0y")
+
+[node name="PentagramLine3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.596365, 0, -0.802713, 0, 1, 0, 0.802713, 0, 0.596365, 24.4168, 1, -18.9474)
+visible = false
+mesh = SubResource("PlaneMesh_r3u0y")
+
+[node name="PentagramLine5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.574834, 0, 0.81827, 0, 1, 0, -0.81827, 0, 0.574834, 25.3882, 1, 17.4822)
+visible = false
+mesh = SubResource("PlaneMesh_r3u0y")
+
+[node name="PentagramLine4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0106463, 0, -0.999943, 0, 1, 0, 0.999943, 0, 0.0106463, -31.0184, 1, -0.817674)
+visible = false
+mesh = SubResource("PlaneMesh_r3u0y")
+
+[node name="PentagramOutline" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.948904, 0, 0.315566, 0, 1, 0, -0.315566, 0, 0.948904, 0, 0.02, 0)
+mesh = SubResource("TorusMesh_pofsu")

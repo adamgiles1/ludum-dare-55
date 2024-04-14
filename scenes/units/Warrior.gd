@@ -40,6 +40,7 @@ func handle_command(location: Vector3, type: Globals.COMMAND, thing: Interactabl
 	if thing != null && thing.is_in_group("attackable"):
 		interacting_with = thing
 		nav_agent.target_position = thing.get_spot()
+		play_sound("Attack")
 	else:
 		if offset != Vector3.ZERO:
 			walk_to(location + offset, false)
