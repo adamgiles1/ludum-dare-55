@@ -3,7 +3,7 @@ extends Node
 @onready var hover_arrow_scen: PackedScene = preload("res://scenes/effects/ClickedArrow.tscn")
 
 var active_units: Array[Unit] = []
-var active_hovers: Array = [] #TODO HELP
+var active_hovers: Array[CollisionObject3D] = []
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
@@ -21,7 +21,7 @@ func select(units: Array[Unit]):
 	for unit in units:
 		unit.select()
 
-func hover(hovers: Array): #TODO type hint real
+func hover(hovers: Array[CollisionObject3D]):
 	for hover in active_hovers:
 		if hover.is_in_group("Unit"):
 			hover.dehover()

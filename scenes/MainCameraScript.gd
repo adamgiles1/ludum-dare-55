@@ -5,7 +5,7 @@ var modifier = 5
 
 var left_mouse_held: bool = false;
 
-var hovers = [] #TODO ACTUAL TYPEHINT
+var hovers: Array[CollisionObject3D] = [] 
 @onready var selection_area: SelectionArea = $"../SelectionArea"
 
 # Called when the node enters the scene tree for the first time.
@@ -95,7 +95,11 @@ func begin_selection(event: InputEvent): #Left mouse button down
 func drag_selection(mouse_position: Vector2): #Moving mouse with left button held
 	var result = get_mouse_ray_intersect(mouse_position)
 	selection_area.update_drag(result.position)
-	hovers = selection_area.get_selection()
+	var units = selection_area.get_selection()
+	hovers = []
+	for unit in units:
+		hovers.append(unit)
+	# HEY THIS IS STUPID WHY
 	
 func cancel_selection(): #Right clicking or releasing left button in ui zone during drag selection
 	left_mouse_held = false

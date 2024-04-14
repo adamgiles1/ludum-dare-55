@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://by3bqe6ijfx0p"]
+[gd_scene load_steps=16 format=3 uid="uid://by3bqe6ijfx0p"]
 
 [ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
 [ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
 [ext_resource type="PackedScene" uid="uid://dkcud0puxf2vo" path="res://scenes/UI/Resource Counts.tscn" id="2_uoyca"]
+[ext_resource type="PackedScene" uid="uid://2sl0nis0iswv" path="res://scenes/UI/Game Buttons.tscn" id="2_x3jxv"]
 [ext_resource type="PackedScene" uid="uid://c8o8ryo7nkn3g" path="res://scenes/Camera.tscn" id="3_ojmy0"]
 [ext_resource type="PackedScene" uid="uid://qpgecwf8k8mh" path="res://scenes/level_pieces/box.tscn" id="3_x1ygm"]
 [ext_resource type="PackedScene" uid="uid://b8rbix4uljxaw" path="res://scenes/level_pieces/InteractableThing.tscn" id="6_cps07"]
@@ -25,6 +26,8 @@ agent_radius = 1.0
 [node name="LevelOne" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24343, -0.383157, 0.169718)
 script = ExtResource("1_377d4")
+
+[node name="GameButtons" parent="." instance=ExtResource("2_x3jxv")]
 
 [node name="Resource Counts" parent="." instance=ExtResource("2_uoyca")]
 

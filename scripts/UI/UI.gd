@@ -6,6 +6,8 @@ var wood_count: ResourceCount;
 var stone_count: ResourceCount;
 var metal_count: ResourceCount;
 
+var portal_button: PortalButton;
+
 var ui_zones: Array[Control] = [];
 
 func register_resource_count(resource_count: ResourceCount):
@@ -16,11 +18,24 @@ func register_resource_count(resource_count: ResourceCount):
 			stone_count = resource_count;
 		ResourceEnum.METAL:
 			metal_count = resource_count;
-			
+
+func register_portal_button(portal_button: PortalButton):
+	self.portal_button = portal_button
+	ui_zones.append(portal_button)
+	portal_button.connect("pressed", buy_portal)
+		
 func reset():
 	wood_count = null
 	stone_count = null
 	metal_count = null
+	portal_button = null
+	ui_zones = []
+	
+func _process(delta: float):
+	portal_button.disabled = !check_wood(5)
+	
+func buy_portal():
+	spend_wood(5)
 
 func increase_wood(amount: int):
 	wood_count.quantity += amount;
