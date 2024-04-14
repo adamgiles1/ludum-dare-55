@@ -16,7 +16,8 @@ func command_active_units(location: Vector3, command: Globals.COMMAND, thing: In
 
 func select(units: Array[Unit]):
 	for unit in active_units:
-		unit.deselect()
+		if is_instance_valid(unit):
+			unit.deselect()
 	active_units = units
 	for unit in units:
 		unit.select()
