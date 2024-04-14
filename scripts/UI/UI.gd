@@ -54,6 +54,9 @@ func register_upgrade_button(upgrade_button: UpgradeButton):
 		UpgradeEnum.DOUBLE_MOVEMENT:
 			double_movement_button = upgrade_button
 			double_movement_button.connect("pressed", buy_double_movement)
+			
+			#Commenting this out for now for testing, should be made visible via conquering a base
+			#double_movement_button.visible = false
 
 #Utility		
 func reset():
@@ -87,6 +90,7 @@ func buy_worker_summoner():
 func buy_double_movement():
 	wood_count.quantity -= 5
 	purchased_upgrades.append(UpgradeEnum.DOUBLE_MOVEMENT)
+	double_movement_button.visible = false
 
 #Building Preview
 func confirm_preview(position: Vector3):
