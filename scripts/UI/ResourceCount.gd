@@ -1,7 +1,7 @@
 extends Label
 class_name ResourceCount
 
-@export var resource : UI.ResourceEnum;
+@export var resource: UI.ResourceEnum;
 
 var quantity: int = 0:
 	set(new_quantity):

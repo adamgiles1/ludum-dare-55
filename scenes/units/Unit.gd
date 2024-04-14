@@ -62,7 +62,7 @@ func _physics_process(delta):
 func calc_dir(delta: float):
 	var target = nav_agent.get_next_path_position()
 	var dir = global_position.direction_to(target)
-	velocity = dir * speed
+	velocity = dir * speed * UI.get_unit_speed()
 
 func send_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing):
 	set_outline(NO_OUTLINE);

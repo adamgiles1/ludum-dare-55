@@ -1,7 +1,9 @@
 extends Button
-class_name PortalButton
+class_name UpgradeButton
+
+@export var upgrade: UI.UpgradeEnum
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	UI.register_portal_button(self)
+	UI.register_upgrade_button(self)
 
