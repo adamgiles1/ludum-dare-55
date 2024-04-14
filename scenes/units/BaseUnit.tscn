@@ -84,7 +84,6 @@ surface_material_override/0 = ExtResource("2_fuepo")
 shape = SubResource("CapsuleShape3D_8pjdd")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-debug_enabled = true
 
 [node name="Walk" type="Node" parent="."]
 
