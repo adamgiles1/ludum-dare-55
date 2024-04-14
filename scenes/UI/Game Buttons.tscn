@@ -16,5 +16,5 @@ offset_left = 22.0
 offset_top = 615.0
 offset_right = 142.0
 offset_bottom = 695.0
-text = "BUTTON HERE"
+text = "Buy Worker Portal"
 script = ExtResource("1_02x6n")

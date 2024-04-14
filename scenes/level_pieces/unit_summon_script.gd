@@ -1,5 +1,6 @@
 class_name AllySpawner
 extends Node3D
+class_name AllySpawner
 
 @export
 var unit_to_summon: PackedScene = load("res://scenes/units/BaseUnit.tscn")
@@ -21,6 +22,7 @@ var command_thing: InteractableThing
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Signals.SPAWN_UNITS.connect(spawn_unit)
+	global_position.y = 0.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
