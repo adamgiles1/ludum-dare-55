@@ -20,6 +20,10 @@ var dead_time := 0.0
 var health := 5
 var spawned_from: EnemySpawner
 
+func _ready():
+	var pos = get_patrol_position()
+	nav_agent.target_position = pos
+
 func _physics_process(delta):
 	if is_dead:
 		dead_time += delta
@@ -47,6 +51,9 @@ func detect_enemy():
 	var targets = aggro_zone.get_overlapping_bodies()
 	if targets.size() > 0:
 		target = targets[0]
+	else:
+		if nav_agent.navigation_finished:
+			nav_agent.target_position = get_patrol_position()
 
 func attempt_attack():
 	nav_agent.target_position = target.position
@@ -72,11 +79,12 @@ func move(delta):
 	if stun_time <= 0:
 		move_and_slide()
 
-func attack_enemy(damage: int):
+func attack_enemy(damage: int, from: Unit):
 	health -= damage
 	if health <= 0:
 		die()
-
+	if !is_instance_valid(target) || target == null:
+		target = from
 func die():
 	is_dead = true
 	anim_player.stop()
@@ -88,3 +96,9 @@ func get_spot() -> Vector3:
 
 func set_spawner(spawner: EnemySpawner):
 	spawned_from = spawner
+
+func get_patrol_position() -> Vector3:
+	var pos = spawned_from.position
+	pos.x += randf_range(-4, 4)
+	pos.z += randf_range(-4, 4)
+	return pos

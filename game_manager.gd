@@ -49,3 +49,11 @@ func summoner_empty(team_id: int):
 			all_out = false
 	if all_out:
 		Signals.TEAM_ELIMINATED.emit(team_id)
+		check_if_game_over()
+
+func check_if_game_over():
+	for summoner in summoners:
+		if summoner.units.size() != 0:
+			return
+	Signals.GAME_WON.emit()
+	print("yay")

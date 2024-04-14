@@ -113,7 +113,9 @@ func attack_unit(damage: int, from: InteractableThing):
 	health -= damage
 	if health <= 0:
 		die()
-	interacting_with = from
+	if interacting_with == null:
+		walk_to(from.position, false)
+		interacting_with = from
 
 func die():
 	current_state = STATE.DYING
