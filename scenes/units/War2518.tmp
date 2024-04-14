@@ -1,17 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://uwa2ii2d8jgs"]
+[gd_scene load_steps=19 format=3 uid="uid://dt8njlpe6sama"]
 
-[ext_resource type="Script" path="res://scenes/units/BaseUnit.gd" id="1_58tdd"]
-[ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="2_fuepo"]
-[ext_resource type="AudioStream" uid="uid://c1yo00vlbdn5" path="res://assets/audio/voice-lines/okogg.ogg" id="2_npswq"]
-[ext_resource type="AudioStream" uid="uid://kmnq6wxk5yd2" path="res://assets/audio/voice-lines/on-my-way.ogg" id="3_t1uhw"]
-[ext_resource type="AudioStream" uid="uid://borg6bi6u24uu" path="res://assets/audio/voice-lines/you-got-it.ogg" id="4_gjp22"]
-[ext_resource type="AudioStream" uid="uid://bs7yovimpl60g" path="res://assets/audio/voice-lines/yes-question-mark.ogg" id="5_i1jyp"]
-[ext_resource type="AudioStream" uid="uid://b5die2v1jr51y" path="res://assets/audio/voice-lines/yeahogg.ogg" id="6_amg5b"]
-[ext_resource type="AudioStream" uid="uid://0xer7vpwvuhq" path="res://assets/audio/voice-lines/aaaah.ogg" id="8_ok7od"]
-[ext_resource type="AudioStream" uid="uid://pbv3u0h5lylx" path="res://assets/audio/voice-lines/oof.ogg" id="9_pcpra"]
-[ext_resource type="AudioStream" uid="uid://b8ejeogots466" path="res://assets/audio/voice-lines/OOOF.ogg" id="10_vo84i"]
+[ext_resource type="Script" path="res://scenes/units/Warrior.gd" id="1_hb22l"]
+[ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="2_x1cuk"]
+[ext_resource type="AudioStream" uid="uid://c1yo00vlbdn5" path="res://assets/audio/voice-lines/okogg.ogg" id="3_v74cb"]
+[ext_resource type="AudioStream" uid="uid://kmnq6wxk5yd2" path="res://assets/audio/voice-lines/on-my-way.ogg" id="4_xgu71"]
+[ext_resource type="AudioStream" uid="uid://borg6bi6u24uu" path="res://assets/audio/voice-lines/you-got-it.ogg" id="5_xsam7"]
+[ext_resource type="AudioStream" uid="uid://bs7yovimpl60g" path="res://assets/audio/voice-lines/yes-question-mark.ogg" id="6_w1mvk"]
+[ext_resource type="AudioStream" uid="uid://b5die2v1jr51y" path="res://assets/audio/voice-lines/yeahogg.ogg" id="7_by6s8"]
+[ext_resource type="AudioStream" uid="uid://0xer7vpwvuhq" path="res://assets/audio/voice-lines/aaaah.ogg" id="8_ykhx8"]
+[ext_resource type="AudioStream" uid="uid://pbv3u0h5lylx" path="res://assets/audio/voice-lines/oof.ogg" id="9_ro0wh"]
+[ext_resource type="AudioStream" uid="uid://b8ejeogots466" path="res://assets/audio/voice-lines/OOOF.ogg" id="10_vm5cq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qipwq"]
+albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g4y4o"]
+material = SubResource("StandardMaterial3D_qipwq")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l71dd"]
 _surfaces = [{
@@ -28,8 +32,8 @@ _surfaces = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8pjdd"]
 
-[sub_resource type="Animation" id="Animation_a4lir"]
-resource_name = "die"
+[sub_resource type="Animation" id="Animation_cos6w"]
+resource_name = "Die"
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,14 +44,14 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 0, -2, 0)
 
 [sub_resource type="Animation" id="Animation_3meif"]
 resource_name = "interact"
-loop_mode = 1
+length = 0.5
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("MeshInstance3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.5, 1, 0, 0, 0, 0.6, 1, 0, 0.5, 0, 0.7, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 0, 0.5, 0, 0.2, 1, 0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_0buup"]
 resource_name = "walk"
@@ -62,14 +66,16 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.25, 1, 0, 0.5, 0, 0.5, 1, 0,
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4rx58"]
 _data = {
-"die": SubResource("Animation_a4lir"),
+"die": SubResource("Animation_cos6w"),
 "interact": SubResource("Animation_3meif"),
 "walk": SubResource("Animation_0buup")
 }
 
 [node name="BaseUnit" type="CharacterBody3D" groups=["Unit"]]
 collision_layer = 2
-script = ExtResource("1_58tdd")
+script = ExtResource("1_hb22l")
+speed = null
+health = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_g4y4o")
@@ -78,7 +84,7 @@ skeleton = NodePath("../..")
 [node name="Outline" type="MeshInstance3D" parent="MeshInstance3D"]
 unique_name_in_owner = true
 mesh = SubResource("ArrayMesh_l71dd")
-surface_material_override/0 = ExtResource("2_fuepo")
+surface_material_override/0 = ExtResource("2_x1cuk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_8pjdd")
@@ -89,32 +95,32 @@ debug_enabled = true
 [node name="Walk" type="Node" parent="."]
 
 [node name="Ok1" type="AudioStreamPlayer3D" parent="Walk"]
-stream = ExtResource("2_npswq")
+stream = ExtResource("3_v74cb")
 
 [node name="Ok2" type="AudioStreamPlayer3D" parent="Walk"]
-stream = ExtResource("3_t1uhw")
+stream = ExtResource("4_xgu71")
 
 [node name="Ok3" type="AudioStreamPlayer3D" parent="Walk"]
-stream = ExtResource("4_gjp22")
+stream = ExtResource("5_xsam7")
 
 [node name="Select" type="Node" parent="."]
 
 [node name="Select1" type="AudioStreamPlayer3D" parent="Select"]
-stream = ExtResource("5_i1jyp")
+stream = ExtResource("6_w1mvk")
 
 [node name="Select2" type="AudioStreamPlayer3D" parent="Select"]
-stream = ExtResource("6_amg5b")
+stream = ExtResource("7_by6s8")
 
 [node name="Die" type="Node" parent="."]
 
 [node name="Die1" type="AudioStreamPlayer3D" parent="Die"]
-stream = ExtResource("8_ok7od")
+stream = ExtResource("8_ykhx8")
 
 [node name="Die2" type="AudioStreamPlayer3D" parent="Die"]
-stream = ExtResource("9_pcpra")
+stream = ExtResource("9_ro0wh")
 
 [node name="Die3" type="AudioStreamPlayer3D" parent="Die"]
-stream = ExtResource("10_vo84i")
+stream = ExtResource("10_vm5cq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://by3bqe6ijfx0p"]
+[gd_scene load_steps=10 format=3 uid="uid://by3bqe6ijfx0p"]
 
 [ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
 [ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
-[ext_resource type="PackedScene" uid="uid://dkcud0puxf2vo" path="res://scenes/UI/Resource Counts.tscn" id="2_uoyca"]
 [ext_resource type="PackedScene" uid="uid://c8o8ryo7nkn3g" path="res://scenes/Camera.tscn" id="3_ojmy0"]
 [ext_resource type="PackedScene" uid="uid://qpgecwf8k8mh" path="res://scenes/level_pieces/box.tscn" id="3_x1ygm"]
 [ext_resource type="PackedScene" uid="uid://b8rbix4uljxaw" path="res://scenes/level_pieces/InteractableThing.tscn" id="6_cps07"]
@@ -19,8 +18,6 @@ agent_radius = 1.0
 [node name="LevelOne" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24343, -0.383157, 0.169718)
 script = ExtResource("1_377d4")
-
-[node name="Resource Counts" parent="." instance=ExtResource("2_uoyca")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -50,20 +47,8 @@ current = true
 [node name="BaseUnitSummoner" parent="." instance=ExtResource("7_rkko5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79309, 0.500001, 5.21987)
 
-[node name="BaseEnemy" parent="." instance=ExtResource("8_rjnqa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.06954, 1.5, -11.4443)
-
-[node name="BaseEnemy2" parent="." instance=ExtResource("8_rjnqa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.06954, 1.5, -8.96776)
-
-[node name="BaseEnemy3" parent="." instance=ExtResource("8_rjnqa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.339, 1.5, -8.96776)
-
-[node name="BaseEnemy4" parent="." instance=ExtResource("8_rjnqa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.339, 1.5, -10.9567)
-
-[node name="BaseEnemy5" parent="." instance=ExtResource("8_rjnqa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.33903, 1.5, -5.95669)
-
 [node name="BaseUnitSummoner2" parent="." instance=ExtResource("10_kipc5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71198, 0.5, 8.00369)
+
+[node name="BaseEnemy" parent="." instance=ExtResource("8_rjnqa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.57724, 1.5, -8.36247)

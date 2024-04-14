@@ -1,5 +1,5 @@
 class_name InteractableThing
-extends Node3D
+extends CharacterBody3D
 
 var next_spot: int = 0
 

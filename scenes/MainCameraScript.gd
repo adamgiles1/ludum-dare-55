@@ -44,6 +44,7 @@ func right_click():
 		GameManager.command_active_units(result.position, Globals.COMMAND.MOVE, null)
 	if result.collider.is_in_group("interactable"):
 		GameManager.command_active_units(result.position, Globals.COMMAND.INTERACT, result.collider.get_parent())
+		
 	GameManager.spawn_hover_arrow(result.position)
 
 func left_click():
