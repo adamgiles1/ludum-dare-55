@@ -59,18 +59,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79309, 0.500001, 5.21987)
 [node name="BaseEnemy" parent="." instance=ExtResource("8_rjnqa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.06954, 1.5, -11.4443)
 
-[node name="BaseEnemy2" parent="." instance=ExtResource("8_rjnqa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.06954, 1.5, -8.96776)
-
-[node name="BaseEnemy3" parent="." instance=ExtResource("8_rjnqa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.339, 1.5, -8.96776)
-
-[node name="BaseEnemy4" parent="." instance=ExtResource("8_rjnqa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.339, 1.5, -10.9567)
-
-[node name="BaseEnemy5" parent="." instance=ExtResource("8_rjnqa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.33903, 1.5, -5.95669)
-
 [node name="BaseUnitSummoner2" parent="." instance=ExtResource("10_kipc5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71198, 0.5, 8.00369)
 
@@ -82,7 +70,6 @@ surface_material_override/0 = ExtResource("10_e20s7")
 script = ExtResource("11_yetwi")
 
 [node name="Area3D" type="Area3D" parent="SelectionArea"]
-collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SelectionArea/Area3D"]
 shape = SubResource("BoxShape3D_dl4yg")
