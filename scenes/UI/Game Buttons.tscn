@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2sl0nis0iswv"]
 
-[ext_resource type="Script" path="res://scripts/UI/Spawn Portal.gd" id="1_02x6n"]
+[ext_resource type="Script" path="res://scripts/UI/Portal Button.gd" id="1_02x6n"]
 
 [node name="GameButtons" type="Control"]
 layout_mode = 3
@@ -10,8 +10,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Spawn Portal" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 615.0
+offset_right = 142.0
+offset_bottom = 695.0
+text = "BUTTON HERE"
 script = ExtResource("1_02x6n")
