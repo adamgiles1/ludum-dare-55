@@ -21,6 +21,7 @@ var time_dead: float = 0.0
 var death_limit: float = 1.0
 var anim_overriden = false
 var stun_time_left: float = 0.0
+var spawned_from: AllySpawner
 
 func _ready():
 	set_outline(NO_OUTLINE);
@@ -73,6 +74,8 @@ func handle_command(location: Vector3, type: Globals.COMMAND, thing: Interactabl
 	printerr("Unimplemented command for scene: " + self.name)
 
 func walk_to(target: Vector3, with_audio: bool):
+	if nav_agent == null:
+		nav_agent = $NavigationAgent3D
 	nav_agent.target_position = target
 	current_state = STATE.WALKING
 	if with_audio:
@@ -123,3 +126,6 @@ func die():
 	animator.stop()
 	animator.play("die")
 	play_sound("Die")
+
+func set_spawned(spawner: AllySpawner):
+	spawned_from = spawner

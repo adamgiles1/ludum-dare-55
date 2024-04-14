@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqjfdli3511dj"]
 
 [ext_resource type="Script" path="res://scenes/level_pieces/unit_summon_script.gd" id="1_dggm3"]
-[ext_resource type="PackedScene" uid="uid://uwa2ii2d8jgs" path="res://scenes/units/BaseUnit.tscn" id="2_c0haw"]
+[ext_resource type="PackedScene" uid="uid://dt8njlpe6sama" path="res://scenes/units/Warrior.tscn" id="2_gv6go"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07g5w"]
 albedo_color = Color(0.411765, 1, 0.294118, 1)
@@ -12,7 +12,8 @@ size = Vector3(1, 0.2, 1)
 
 [node name="BaseUnitSummoner" type="Node3D"]
 script = ExtResource("1_dggm3")
-unit_to_summon = ExtResource("2_c0haw")
+unit_to_summon = ExtResource("2_gv6go")
+max_summoned = null
 is_worker = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

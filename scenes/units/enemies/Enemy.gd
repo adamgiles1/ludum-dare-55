@@ -19,12 +19,14 @@ var is_dead := false
 var dead_time := 0.0
 var health := 5
 var spawned_from: EnemySpawner
+var patrol_cd: float = randf_range(4, 8)
 
 func _ready():
 	var pos = get_patrol_position()
 	nav_agent.target_position = pos
 
 func _physics_process(delta):
+	patrol_cd -= delta
 	if is_dead:
 		dead_time += delta
 		if dead_time > 2.0:
@@ -52,7 +54,8 @@ func detect_enemy():
 	if targets.size() > 0:
 		target = targets[0]
 	else:
-		if nav_agent.navigation_finished:
+		if nav_agent.navigation_finished && patrol_cd <= 0:
+			patrol_cd = randf_range(2, 5)
 			nav_agent.target_position = get_patrol_position()
 
 func attempt_attack():
