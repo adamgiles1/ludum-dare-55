@@ -19,6 +19,7 @@ var interacting_with: InteractableThing = null
 var is_dead: bool = false
 var time_dead: float = 0.0
 var death_limit: float = 1.0
+var anim_overriden = false
 
 func _ready():
 	set_outline(NO_OUTLINE);
@@ -45,14 +46,15 @@ func _physics_process(delta):
 	if current_state != STATE.INTERACTING && interacting_with != null && close_enough_to_interact(interacting_with):
 		start_interaction(interacting_with)
 	
-	match current_state:
-		STATE.WALKING:
-			if !animator.is_playing():
-				animator.play("walk")
-		STATE.INTERACTING:
-			animator.play("interact")
-		STATE.IDLE:
-			animator.stop()
+	if !anim_overriden:
+		match current_state:
+			STATE.WALKING:
+				if !animator.is_playing():
+					animator.play("walk")
+			STATE.INTERACTING:
+				animator.play("interact")
+			STATE.IDLE:
+				animator.stop()
 
 func calc_dir(delta: float):
 	var target = nav_agent.get_next_path_position()
@@ -61,16 +63,17 @@ func calc_dir(delta: float):
 
 func send_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing):
 	set_outline(NO_OUTLINE);
-	walk_to(location)
+	walk_to(location, true)
 	handle_command(location, type, thing)
 
 func handle_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing):
 	printerr("Unimplemented command for scene: " + self.name)
 
-func walk_to(target: Vector3):
+func walk_to(target: Vector3, with_audio: bool):
 	nav_agent.target_position = target
 	current_state = STATE.WALKING
-	play_sound("Walk")
+	if with_audio:
+		play_sound("Walk")
 
 func close_enough_to_interact(thing: InteractableThing) -> bool:
 	printerr("Unimplemented interact for scene: " + self.name)
@@ -84,6 +87,7 @@ func play_sound(sound_name: String):
 	var sounds: Node = get_node(sound_name)
 	var num = randi_range(0, sounds.get_children().size() - 1)
 	var audio: AudioStreamPlayer3D = sounds.get_child(num)
+	#audio.pitch_scale = 1 + randf_range(-.2, .2)
 	audio.play()
 
 func select():
@@ -102,11 +106,11 @@ func dehover():
 func set_outline(color: Color):
 	%Outline.set_instance_shader_parameter("color", color);
 
-func attack_unit(damage: int):
+func attack_unit(damage: int, from: InteractableThing):
 	health -= damage
-	print("was attacked. hp is: " + str(health))
 	if health <= 0:
 		die()
+	interacting_with = from
 
 func die():
 	current_state = STATE.DYING

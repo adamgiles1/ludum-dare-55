@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dt8njlpe6sama"]
+[gd_scene load_steps=19 format=3 uid="uid://dt8njlpe6sama"]
 
 [ext_resource type="Script" path="res://scenes/units/Warrior.gd" id="1_hb22l"]
 [ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="2_x1cuk"]
@@ -51,7 +51,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("MeshInstance3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 0, 2, 0, 0.2, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 0, 0.5, 0, 0.2, 1, 0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_0buup"]
 resource_name = "walk"
@@ -71,11 +71,7 @@ _data = {
 "walk": SubResource("Animation_0buup")
 }
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_afd5a"]
-height = 1.0
-radius = 5.0
-
-[node name="Warrior" type="CharacterBody3D" groups=["Unit"]]
+[node name="BaseUnit" type="CharacterBody3D" groups=["Unit"]]
 collision_layer = 2
 script = ExtResource("1_hb22l")
 speed = null
@@ -130,10 +126,3 @@ stream = ExtResource("10_vm5cq")
 libraries = {
 "": SubResource("AnimationLibrary_4rx58")
 }
-
-[node name="AggroArea" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea"]
-shape = SubResource("CylinderShape3D_afd5a")

@@ -20,6 +20,6 @@ func handle_command(location: Vector3, type: Globals.COMMAND, thing: Interactabl
 		nav_agent.target_position = thing.get_spot()
 
 func close_enough_to_interact(thing: InteractableThing) -> bool:
-	if (self.position.distance_to(thing.position) < 1.5):
+	if (self.position.distance_to(thing.position) < 3):
 		return true
 	return false

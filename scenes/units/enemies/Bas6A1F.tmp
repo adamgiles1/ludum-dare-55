@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://s2jus682jfj1"]
+[gd_scene load_steps=10 format=3 uid="uid://s2jus682jfj1"]
 
 [ext_resource type="Script" path="res://scenes/units/enemies/Enemy.gd" id="1_mkkbc"]
 
@@ -14,6 +14,16 @@ material = SubResource("StandardMaterial3D_xxioh")
 height = 1.0
 radius = 5.0
 
+[sub_resource type="Animation" id="Animation_debvd"]
+resource_name = "walk"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0.5, 0, 1, 1, 0, 0, 0)
+
 [sub_resource type="Animation" id="Animation_q0hl7"]
 resource_name = "attack"
 length = 0.25
@@ -25,16 +35,6 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 0, 2, 0, 0.2, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_ku04v"]
-resource_name = "die"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 0, -2, 0)
-
 [sub_resource type="Animation" id="Animation_8b0av"]
 resource_name = "idle"
 tracks/0/type = "position_3d"
@@ -45,25 +45,14 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array()
 
-[sub_resource type="Animation" id="Animation_debvd"]
-resource_name = "walk"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0.5, 0, 1, 1, 0, 0, 0)
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yxfm3"]
 _data = {
 "attack": SubResource("Animation_q0hl7"),
-"die": SubResource("Animation_ku04v"),
 "idle": SubResource("Animation_8b0av"),
 "walk": SubResource("Animation_debvd")
 }
 
-[node name="BaseEnemy" type="CharacterBody3D" groups=["attackable", "interactable"]]
+[node name="BaseEnemy" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_mkkbc")
 
