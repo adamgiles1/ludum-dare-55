@@ -50,7 +50,7 @@ func attack(thing: Enemy):
 	animator.stop()
 	animator.play("interact")
 	velocity = Vector3.ZERO
-	thing.attack_enemy(DAMAGE)
+	thing.attack_enemy(DAMAGE, self)
 	time_till_next_attack = 2
 	stun_time_left = 1.0
 

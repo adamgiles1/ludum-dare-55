@@ -71,7 +71,7 @@ func regular_event(event: InputEvent):
 # Level 3
 func hover(event: InputEvent): #Moving mouse without left button held
 	var result = get_mouse_ray_intersect(event.position)
-	if result.collider.is_in_group("Unit") or result.collider.is_in_group("interactable"):
+	if result.collider != null && result.collider.is_in_group("Unit") or result.collider.is_in_group("interactable"):
 		hovers = [result.collider]
 	else:
 		hovers = []
