@@ -1,6 +1,5 @@
 class_name AllySpawner
 extends Node3D
-class_name AllySpawner
 
 @export
 var unit_to_summon: PackedScene = load("res://scenes/units/BaseUnit.tscn")
