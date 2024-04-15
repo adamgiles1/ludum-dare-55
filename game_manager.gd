@@ -7,7 +7,7 @@ extends Node
 @onready var three_camp_vid: PackedScene = preload("res://scenes/UI/3camp.tscn")
 @onready var final_vid: PackedScene = preload("res://scenes/UI/FinalVid.tscn")
 
-var play_videos = false
+var play_videos = true
 
 var active_units: Array[Unit] = []
 var active_hovers: Array[CollisionObject3D] = []
@@ -127,6 +127,7 @@ func can_spawn_more_units() -> bool:
 	return total_units <= unit_cap
 
 func play_video(video: PackedScene):
+	Signals.VIDEO_IS_PLAYING.emit()
 	if !play_videos:
 		return
 	var t = video.instantiate()
