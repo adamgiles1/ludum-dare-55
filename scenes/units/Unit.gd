@@ -1,9 +1,9 @@
 class_name Unit
 extends CharacterBody3D
 
-var NO_OUTLINE: Color = Color(0, 0, 0, 0);
-var HOVER: Color = Color(1, 1, 0, 1);
-var SELECTED: Color = Color(1, 0, 0, 1);
+var NO_OUTLINE: Material = load("res://assets/materials/Disabled.tres")
+var HOVER: Material = load("res://assets/materials/Hovered.tres")
+var SELECTED: Material = load("res://assets/materials/Selected.tres")
 
 @export var speed: float = 5
 @export var health: int = 1
@@ -119,8 +119,8 @@ func hover():
 func dehover():
 	set_outline(NO_OUTLINE);
 	
-func set_outline(color: Color):
-	%Outline.set_instance_shader_parameter("color", color);
+func set_outline(material: Material):
+	%Outline.set_surface_override_material(0, material)
 
 func attack_unit(damage: int, from: InteractableThing):
 	health -= damage

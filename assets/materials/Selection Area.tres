@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://yl4twqijad2v"]
+
+[ext_resource type="Shader" path="res://scripts/shaders/hard color.gdshader" id="1_wd2hy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wd2hy")
+shader_parameter/color = Color(0.501961, 0.501961, 1, 0.196078)

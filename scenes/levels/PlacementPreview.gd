@@ -4,14 +4,14 @@ class_name PlacementPreview
 @onready var collision_area: Area3D = $"Collision Area"
 @onready var link_area: Area3D = $"Link Area"
 
-var VALID_COLOR: Color = Color(0, 1, 1, 0.4)
-var INVALID_COLOR: Color = Color(1, 0, 0, 0.4)
-var DISABLED_COLOR: Color = Color(0, 0, 0, 0)
+var VALID_COLOR: Material = load("res://assets/materials/Preview Valid.tres")
+var INVALID_COLOR: Material = load("res://assets/materials/Preview Invalid.tres")
+var DISABLED_COLOR: Material = load("res://assets/materials/Disabled.tres")
 
 var good_spot: bool = false
 
 func _ready():
-	set_instance_shader_parameter("color", DISABLED_COLOR);
+	set_surface_override_material(0, DISABLED_COLOR)
 
 func update_drag(cast_position: Vector3):
 	good_spot = true
@@ -27,12 +27,13 @@ func update_drag(cast_position: Vector3):
 			if area.get_parent() is AllySpawner:
 				good_spot = true
 	if good_spot:
-		set_instance_shader_parameter("color", VALID_COLOR);
+		set_surface_override_material(0, VALID_COLOR)
 	else:
-		set_instance_shader_parameter("color", INVALID_COLOR);
+		set_surface_override_material(0, INVALID_COLOR)
 
 func end_drag():
-	set_instance_shader_parameter("color", DISABLED_COLOR);
+	set_surface_override_material(0, DISABLED_COLOR)
+	good_spot = false
 
 func spawn_position() -> Vector3:
 	return Vector3(global_position.x, 0.5, global_position.z)

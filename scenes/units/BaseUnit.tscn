@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://uwa2ii2d8jgs"]
 
 [ext_resource type="Script" path="res://scenes/units/BaseUnit.gd" id="1_58tdd"]
-[ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="2_fuepo"]
-[ext_resource type="ArrayMesh" uid="uid://d38baydy2lnim" path="res://assets/models/Imp.obj" id="2_kyius"]
+[ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://assets/materials/Hovered.tres" id="2_fuepo"]
+[ext_resource type="ArrayMesh" uid="uid://d2cli4vnkcp5o" path="res://assets/models/Imp.obj" id="2_kyius"]
 [ext_resource type="AudioStream" uid="uid://c1yo00vlbdn5" path="res://assets/audio/voice-lines/okogg.ogg" id="2_npswq"]
 [ext_resource type="AudioStream" uid="uid://kmnq6wxk5yd2" path="res://assets/audio/voice-lines/on-my-way.ogg" id="3_t1uhw"]
 [ext_resource type="AudioStream" uid="uid://borg6bi6u24uu" path="res://assets/audio/voice-lines/you-got-it.ogg" id="4_gjp22"]

@@ -4,18 +4,18 @@ class_name SelectionArea
 var start_position: Vector3
 @onready var collision_shape: Area3D = $Area3D
 
-var ACTIVE_COLOR: Color = Color(.5, .5, 1, 0.2)
-var DISABLED_COLOR: Color = Color(0, 0, 0, 0)
+var ACTIVE_COLOR: Material = load("res://assets/materials/Selection Area.tres")
+var DISABLED_COLOR: Material = load("res://assets/materials/Disabled.tres")
 var SELECTION_HEIGHT: float = 3
 
 func _ready():
-	set_instance_shader_parameter("color", DISABLED_COLOR);
+	set_surface_override_material(0, DISABLED_COLOR)
 
 func begin_drag(cast_position: Vector3):
 	start_position = Vector3(cast_position.x, SELECTION_HEIGHT/2, cast_position.z)
 	global_position = start_position
 	scale = Vector3(0, SELECTION_HEIGHT, 0)
-	set_instance_shader_parameter("color", ACTIVE_COLOR);
+	set_surface_override_material(0, ACTIVE_COLOR)
 
 func update_drag(cast_position: Vector3):
 	var x_length: float = abs(cast_position.x - start_position.x)
@@ -26,7 +26,7 @@ func update_drag(cast_position: Vector3):
 	scale = Vector3(x_length, SELECTION_HEIGHT, z_length)
 
 func end_drag():
-	set_instance_shader_parameter("color", DISABLED_COLOR);
+	set_surface_override_material(0, DISABLED_COLOR)
 
 func match_position(position: Vector3):
 	return position.x == start_position.x and position.z == start_position.z

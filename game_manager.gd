@@ -48,11 +48,11 @@ func select(units: Array[Unit]):
 
 func hover(hovers: Array[CollisionObject3D]):
 	for hover in active_hovers:
-		if is_instance_valid(hover) && hover.is_in_group("Unit"):
+		if is_instance_valid(hover) and (hover is Unit or hover is BaseInteract):
 			hover.dehover()
 	active_hovers = hovers
 	for hover in hovers:
-		if is_instance_valid(hover) && hover.is_in_group("Unit"):
+		if is_instance_valid(hover) and (hover is Unit or hover is BaseInteract):
 			hover.hover()
 
 func spawn_hover_arrow(location: Vector3):

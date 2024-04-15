@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://d1j7rfo3t7xas"]
 
 [ext_resource type="Script" path="res://scenes/units/Warrior.gd" id="1_8vrh7"]
-[ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="2_me3ot"]
+[ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://assets/materials/Hovered.tres" id="2_me3ot"]
 [ext_resource type="AudioStream" uid="uid://c1yo00vlbdn5" path="res://assets/audio/voice-lines/okogg.ogg" id="3_005p3"]
 [ext_resource type="AudioStream" uid="uid://kmnq6wxk5yd2" path="res://assets/audio/voice-lines/on-my-way.ogg" id="4_dvx28"]
 [ext_resource type="AudioStream" uid="uid://borg6bi6u24uu" path="res://assets/audio/voice-lines/you-got-it.ogg" id="5_lmof6"]
@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://c5voisno7diqs" path="res://assets/audio/voice-lines/charge.ogg" id="11_g2q4i"]
 [ext_resource type="AudioStream" uid="uid://62falebqpyns" path="res://assets/audio/voice-lines/kill.ogg" id="12_g66yr"]
 [ext_resource type="AudioStream" uid="uid://boiksvx6fsrpx" path="res://assets/audio/voice-lines/for-glory.ogg" id="13_0h87x"]
-[ext_resource type="ArrayMesh" uid="uid://ce42unwd0r422" path="res://assets/models/serpent.obj" id="14_tsaya"]
+[ext_resource type="ArrayMesh" uid="uid://q4nag1dioopr" path="res://assets/models/serpent.obj" id="14_tsaya"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l71dd"]
 _surfaces = [{
