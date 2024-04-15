@@ -4,6 +4,7 @@ extends Node3D
 @export var team_id: int = 1
 @export var summon_type: PackedScene = preload("res://scenes/units/enemies/BaseEnemy.tscn")
 @export var max_units: int = 3
+@export var is_ranged: bool = false
 
 var timer: float = 1
 const time_between_summons := 15
@@ -15,6 +16,11 @@ var units: Array[Enemy] = []
 func _ready():
 	GameManager.register_enemy_summoner(self, team_id)
 	Signals.TEAM_ELIMINATED.connect(handle_spawn_disabled)
+	if is_ranged:
+		$RangedDecal.visible = true
+	else:
+		$MeleeDecal.visible = true
+	$MeshInstance3D.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,3 +50,4 @@ func handle_spawn_disabled(id: int):
 	if id == self.team_id:
 		print("disabled")
 		disable = true
+		visible = false

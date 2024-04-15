@@ -48,6 +48,8 @@ func _physics_process(delta):
 	
 	if !anim_player.is_playing() && current_anim != "":
 		anim_player.play(current_anim)
+	if current_anim == "" && velocity == Vector3.ZERO:
+		anim_player.stop()
 
 func detect_enemy():
 	var targets = aggro_zone.get_overlapping_bodies()
@@ -80,6 +82,10 @@ func move(delta):
 	var dir = global_position.direction_to(target)
 	velocity = dir * speed
 	if stun_time <= 0:
+		var toward = velocity
+		toward.y = 0
+		var look_dir = transform.origin + toward
+		look_at(look_dir, Vector3.UP)
 		move_and_slide()
 
 func attack_enemy(damage: int, from: Unit):

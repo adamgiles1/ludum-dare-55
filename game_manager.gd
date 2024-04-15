@@ -17,9 +17,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		Signals.SPAWN_UNITS.emit()
 	
-	if Input.is_action_just_pressed("ui_cancel"):
-		Signals.GAME_WON.emit()
-	
 	time_till_sound_wipe -= delta
 	if time_till_sound_wipe <= 0:
 		time_till_sound_wipe = 1
