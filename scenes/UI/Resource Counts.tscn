@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dkcud0puxf2vo"]
 
 [ext_resource type="Script" path="res://scripts/UI/ResourceCount.gd" id="1_0jld4"]
-[ext_resource type="LabelSettings" path="res://default-label.tres" id="1_xsux7"]
+[ext_resource type="LabelSettings" uid="uid://b1bffq6k0tvoe" path="res://default-label.tres" id="1_xsux7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pl0d"]
 bg_color = Color(0.941176, 0, 0, 1)

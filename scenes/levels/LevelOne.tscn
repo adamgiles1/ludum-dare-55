@@ -272,6 +272,3 @@ team_id = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.3326, 0.5, -65.4778)
 is_unlock = true
 team_id = 4
-
-[node name="BaseUnitSummoner2" parent="." instance=ExtResource("12_5h7km")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.28, 0.5, -6.90615)

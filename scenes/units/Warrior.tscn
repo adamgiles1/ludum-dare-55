@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://dt8njlpe6sama"]
 
 [ext_resource type="Script" path="res://scenes/units/Warrior.gd" id="1_hb22l"]
-[ext_resource type="ArrayMesh" uid="uid://5wp3bj3w1uac" path="res://assets/models/demon.obj" id="2_81gvt"]
+[ext_resource type="ArrayMesh" uid="uid://d4doedu63a8qd" path="res://assets/models/demon.obj" id="2_81gvt"]
 [ext_resource type="Material" uid="uid://bsg7cs4f36068" path="res://assets/materials/Disabled.tres" id="3_wig4t"]
 [ext_resource type="AudioStream" uid="uid://dft3ggrkvvyu4" path="res://assets/audio/voice-lines/demon-ok.ogg" id="4_bd6e4"]
 [ext_resource type="AudioStream" uid="uid://dmcp7iwtou1r5" path="res://assets/audio/voice-lines/demon-on-my-way.ogg" id="5_311sk"]
