@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://dt8njlpe6sama"]
 
 [ext_resource type="Script" path="res://scenes/units/Warrior.gd" id="1_hb22l"]
-[ext_resource type="ArrayMesh" uid="uid://5wp3bj3w1uac" path="res://assets/models/demon.obj" id="2_81gvt"]
+[ext_resource type="ArrayMesh" uid="uid://d4doedu63a8qd" path="res://assets/models/demon.obj" id="2_81gvt"]
 [ext_resource type="Material" uid="uid://bsg7cs4f36068" path="res://assets/materials/Disabled.tres" id="3_wig4t"]
 [ext_resource type="AudioStream" uid="uid://dft3ggrkvvyu4" path="res://assets/audio/voice-lines/demon-ok.ogg" id="4_bd6e4"]
 [ext_resource type="AudioStream" uid="uid://dmcp7iwtou1r5" path="res://assets/audio/voice-lines/demon-on-my-way.ogg" id="5_311sk"]
@@ -12,9 +12,9 @@
 [ext_resource type="AudioStream" uid="uid://c1gc8j26blxye" path="res://assets/audio/voice-lines/demon-agg.ogg" id="10_fnyo6"]
 [ext_resource type="AudioStream" uid="uid://cfpa7eirbngwi" path="res://assets/audio/voice-lines/demon-ahh.ogg" id="11_dvqi4"]
 [ext_resource type="AudioStream" uid="uid://cyumtpmiajj2v" path="res://assets/audio/voice-lines/demon-no.ogg" id="12_a7vjk"]
-[ext_resource type="AudioStream" uid="uid://dusbs0dndbrf" path="res://assets/audio/voice-lines/demon-attack.ogg" id="12_sthfm"]
-[ext_resource type="AudioStream" uid="uid://ba161yh7hunw7" path="res://assets/audio/voice-lines/demon-charge.ogg" id="13_vbs1k"]
-[ext_resource type="AudioStream" uid="uid://di75betovp7qx" path="res://assets/audio/voice-lines/demon-for-glory.ogg" id="14_e3i4n"]
+[ext_resource type="AudioStream" uid="uid://bhfoky6fwp3ua" path="res://assets/audio/voice-lines/serp-att.ogg" id="13_0hkfa"]
+[ext_resource type="AudioStream" uid="uid://bo2n4gooyxina" path="res://assets/audio/voice-lines/serp-charge.ogg" id="14_122qg"]
+[ext_resource type="AudioStream" uid="uid://bgr842wic6cto" path="res://assets/audio/voice-lines/serp-for-glory.ogg" id="15_xrb3k"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8unc7"]
 _surfaces = [{
@@ -72,7 +72,7 @@ _data = {
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_afd5a"]
 height = 3.0
-radius = 12.0
+radius = 9.0
 
 [node name="Warrior" type="CharacterBody3D" groups=["Unit"]]
 collision_layer = 2
@@ -125,7 +125,7 @@ pitch_scale = 0.8
 [node name="Die" type="Node3D" parent="."]
 
 [node name="Die1" type="AudioStreamPlayer3D" parent="Die"]
-stream = ExtResource("10_fnyo6")
+stream = ExtResource("12_a7vjk")
 pitch_scale = 0.7
 
 [node name="Die2" type="AudioStreamPlayer3D" parent="Die"]
@@ -133,21 +133,21 @@ stream = ExtResource("11_dvqi4")
 pitch_scale = 0.65
 
 [node name="Die3" type="AudioStreamPlayer3D" parent="Die"]
-stream = ExtResource("12_a7vjk")
+stream = ExtResource("10_fnyo6")
 pitch_scale = 0.7
 
 [node name="Attack" type="Node3D" parent="."]
 
 [node name="Attack1" type="AudioStreamPlayer3D" parent="Attack"]
-stream = ExtResource("12_sthfm")
+stream = ExtResource("13_0hkfa")
 pitch_scale = 0.8
 
 [node name="Attack2" type="AudioStreamPlayer3D" parent="Attack"]
-stream = ExtResource("13_vbs1k")
+stream = ExtResource("14_122qg")
 pitch_scale = 0.75
 
 [node name="Attack3" type="AudioStreamPlayer3D" parent="Attack"]
-stream = ExtResource("14_e3i4n")
+stream = ExtResource("15_xrb3k")
 pitch_scale = 0.8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

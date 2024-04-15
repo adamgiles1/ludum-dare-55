@@ -16,8 +16,12 @@ func _process(delta):
 	if stun_time_left > 0:
 		return
 	
-	if current_state == STATE.IDLE:
-		pass
+	if current_state == STATE.IDLE || current_state == STATE.WALKING:
+		var cur_state = current_state
+		if find_new_target():
+			current_state = STATE.INTERACTING
+		else:
+			current_state = cur_state
 	
 	if current_state == STATE.INTERACTING:
 		if interacting_with == null || !is_instance_valid(interacting_with) || interacting_with.is_dead:
@@ -62,9 +66,11 @@ func attack(thing: Enemy):
 	time_till_next_attack = 2
 	stun_time_left = 1.0
 
-func find_new_target():
+func find_new_target() -> bool:
 	var enemies = aggro_area.get_overlapping_bodies()
 	if enemies.size() > 0:
 		interacting_with = enemies[randi_range(0, enemies.size() - 1)]
+		return true
 	else:
 		current_state = STATE.IDLE
+		return false
