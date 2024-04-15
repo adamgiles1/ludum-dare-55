@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b1bffq6k0tvoe"]
+
+[ext_resource type="FontFile" uid="uid://dt72o1r0t534h" path="res://assets/font/CourierPrime-Regular.ttf" id="1_hfbha"]
+
+[resource]
+font = ExtResource("1_hfbha")
+font_size = 24
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)

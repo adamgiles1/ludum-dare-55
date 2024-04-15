@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://bti2e1ypog064"]
+[gd_scene load_steps=3 format=3 uid="uid://bti2e1ypog064"]
+
+[ext_resource type="FontFile" uid="uid://cykqnkkml7l1s" path="res://assets/font/CourierPrime-Bold.ttf" id="1_rnlts"]
+[ext_resource type="Script" path="res://scripts/UI/Upgrade Button.gd" id="2_srois"]
 
 [node name="Upgrade Buttons" type="Control"]
 layout_mode = 3
@@ -16,4 +19,6 @@ offset_left = 176.0
 offset_top = 281.0
 offset_right = 296.0
 offset_bottom = 361.0
+theme_override_fonts/font = ExtResource("1_rnlts")
 text = "Double Speed"
+script = ExtResource("2_srois")

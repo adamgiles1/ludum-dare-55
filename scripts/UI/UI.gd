@@ -4,13 +4,14 @@ extends Node
 
 var camera: MainCamera
 
-enum ResourceEnum { WOOD, STONE, METAL };
+enum ResourceEnum { WOOD, STONE, METAL, UNIT_CAP };
 enum BuildingEnum { WORKER_SUMMONER };
 enum UpgradeEnum { DOUBLE_MOVEMENT };
 
 var wood_count: ResourceCount;
 var stone_count: ResourceCount;
 var metal_count: ResourceCount;
+var unit_cap_count: ResourceCount;
 
 var worker_summoner_button: BuildingButton;
 
@@ -40,6 +41,8 @@ func register_resource_count(resource_count: ResourceCount):
 			stone_count = resource_count;
 		ResourceEnum.METAL:
 			metal_count = resource_count;
+		ResourceEnum.UNIT_CAP:
+			unit_cap_count = resource_count;
 
 func register_building_button(building_button: BuildingButton):
 	ui_zones.append(building_button)
@@ -88,6 +91,7 @@ func buy_worker_summoner():
 
 #Buy Upgrades
 func buy_double_movement():
+	print("buying double movement")
 	wood_count.quantity -= 5
 	purchased_upgrades.append(UpgradeEnum.DOUBLE_MOVEMENT)
 	double_movement_button.visible = false
@@ -126,6 +130,9 @@ func increase_stone(amount: float):
 	
 func increase_metal(amount: float):
 	metal_count.quantity += amount
+
+func update_unit_count(units: int):
+	unit_cap_count.capped_resource = units
 
 #Output Upgraded Values
 func get_unit_speed():

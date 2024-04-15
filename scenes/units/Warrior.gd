@@ -9,6 +9,7 @@ var time_till_next_attack := 0.0
 
 func _ready():
 	anim_overriden = true
+	GameManager.unit_created()
 
 func _process(delta):
 	time_till_next_attack -= delta

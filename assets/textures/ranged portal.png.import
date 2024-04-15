@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crmi1vgyilddi"
-path.s3tc="res://.godot/imported/paintsquare.png-84b79a382b121d4b20fda224e70d14e4.s3tc.ctex"
+uid="uid://dal5wehbggnrq"
+path.s3tc="res://.godot/imported/ranged portal.png-b1291fd5a504177b1bc17755fa5ba9f8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/paintsquare.png"
-dest_files=["res://.godot/imported/paintsquare.png-84b79a382b121d4b20fda224e70d14e4.s3tc.ctex"]
+source_file="res://assets/textures/ranged portal.png"
+dest_files=["res://.godot/imported/ranged portal.png-b1291fd5a504177b1bc17755fa5ba9f8.s3tc.ctex"]
 
 [params]
 

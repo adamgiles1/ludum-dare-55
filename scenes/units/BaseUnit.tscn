@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/units/BaseUnit.gd" id="1_58tdd"]
 [ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="2_fuepo"]
+[ext_resource type="ArrayMesh" uid="uid://d38baydy2lnim" path="res://assets/models/Imp.obj" id="2_kyius"]
 [ext_resource type="AudioStream" uid="uid://c1yo00vlbdn5" path="res://assets/audio/voice-lines/okogg.ogg" id="2_npswq"]
 [ext_resource type="AudioStream" uid="uid://kmnq6wxk5yd2" path="res://assets/audio/voice-lines/on-my-way.ogg" id="3_t1uhw"]
 [ext_resource type="AudioStream" uid="uid://borg6bi6u24uu" path="res://assets/audio/voice-lines/you-got-it.ogg" id="4_gjp22"]
@@ -10,8 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://0xer7vpwvuhq" path="res://assets/audio/voice-lines/aaaah.ogg" id="8_ok7od"]
 [ext_resource type="AudioStream" uid="uid://pbv3u0h5lylx" path="res://assets/audio/voice-lines/oof.ogg" id="9_pcpra"]
 [ext_resource type="AudioStream" uid="uid://b8ejeogots466" path="res://assets/audio/voice-lines/OOOF.ogg" id="10_vo84i"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4y4o"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l71dd"]
 _surfaces = [{
@@ -47,7 +46,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("MeshInstance3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.5, 1, 0, 0, 0, 0.6, 1, 0, 0.5, 0, 0.7, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0.5, 1, 0, -0.2, 0, 0.6, 1, 0, 0.3, 0, 0.7, 1, 0, -0.2, 0)
 
 [sub_resource type="Animation" id="Animation_0buup"]
 resource_name = "walk"
@@ -58,7 +57,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("MeshInstance3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.25, 1, 0, 0.5, 0, 0.5, 1, 0, 0, 0, 0.8, 1, 0, 0.5, 0, 1, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.2, 0, 0.25, 1, 0, 0.3, 0, 0.5, 1, 0, -0.2, 0, 0.8, 1, 0, 0.3, 0, 1, 1, 0, -0.2, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4rx58"]
 _data = {
@@ -72,7 +71,8 @@ collision_layer = 2
 script = ExtResource("1_58tdd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_g4y4o")
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, 0)
+mesh = ExtResource("2_kyius")
 skeleton = NodePath("../..")
 
 [node name="Outline" type="MeshInstance3D" parent="MeshInstance3D"]
@@ -85,7 +85,7 @@ shape = SubResource("CapsuleShape3D_8pjdd")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="Walk" type="Node" parent="."]
+[node name="Walk" type="Node3D" parent="."]
 
 [node name="Ok1" type="AudioStreamPlayer3D" parent="Walk"]
 stream = ExtResource("2_npswq")
@@ -96,7 +96,7 @@ stream = ExtResource("3_t1uhw")
 [node name="Ok3" type="AudioStreamPlayer3D" parent="Walk"]
 stream = ExtResource("4_gjp22")
 
-[node name="Select" type="Node" parent="."]
+[node name="Select" type="Node3D" parent="."]
 
 [node name="Select1" type="AudioStreamPlayer3D" parent="Select"]
 stream = ExtResource("5_i1jyp")
@@ -104,7 +104,7 @@ stream = ExtResource("5_i1jyp")
 [node name="Select2" type="AudioStreamPlayer3D" parent="Select"]
 stream = ExtResource("6_amg5b")
 
-[node name="Die" type="Node" parent="."]
+[node name="Die" type="Node3D" parent="."]
 
 [node name="Die1" type="AudioStreamPlayer3D" parent="Die"]
 stream = ExtResource("8_ok7od")

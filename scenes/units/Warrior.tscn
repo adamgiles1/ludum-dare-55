@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://dt8njlpe6sama"]
+[gd_scene load_steps=22 format=3 uid="uid://dt8njlpe6sama"]
 
 [ext_resource type="Script" path="res://scenes/units/Warrior.gd" id="1_hb22l"]
+[ext_resource type="ArrayMesh" uid="uid://d4doedu63a8qd" path="res://assets/models/demon.obj" id="2_81gvt"]
 [ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="2_x1cuk"]
 [ext_resource type="AudioStream" uid="uid://c1yo00vlbdn5" path="res://assets/audio/voice-lines/okogg.ogg" id="3_v74cb"]
 [ext_resource type="AudioStream" uid="uid://kmnq6wxk5yd2" path="res://assets/audio/voice-lines/on-my-way.ogg" id="4_xgu71"]
@@ -13,12 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://c5voisno7diqs" path="res://assets/audio/voice-lines/charge.ogg" id="11_5u2pn"]
 [ext_resource type="AudioStream" uid="uid://62falebqpyns" path="res://assets/audio/voice-lines/kill.ogg" id="12_vwf01"]
 [ext_resource type="AudioStream" uid="uid://boiksvx6fsrpx" path="res://assets/audio/voice-lines/for-glory.ogg" id="13_n1ywq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qipwq"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4y4o"]
-material = SubResource("StandardMaterial3D_qipwq")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l71dd"]
 _surfaces = [{
@@ -84,7 +79,8 @@ script = ExtResource("1_hb22l")
 health = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_g4y4o")
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.5, 0)
+mesh = ExtResource("2_81gvt")
 skeleton = NodePath("../..")
 
 [node name="Outline" type="MeshInstance3D" parent="MeshInstance3D"]
@@ -97,7 +93,7 @@ shape = SubResource("CapsuleShape3D_8pjdd")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="Walk" type="Node" parent="."]
+[node name="Walk" type="Node3D" parent="."]
 
 [node name="Ok1" type="AudioStreamPlayer3D" parent="Walk"]
 stream = ExtResource("3_v74cb")
@@ -108,7 +104,7 @@ stream = ExtResource("4_xgu71")
 [node name="Ok3" type="AudioStreamPlayer3D" parent="Walk"]
 stream = ExtResource("5_xsam7")
 
-[node name="Select" type="Node" parent="."]
+[node name="Select" type="Node3D" parent="."]
 
 [node name="Select1" type="AudioStreamPlayer3D" parent="Select"]
 stream = ExtResource("6_w1mvk")
@@ -116,7 +112,7 @@ stream = ExtResource("6_w1mvk")
 [node name="Select2" type="AudioStreamPlayer3D" parent="Select"]
 stream = ExtResource("7_by6s8")
 
-[node name="Die" type="Node" parent="."]
+[node name="Die" type="Node3D" parent="."]
 
 [node name="Die1" type="AudioStreamPlayer3D" parent="Die"]
 stream = ExtResource("8_ykhx8")
@@ -127,7 +123,7 @@ stream = ExtResource("9_ro0wh")
 [node name="Die3" type="AudioStreamPlayer3D" parent="Die"]
 stream = ExtResource("10_vm5cq")
 
-[node name="Attack" type="Node" parent="."]
+[node name="Attack" type="Node3D" parent="."]
 
 [node name="Attack1" type="AudioStreamPlayer3D" parent="Attack"]
 stream = ExtResource("11_5u2pn")

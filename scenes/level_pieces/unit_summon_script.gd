@@ -31,10 +31,12 @@ func _process(delta):
 		timer = time_between_summons
 
 func spawn_unit():
+	if !GameManager.can_spawn_more_units():
+		return
 	var unit: Unit = unit_to_summon.instantiate()
 	unit.position = self.position
 	unit.set_spawned(self)
-	if is_worker && has_last_command && is_instance_valid(unit):
+	if is_worker && has_last_command && is_instance_valid(unit) && command_thing != null:
 		unit.send_command(command_vector, Globals.COMMAND.INTERACT, command_thing, Vector3.ZERO)
 	
 	get_tree().root.add_child(unit)

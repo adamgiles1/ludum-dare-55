@@ -25,12 +25,14 @@ var spawned_from: AllySpawner
 
 func _ready():
 	set_outline(NO_OUTLINE);
+	GameManager.unit_created()
 
 func _physics_process(delta):
 	stun_time_left -= delta
 	if is_dead:
 		time_dead += delta
 		if death_limit < time_dead:
+			GameManager.unit_died()
 			queue_free()
 		return
 	velocity = Vector3.ZERO
@@ -42,6 +44,11 @@ func _physics_process(delta):
 		calc_dir(delta)
 	
 	if stun_time_left <= 0:
+		if velocity != Vector3.ZERO:
+			var toward = velocity
+			toward.y = 0
+			var look_dir = transform.origin + toward
+			look_at(look_dir, Vector3.UP)
 		move_and_slide()
 	
 	if current_state == STATE.WALKING && nav_agent.is_navigation_finished():
@@ -90,6 +97,9 @@ func start_interaction(thing: InteractableThing):
 	current_state = STATE.INTERACTING
 
 func play_sound(sound_name: String):
+	if GameManager.unit_sounds_per_second > 10:
+		return
+	GameManager.unit_sounds_per_second += 1
 	var sounds: Node = get_node(sound_name)
 	var num = randi_range(0, sounds.get_children().size() - 1)
 	var audio: AudioStreamPlayer3D = sounds.get_child(num)

@@ -179,4 +179,3 @@ func send_camera_to_pentagram():
 	pentagram_start = self.position
 	pentagram_rot_start = self.rotation
 	pentagram_time = true
-	print("rot start: " + str(pentagram_rot_start))

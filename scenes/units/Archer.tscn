@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d1j7rfo3t7xas"]
+[gd_scene load_steps=22 format=3 uid="uid://d1j7rfo3t7xas"]
 
 [ext_resource type="Script" path="res://scenes/units/Warrior.gd" id="1_8vrh7"]
 [ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://Outline.tres" id="2_me3ot"]
@@ -13,12 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://c5voisno7diqs" path="res://assets/audio/voice-lines/charge.ogg" id="11_g2q4i"]
 [ext_resource type="AudioStream" uid="uid://62falebqpyns" path="res://assets/audio/voice-lines/kill.ogg" id="12_g66yr"]
 [ext_resource type="AudioStream" uid="uid://boiksvx6fsrpx" path="res://assets/audio/voice-lines/for-glory.ogg" id="13_0h87x"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qipwq"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4y4o"]
-material = SubResource("StandardMaterial3D_qipwq")
+[ext_resource type="ArrayMesh" uid="uid://ce42unwd0r422" path="res://assets/models/serpent.obj" id="14_tsaya"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l71dd"]
 _surfaces = [{
@@ -54,18 +49,17 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("MeshInstance3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 0, 2, 0, 0.2, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.5, 0, 0.1, 1, 0, 2.5, 0, 0.2, 1, 0, 0.5, 0)
 
 [sub_resource type="Animation" id="Animation_0buup"]
 resource_name = "walk"
-loop_mode = 2
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("MeshInstance3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.25, 1, 0, 0.5, 0, 0.5, 1, 0, 0, 0, 0.8, 1, 0, 0.5, 0, 1, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.4, 0, 0.2, 1, 0, 1, 0, 0.5, 1, 0, 0.4, 0, 0.8, 1, 0, 1, 0, 1, 1, 0, 0.4, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4rx58"]
 _data = {
@@ -85,7 +79,8 @@ ATTACK_RANGE = 12
 health = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_g4y4o")
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 0.5, 0)
+mesh = ExtResource("14_tsaya")
 skeleton = NodePath("../..")
 
 [node name="Outline" type="MeshInstance3D" parent="MeshInstance3D"]
@@ -98,7 +93,7 @@ shape = SubResource("CapsuleShape3D_8pjdd")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="Walk" type="Node" parent="."]
+[node name="Walk" type="Node3D" parent="."]
 
 [node name="Ok1" type="AudioStreamPlayer3D" parent="Walk"]
 stream = ExtResource("3_005p3")
@@ -109,7 +104,7 @@ stream = ExtResource("4_dvx28")
 [node name="Ok3" type="AudioStreamPlayer3D" parent="Walk"]
 stream = ExtResource("5_lmof6")
 
-[node name="Select" type="Node" parent="."]
+[node name="Select" type="Node3D" parent="."]
 
 [node name="Select1" type="AudioStreamPlayer3D" parent="Select"]
 stream = ExtResource("6_6xmqw")
@@ -117,7 +112,7 @@ stream = ExtResource("6_6xmqw")
 [node name="Select2" type="AudioStreamPlayer3D" parent="Select"]
 stream = ExtResource("7_sfhis")
 
-[node name="Die" type="Node" parent="."]
+[node name="Die" type="Node3D" parent="."]
 
 [node name="Die1" type="AudioStreamPlayer3D" parent="Die"]
 stream = ExtResource("8_gkuni")
@@ -140,7 +135,7 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea"]
 shape = SubResource("CylinderShape3D_afd5a")
 
-[node name="Attack" type="Node" parent="."]
+[node name="Attack" type="Node3D" parent="."]
 
 [node name="Attack1" type="AudioStreamPlayer3D" parent="Attack"]
 stream = ExtResource("11_g2q4i")

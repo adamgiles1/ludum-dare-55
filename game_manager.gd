@@ -5,6 +5,12 @@ extends Node
 var active_units: Array[Unit] = []
 var active_hovers: Array[CollisionObject3D] = []
 
+var total_units: int = 0
+var unit_cap = 50
+
+var unit_sounds_per_second = 0
+var time_till_sound_wipe = 1
+
 var summoners: Array[EnemySpawner] = []
 
 func _process(delta):
@@ -13,6 +19,11 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		Signals.GAME_WON.emit()
+	
+	time_till_sound_wipe -= delta
+	if time_till_sound_wipe <= 0:
+		time_till_sound_wipe = 1
+		unit_sounds_per_second = 0
 
 func command_active_units(location: Vector3, command: Globals.COMMAND, thing: InteractableThing):
 	var offset_locations = get_offsets(active_units.size())
@@ -83,14 +94,14 @@ func get_offsets(count: int) -> Array[Vector3]:
 		for z: float in grid_size:
 			offsets.append(Vector3((z - minus) * mult, 0, (x - minus) * mult))
 	return offsets
-	return [
-			Vector3(0, 0, 0),
-			Vector3(0, 0, -1.5),
-			Vector3(0, 0, 1.5),
-			Vector3(1.5, 0, -1.5),
-			Vector3(1.5, 0, 0),
-			Vector3(1.5, 0, 1.5),
-			Vector3(-1.5, 0, -1.5),
-			Vector3(-1.5, 0, 0),
-			Vector3(-1.5, 0, 1.5)
-		]
+
+func unit_created():
+	total_units += 1
+	UI.update_unit_count(total_units)
+
+func unit_died():
+	total_units -= 1
+	UI.update_unit_count(total_units)
+
+func can_spawn_more_units() -> bool:
+	return total_units <= unit_cap

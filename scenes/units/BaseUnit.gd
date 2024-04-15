@@ -4,7 +4,7 @@ extends Unit
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-var time_till_next_resource: float = 3
+var time_till_next_resource: float = 0
 var time_alive_left = 35
 
 func _process(delta):
@@ -17,6 +17,10 @@ func _process(delta):
 		time_till_next_resource -= delta
 		if time_till_next_resource <= 0:
 			if is_instance_valid(interacting_with):
+				var toward = interacting_with.position
+				toward.y = 0
+				var look_dir = transform.origin + toward
+				look_at(look_dir, Vector3.UP)
 				interacting_with.interact_with()
 			time_till_next_resource = 3
 
