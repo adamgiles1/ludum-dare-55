@@ -1,6 +1,11 @@
 extends Node
 
 @onready var hover_arrow_scen: PackedScene = preload("res://scenes/effects/ClickedArrow.tscn")
+@onready var intro_video: PackedScene = preload("res://scenes/UI/FirstVideo.tscn")
+@onready var one_camp_vid: PackedScene = preload("res://scenes/UI/FirstVideo.tscn")
+@onready var two_camp_vid: PackedScene = preload("res://scenes/UI/FirstVideo.tscn")
+@onready var three_camp_vid: PackedScene = preload("res://scenes/UI/FirstVideo.tscn")
+@onready var final_vid: PackedScene = preload("res://scenes/UI/FirstVideo.tscn")
 
 var active_units: Array[Unit] = []
 var active_hovers: Array[CollisionObject3D] = []
@@ -11,11 +16,16 @@ var unit_cap = 50
 var unit_sounds_per_second = 0
 var time_till_sound_wipe = 1
 
+var camps_down := 0
+
 var summoners: Array[EnemySpawner] = []
+
+func _ready():
+	play_video(intro_video)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
-		Signals.SPAWN_UNITS.emit()
+		play_video(intro_video)
 	
 	time_till_sound_wipe -= delta
 	if time_till_sound_wipe <= 0:
@@ -77,6 +87,8 @@ func summoner_empty(team_id: int):
 			all_out = false
 	if all_out:
 		Signals.TEAM_ELIMINATED.emit(team_id)
+		camps_down += 1
+		play_camp_video()
 		check_if_game_over()
 
 func check_if_game_over():
@@ -111,3 +123,18 @@ func unit_died():
 
 func can_spawn_more_units() -> bool:
 	return total_units <= unit_cap
+
+func play_video(video: PackedScene):
+	var t = video.instantiate()
+	get_tree().root.add_child(t)
+
+func play_camp_video():
+	match camps_down:
+		1:
+			play_video(one_camp_vid)
+		2:
+			play_video(two_camp_vid)
+		3:
+			play_video(three_camp_vid)
+		4:
+			play_video(final_vid)

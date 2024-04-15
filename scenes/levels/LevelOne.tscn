@@ -97,104 +97,109 @@ shape = SubResource("BoxShape3D_dl4yg")
 
 [node name="EnemySummoner2" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, -105.449)
+max_units = 2
 
 [node name="EnemySummoner3" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, -102.449)
+max_units = 2
 
 [node name="EnemySummoner7" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.636, 0.5, -105.449)
+max_units = 2
 
 [node name="EnemySummoner8" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, -108.449)
+max_units = 2
 
 [node name="EnemySummoner9" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.636, 0.5, -105.449)
+max_units = 2
 
 [node name="EnemySummoner10" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, 104.551)
 team_id = 2
-max_units = 6
+max_units = 5
 
 [node name="EnemySummoner11" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, 107.551)
 team_id = 2
-max_units = 6
+max_units = 5
 
 [node name="EnemySummoner12" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.636, 0.5, 104.551)
 team_id = 2
 summon_type = ExtResource("13_wcaf8")
-max_units = 6
+max_units = 5
 is_ranged = true
 
 [node name="EnemySummoner13" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, 101.551)
 team_id = 2
-max_units = 6
+max_units = 5
 
 [node name="EnemySummoner14" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.636, 0.5, 104.551)
 team_id = 2
-max_units = 6
+max_units = 5
 
 [node name="EnemySummoner15" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, 65.5508)
 team_id = 3
-max_units = 10
+max_units = 9
 
 [node name="EnemySummoner16" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, 68.5508)
 team_id = 3
 summon_type = ExtResource("13_wcaf8")
-max_units = 10
+max_units = 9
 is_ranged = true
 
 [node name="EnemySummoner17" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.364, 0.5, 65.5508)
 team_id = 3
 summon_type = ExtResource("13_wcaf8")
-max_units = 10
+max_units = 9
 is_ranged = true
 
 [node name="EnemySummoner18" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, 62.5508)
 team_id = 3
-max_units = 10
+max_units = 9
 
 [node name="EnemySummoner19" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.364, 0.5, 65.5508)
 team_id = 3
-max_units = 10
+max_units = 9
 
 [node name="EnemySummoner20" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, -65.4492)
 team_id = 4
-max_units = 12
+max_units = 11
 
 [node name="EnemySummoner21" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, -62.4492)
 team_id = 4
-max_units = 12
+max_units = 11
 
 [node name="EnemySummoner22" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.364, 0.5, -65.4492)
 team_id = 4
 summon_type = ExtResource("13_wcaf8")
-max_units = 12
+max_units = 11
 is_ranged = true
 
 [node name="EnemySummoner23" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, -68.4492)
 team_id = 4
 summon_type = ExtResource("13_wcaf8")
-max_units = 12
+max_units = 11
 is_ranged = true
 
 [node name="EnemySummoner24" parent="." instance=ExtResource("12_r0ss6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.364, 0.5, -65.4492)
 team_id = 4
 summon_type = ExtResource("13_wcaf8")
-max_units = 12
+max_units = 11
 is_ranged = true
 
 [node name="PlacementPreview" type="MeshInstance3D" parent="."]
