@@ -6,6 +6,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pl0d"]
 bg_color = Color(0.941176, 0, 0, 1)
 skew = Vector2(0.4, 0)
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04oiv"]
 bg_color = Color(0.372549, 0.14902, 1, 1)
@@ -17,7 +18,7 @@ skew = Vector2(0.4, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qx1pn"]
 bg_color = Color(0.447059, 0.447059, 0.447059, 1)
-skew = Vector2(0.315, 0)
+skew = Vector2(0.265, 0)
 
 [node name="Resource Counts" type="Control"]
 layout_mode = 3
@@ -32,7 +33,7 @@ grow_vertical = 2
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 10.0
-offset_right = 52.0
+offset_right = 71.0
 offset_bottom = 36.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7pl0d")
 
@@ -48,8 +49,8 @@ script = ExtResource("1_0jld4")
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 52.0
-offset_right = 94.0
+offset_left = 71.0
+offset_right = 130.0
 offset_bottom = 36.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_04oiv")
 
@@ -66,8 +67,8 @@ resource = 1
 
 [node name="Panel3" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 94.0
-offset_right = 136.0
+offset_left = 130.0
+offset_right = 187.0
 offset_bottom = 36.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f4qha")
 
@@ -84,17 +85,17 @@ resource = 2
 
 [node name="Panel4" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 136.0
-offset_right = 206.0
+offset_left = 187.0
+offset_right = 257.0
 offset_bottom = 40.0
 scale = Vector2(1.21481, 0.880001)
 theme_override_styles/panel = SubResource("StyleBoxFlat_qx1pn")
 
 [node name="Unit Cap" type="Label" parent="."]
 layout_mode = 0
-offset_left = 145.0
+offset_left = 196.0
 offset_top = 5.0
-offset_right = 201.0
+offset_right = 252.0
 offset_bottom = 33.0
 text = "0/50"
 label_settings = ExtResource("1_xsux7")
