@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkcud0puxf2vo"]
+[gd_scene load_steps=7 format=3 uid="uid://dkcud0puxf2vo"]
 
 [ext_resource type="Script" path="res://scripts/UI/ResourceCount.gd" id="1_0jld4"]
 [ext_resource type="LabelSettings" uid="uid://b1bffq6k0tvoe" path="res://default-label.tres" id="1_xsux7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pl0d"]
+bg_color = Color(0.941176, 0, 0, 1)
+skew = Vector2(0.4, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04oiv"]
+bg_color = Color(0.372549, 0.14902, 1, 1)
+skew = Vector2(0.4, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4qha"]
+bg_color = Color(0.921569, 0.635294, 0, 1)
+skew = Vector2(0.4, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qx1pn"]
+bg_color = Color(0.447059, 0.447059, 0.447059, 1)
+skew = Vector2(0.315, 0)
 
 [node name="Resource Counts" type="Control"]
 layout_mode = 3
@@ -15,46 +31,71 @@ grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 107.0
-offset_bottom = 114.0
+offset_left = 10.0
+offset_right = 52.0
+offset_bottom = 36.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7pl0d")
 
-[node name="Wood Resource" type="Label" parent="."]
+[node name="Wood Resource" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 15.0
-offset_right = 55.0
-offset_bottom = 23.0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 50.0
+offset_bottom = 32.0
 text = "0"
 label_settings = ExtResource("1_xsux7")
 script = ExtResource("1_0jld4")
 
-[node name="Stone Resource" type="Label" parent="."]
+[node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 27.0
-offset_right = 55.0
-offset_bottom = 50.0
+offset_left = 52.0
+offset_right = 94.0
+offset_bottom = 36.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_04oiv")
+
+[node name="Stone Resource" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 51.0
+offset_bottom = 32.0
 text = "0"
 label_settings = ExtResource("1_xsux7")
 script = ExtResource("1_0jld4")
 resource = 1
 
-[node name="Metal Resource" type="Label" parent="."]
+[node name="Panel3" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 56.0
-offset_right = 55.0
-offset_bottom = 79.0
+offset_left = 94.0
+offset_right = 136.0
+offset_bottom = 36.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f4qha")
+
+[node name="Metal Resource" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 48.0
+offset_bottom = 32.0
 text = "0"
 label_settings = ExtResource("1_xsux7")
 script = ExtResource("1_0jld4")
 resource = 2
 
+[node name="Panel4" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_right = 206.0
+offset_bottom = 40.0
+scale = Vector2(1.21481, 0.880001)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qx1pn")
+
 [node name="Unit Cap" type="Label" parent="."]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 84.0
-offset_right = 55.0
-offset_bottom = 107.0
+offset_left = 145.0
+offset_top = 5.0
+offset_right = 201.0
+offset_bottom = 33.0
 text = "0/50"
 label_settings = ExtResource("1_xsux7")
 script = ExtResource("1_0jld4")

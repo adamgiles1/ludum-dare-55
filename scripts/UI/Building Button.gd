@@ -30,3 +30,8 @@ func _process(delta):
 	match building_type:
 		UI.BuildingEnum.WORKER_SUMMONER:
 			set_text("Worker Summoner (" + str(wood_cost) + ", 0, 0)")
+		UI.BuildingEnum.WARRIOR_SUMMONER:
+			set_text("Demon Summoner " + get_cost())
+
+func get_cost() -> String:
+	return "(" + str(wood_cost) + ", " + str(stone_cost) + ", " + str(metal_cost) + ")"

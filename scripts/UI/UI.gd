@@ -3,7 +3,7 @@ extends Node
 var camera: MainCamera
 
 enum ResourceEnum { WOOD, STONE, METAL, UNIT_CAP };
-enum BuildingEnum { WORKER_SUMMONER };
+enum BuildingEnum { WORKER_SUMMONER, WARRIOR_SUMMONER };
 enum UpgradeEnum { DOUBLE_MOVEMENT, SERPENT, WORKER, SPAWNER };
 
 var wood_count: ResourceCount;
@@ -12,6 +12,7 @@ var metal_count: ResourceCount;
 var unit_cap_count: ResourceCount;
 
 var worker_summoner_button: BuildingButton;
+var warrior_summoner_button: BuildingButton;
 
 var double_movement_button: UpgradeButton;
 var serpent_upgrade_button: UpgradeButton;
@@ -51,6 +52,9 @@ func register_building_button(building_button: BuildingButton):
 		BuildingEnum.WORKER_SUMMONER:
 			worker_summoner_button = building_button
 			worker_summoner_button.connect("pressed", buy_worker_summoner)
+		BuildingEnum.WARRIOR_SUMMONER:
+			warrior_summoner_button = building_button
+			warrior_summoner_button.connect("pressed", buy_warrior_summoner)
 			
 func register_upgrade_button(upgrade_button: UpgradeButton):
 	ui_zones.append(upgrade_button)
@@ -97,6 +101,11 @@ func buy_worker_summoner():
 	previewed_button = worker_summoner_button
 	preview_mode = true
 
+func buy_warrior_summoner():
+	camera.begin_preview()
+	previewed_button = warrior_summoner_button
+	preview_mode = true
+
 #Buy Upgrades
 func buy_double_movement():
 	buy_upgrade(double_movement_button)
@@ -137,7 +146,7 @@ func cancel_preview():
 
 #UI Control	
 func _process(delta: float):
-	for button in [worker_summoner_button, double_movement_button, spawner_upgrade_button, serpent_upgrade_button, worker_upgrade_button]:
+	for button in [worker_summoner_button, warrior_summoner_button, double_movement_button, spawner_upgrade_button, serpent_upgrade_button, worker_upgrade_button]:
 		if button:
 			button.disabled = wood_count.quantity < button.wood_cost or stone_count.quantity < button.stone_cost or metal_count.quantity < button.metal_cost or preview_mode
 
