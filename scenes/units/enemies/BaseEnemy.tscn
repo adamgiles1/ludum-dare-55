@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://s2jus682jfj1"]
 
 [ext_resource type="Script" path="res://scenes/units/enemies/Enemy.gd" id="1_mkkbc"]
-[ext_resource type="ArrayMesh" uid="uid://d4doedu63a8qd" path="res://assets/models/demon.obj" id="2_obrhu"]
+[ext_resource type="ArrayMesh" uid="uid://5wp3bj3w1uac" path="res://assets/models/demon.obj" id="2_obrhu"]
 [ext_resource type="Texture2D" uid="uid://3dgxaawspaqw" path="res://assets/models/Textures/enemy colors.png" id="3_fc2at"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o8w80"]

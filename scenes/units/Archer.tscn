@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://c5voisno7diqs" path="res://assets/audio/voice-lines/charge.ogg" id="11_g2q4i"]
 [ext_resource type="AudioStream" uid="uid://62falebqpyns" path="res://assets/audio/voice-lines/kill.ogg" id="12_g66yr"]
 [ext_resource type="AudioStream" uid="uid://boiksvx6fsrpx" path="res://assets/audio/voice-lines/for-glory.ogg" id="13_0h87x"]
-[ext_resource type="ArrayMesh" uid="uid://ce42unwd0r422" path="res://assets/models/serpent.obj" id="14_tsaya"]
+[ext_resource type="ArrayMesh" uid="uid://q4nag1dioopr" path="res://assets/models/serpent.obj" id="14_tsaya"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y174m"]
 _surfaces = [{
