@@ -6,6 +6,9 @@ var HOVER: Material = load("res://assets/materials/Hovered.tres")
 
 @onready var outline: MeshInstance3D = $%Outline
 
+func _ready():
+	$%Outline.set_surface_override_material(0, NO_OUTLINE)
+
 func start_interacting():
 	pass
 
@@ -17,7 +20,7 @@ func get_spot() -> Vector3:
 	return $InteractionPoints.get_child(next_spot).global_position
 
 func hover():
-	$%Outline.set_surface_material_override(0, HOVER)
+	$%Outline.set_surface_override_material(0, HOVER)
 	
 func dehover():
-	$%Outline.set_surface_material_override(0, NO_OUTLINE)
+	$%Outline.set_surface_override_material(0, NO_OUTLINE)
