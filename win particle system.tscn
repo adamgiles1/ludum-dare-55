@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpof7y2yo1smp"]
+
+[ext_resource type="ArrayMesh" uid="uid://c6lcf2qton3bm" path="res://assets/models/particle.obj" id="1_ifa75"]
+[ext_resource type="Script" path="res://win particle system.gd" id="2_6261i"]
+
+[node name="Win Particles" type="CPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+amount = 50
+lifetime = 2.7
+explosiveness = 0.05
+randomness = 0.25
+mesh = ExtResource("1_ifa75")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 40.99
+initial_velocity_max = 40.99
+angular_velocity_min = 59.02
+angular_velocity_max = 59.02
+linear_accel_min = 72.13
+linear_accel_max = 72.13
+damping_min = 45.902
+damping_max = 45.902
+script = ExtResource("2_6261i")

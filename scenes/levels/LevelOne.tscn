@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://by3bqe6ijfx0p"]
+[gd_scene load_steps=28 format=3 uid="uid://by3bqe6ijfx0p"]
 
 [ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
 [ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://breihy2in4f0" path="res://scenes/units/enemies/ArcherEnemy.tscn" id="13_wcaf8"]
 [ext_resource type="Script" path="res://scenes/levels/PlacementPreview.gd" id="14_1jnww"]
 [ext_resource type="PackedScene" uid="uid://dcbb35bbiiq5a" path="res://scenes/level_pieces/Rock.tscn" id="16_d2iv3"]
+[ext_resource type="PackedScene" uid="uid://cpof7y2yo1smp" path="res://win particle system.tscn" id="17_34ipc"]
 [ext_resource type="PackedScene" uid="uid://c5f7boa4e0bwo" path="res://scenes/level_pieces/Mammal.tscn" id="17_auqis"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_mmttv"]
@@ -46,6 +47,10 @@ material = SubResource("StandardMaterial3D_g3ghr")
 inner_radius = 100.0
 outer_radius = 99.0
 rings = 5
+
+[sub_resource type="Curve" id="Curve_x8b6r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="LevelOne" type="Node3D"]
 script = ExtResource("1_377d4")
@@ -308,3 +313,17 @@ team_id = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.3326, 0.5, -65.4778)
 is_unlock = true
 team_id = 4
+
+[node name="BaseUnitSummoner2" parent="." instance=ExtResource("12_5h7km")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.28, 0.5, -6.90615)
+
+[node name="Node3D" parent="." instance=ExtResource("17_34ipc")]
+transform = Transform3D(0.948711, -0.316146, -1.38192e-08, 0, -4.37114e-08, 1, -0.316146, -0.948711, -4.14695e-08, 0, 1.25881, 0)
+emitting = false
+amount = 200
+lifetime = 2.25
+explosiveness = 0.0
+randomness = 0.5
+direction = Vector3(1, 0, 0)
+spread = 0.0
+scale_amount_curve = SubResource("Curve_x8b6r")

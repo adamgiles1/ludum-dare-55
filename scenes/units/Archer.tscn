@@ -1,18 +1,19 @@
-[gd_scene load_steps=21 format=3 uid="uid://d1j7rfo3t7xas"]
+[gd_scene load_steps=22 format=3 uid="uid://d1j7rfo3t7xas"]
 
 [ext_resource type="Script" path="res://scenes/units/Warrior.gd" id="1_8vrh7"]
+[ext_resource type="AudioStream" uid="uid://c1yo00vlbdn5" path="res://assets/audio/voice-lines/okogg.ogg" id="3_005p3"]
 [ext_resource type="Material" uid="uid://bsg7cs4f36068" path="res://assets/materials/Disabled.tres" id="3_siev7"]
-[ext_resource type="AudioStream" uid="uid://cjhgc1j530cer" path="res://assets/audio/voice-lines/serp-ok.ogg" id="4_7dofd"]
-[ext_resource type="AudioStream" uid="uid://c6viai22fhdiu" path="res://assets/audio/voice-lines/serp-on-my-way.ogg" id="5_6atbp"]
-[ext_resource type="AudioStream" uid="uid://bovsvt756fgad" path="res://assets/audio/voice-lines/serp-yes.ogg" id="6_y5xdv"]
-[ext_resource type="AudioStream" uid="uid://cgu3n8uwp25y6" path="res://assets/audio/voice-lines/serp-yes-q.ogg" id="7_2e8p3"]
-[ext_resource type="AudioStream" uid="uid://b2lb6re6bpu56" path="res://assets/audio/voice-lines/serp-die-1.ogg" id="8_6uwhh"]
-[ext_resource type="AudioStream" uid="uid://65ca1pdmxmwa" path="res://assets/audio/voice-lines/serp-die-2.ogg" id="9_4fxnl"]
-[ext_resource type="AudioStream" uid="uid://r0y30yntpyje" path="res://assets/audio/voice-lines/serp-die-3.ogg" id="10_4v7bb"]
-[ext_resource type="AudioStream" uid="uid://bgr842wic6cto" path="res://assets/audio/voice-lines/serp-for-glory.ogg" id="11_1ur65"]
-[ext_resource type="AudioStream" uid="uid://bo2n4gooyxina" path="res://assets/audio/voice-lines/serp-charge.ogg" id="12_mrx1r"]
-[ext_resource type="AudioStream" uid="uid://bhfoky6fwp3ua" path="res://assets/audio/voice-lines/serp-att.ogg" id="13_ciolr"]
-[ext_resource type="ArrayMesh" uid="uid://ce42unwd0r422" path="res://assets/models/serpent.obj" id="14_tsaya"]
+[ext_resource type="AudioStream" uid="uid://kmnq6wxk5yd2" path="res://assets/audio/voice-lines/on-my-way.ogg" id="4_dvx28"]
+[ext_resource type="AudioStream" uid="uid://borg6bi6u24uu" path="res://assets/audio/voice-lines/you-got-it.ogg" id="5_lmof6"]
+[ext_resource type="AudioStream" uid="uid://bs7yovimpl60g" path="res://assets/audio/voice-lines/yes-question-mark.ogg" id="6_6xmqw"]
+[ext_resource type="AudioStream" uid="uid://b5die2v1jr51y" path="res://assets/audio/voice-lines/yeahogg.ogg" id="7_sfhis"]
+[ext_resource type="AudioStream" uid="uid://0xer7vpwvuhq" path="res://assets/audio/voice-lines/aaaah.ogg" id="8_gkuni"]
+[ext_resource type="AudioStream" uid="uid://pbv3u0h5lylx" path="res://assets/audio/voice-lines/oof.ogg" id="9_6r70a"]
+[ext_resource type="AudioStream" uid="uid://b8ejeogots466" path="res://assets/audio/voice-lines/OOOF.ogg" id="10_vxlny"]
+[ext_resource type="AudioStream" uid="uid://c5voisno7diqs" path="res://assets/audio/voice-lines/charge.ogg" id="11_g2q4i"]
+[ext_resource type="AudioStream" uid="uid://62falebqpyns" path="res://assets/audio/voice-lines/kill.ogg" id="12_g66yr"]
+[ext_resource type="AudioStream" uid="uid://boiksvx6fsrpx" path="res://assets/audio/voice-lines/for-glory.ogg" id="13_0h87x"]
+[ext_resource type="ArrayMesh" uid="uid://q4nag1dioopr" path="res://assets/models/serpent.obj" id="14_tsaya"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y174m"]
 _surfaces = [{
@@ -95,40 +96,32 @@ shape = SubResource("CapsuleShape3D_8pjdd")
 [node name="Walk" type="Node3D" parent="."]
 
 [node name="Ok1" type="AudioStreamPlayer3D" parent="Walk"]
-stream = ExtResource("4_7dofd")
-pitch_scale = 0.8
+stream = ExtResource("3_005p3")
 
 [node name="Ok2" type="AudioStreamPlayer3D" parent="Walk"]
-stream = ExtResource("5_6atbp")
-pitch_scale = 0.8
+stream = ExtResource("4_dvx28")
 
 [node name="Ok3" type="AudioStreamPlayer3D" parent="Walk"]
-stream = ExtResource("6_y5xdv")
-pitch_scale = 0.8
+stream = ExtResource("5_lmof6")
 
 [node name="Select" type="Node3D" parent="."]
 
 [node name="Select1" type="AudioStreamPlayer3D" parent="Select"]
-stream = ExtResource("4_7dofd")
-pitch_scale = 0.8
+stream = ExtResource("6_6xmqw")
 
 [node name="Select2" type="AudioStreamPlayer3D" parent="Select"]
-stream = ExtResource("7_2e8p3")
-pitch_scale = 0.8
+stream = ExtResource("7_sfhis")
 
 [node name="Die" type="Node3D" parent="."]
 
 [node name="Die1" type="AudioStreamPlayer3D" parent="Die"]
-stream = ExtResource("8_6uwhh")
-pitch_scale = 0.8
+stream = ExtResource("8_gkuni")
 
 [node name="Die2" type="AudioStreamPlayer3D" parent="Die"]
-stream = ExtResource("9_4fxnl")
-pitch_scale = 0.8
+stream = ExtResource("9_6r70a")
 
 [node name="Die3" type="AudioStreamPlayer3D" parent="Die"]
-stream = ExtResource("10_4v7bb")
-pitch_scale = 0.8
+stream = ExtResource("10_vxlny")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -145,13 +138,10 @@ shape = SubResource("CylinderShape3D_afd5a")
 [node name="Attack" type="Node3D" parent="."]
 
 [node name="Attack1" type="AudioStreamPlayer3D" parent="Attack"]
-stream = ExtResource("11_1ur65")
-pitch_scale = 0.8
+stream = ExtResource("11_g2q4i")
 
 [node name="Attack2" type="AudioStreamPlayer3D" parent="Attack"]
-stream = ExtResource("12_mrx1r")
-pitch_scale = 0.8
+stream = ExtResource("12_g66yr")
 
 [node name="Attack3" type="AudioStreamPlayer3D" parent="Attack"]
-stream = ExtResource("13_ciolr")
-pitch_scale = 0.8
+stream = ExtResource("13_0h87x")

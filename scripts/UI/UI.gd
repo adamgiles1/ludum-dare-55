@@ -91,7 +91,7 @@ func reset():
 	
 func mouse_in_ui(mouse_position: Vector2) -> bool:
 	for ui_zone in ui_zones:
-		if ui_zone.visible and Rect2(ui_zone.position, ui_zone.size).has_point(mouse_position):
+		if ui_zone.visible and Rect2(ui_zone.global_position, ui_zone.size).has_point(mouse_position):
 			return true;
 	return false;
 
