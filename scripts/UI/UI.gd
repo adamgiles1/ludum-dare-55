@@ -6,7 +6,7 @@ var camera: MainCamera
 
 enum ResourceEnum { WOOD, STONE, METAL, UNIT_CAP };
 enum BuildingEnum { WORKER_SUMMONER };
-enum UpgradeEnum { DOUBLE_MOVEMENT };
+enum UpgradeEnum { DOUBLE_MOVEMENT, SERPENT_UPGRADE, WORKER_UPGRADE };
 
 var wood_count: ResourceCount;
 var stone_count: ResourceCount;
@@ -16,6 +16,9 @@ var unit_cap_count: ResourceCount;
 var worker_summoner_button: BuildingButton;
 
 var double_movement_button: UpgradeButton;
+var serpent_upgrade_button: UpgradeButton;
+var worker_upgrade_button: UpgradeButton;
+var spawner_upgrade_button: UpgradeButton;
 
 var purchased_upgrades: Array[UpgradeEnum] = []
 
@@ -28,6 +31,9 @@ var preview_stone_cost: int = 0
 var preview_metal_cost: int = 0
 var preview_object: PackedScene = null
 var preview_mode: bool = false
+
+func _ready():
+	Signals.TEAM_ELIMINATED.connect(handle_team_eliminated)
 
 #Registration
 func register_camera(camera: MainCamera):
@@ -57,9 +63,11 @@ func register_upgrade_button(upgrade_button: UpgradeButton):
 		UpgradeEnum.DOUBLE_MOVEMENT:
 			double_movement_button = upgrade_button
 			double_movement_button.connect("pressed", buy_double_movement)
+		UpgradeEnum.SERPENT_UPGRADE:
+			serpent_upgrade_button = upgrade_button
+			serpent_upgrade_button.connect("pressed", buy_serpent_upgrade)
 			
-			#Commenting this out for now for testing, should be made visible via conquering a base
-			#double_movement_button.visible = false
+	upgrade_button.visible = false
 
 #Utility		
 func reset():
@@ -96,6 +104,12 @@ func buy_double_movement():
 	purchased_upgrades.append(UpgradeEnum.DOUBLE_MOVEMENT)
 	double_movement_button.visible = false
 
+func buy_serpent_upgrade():
+	print("buying serpent upgrade hiss")
+	wood_count.quantity -= 50
+	purchased_upgrades.append(UpgradeEnum.SERPENT_UPGRADE)
+	serpent_upgrade_button.visible = false
+
 #Building Preview
 func confirm_preview(position: Vector3):
 	wood_count.quantity -= preview_wood_cost
@@ -120,6 +134,12 @@ func _process(delta: float):
 	
 	if double_movement_button:
 		double_movement_button.disabled = wood_count.quantity < 5 or preview_mode
+	
+	if serpent_upgrade_button:
+		serpent_upgrade_button.disabled = wood_count.quantity < 50 or preview_mode
+	
+	if worker_upgrade_button:
+		worker_upgrade_button.disabled = stone_count.quantity < 50 or preview_mode
 
 #Gather Resources
 func increase_wood(amount: float):
@@ -137,3 +157,16 @@ func update_unit_count(units: int):
 #Output Upgraded Values
 func get_unit_speed():
 	return 2 if UpgradeEnum.DOUBLE_MOVEMENT in purchased_upgrades else 1 
+
+func get_serpent_damage_mult():
+	return 2 if UpgradeEnum.SERPENT_UPGRADE in purchased_upgrades else 1
+
+func handle_team_eliminated(team: int):
+	match team:
+		1:
+			double_movement_button.visible = true
+		2:
+			serpent_upgrade_button.visible = true
+		_:
+			printerr("Unexpected team eliminated")
+			

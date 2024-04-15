@@ -32,3 +32,5 @@ shape = SubResource("CylinderShape3D_5iggk")
 [node name="Decal" type="Decal" parent="."]
 size = Vector3(3, 3, 3)
 texture_albedo = ExtResource("3_h7cn3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]

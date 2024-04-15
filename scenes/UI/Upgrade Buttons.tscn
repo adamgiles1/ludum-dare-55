@@ -22,3 +22,25 @@ offset_bottom = 361.0
 theme_override_fonts/font = ExtResource("1_rnlts")
 text = "Double Speed"
 script = ExtResource("2_srois")
+
+[node name="Serpent Upgrade Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 281.0
+offset_right = 296.0
+offset_bottom = 361.0
+theme_override_fonts/font = ExtResource("1_rnlts")
+text = "Serpent Upgrade"
+script = ExtResource("2_srois")
+upgrade = 1
+
+[node name="Worker Upgrade Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 281.0
+offset_right = 296.0
+offset_bottom = 361.0
+theme_override_fonts/font = ExtResource("1_rnlts")
+text = "Worker Upgrade"
+script = ExtResource("2_srois")
+upgrade = 2

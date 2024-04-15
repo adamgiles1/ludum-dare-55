@@ -66,7 +66,7 @@ func attempt_attack():
 		attack()
 
 func attack():
-	target.attack_unit(attack_damage, self)
+	target.attack_unit(attack_damage * UI.get_serpent_damage_mult(), self)
 	anim_player.stop()
 	animate("attack")
 	stun_time = 1.5
