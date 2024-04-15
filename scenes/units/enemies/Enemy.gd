@@ -107,6 +107,8 @@ func set_spawner(spawner: EnemySpawner):
 	spawned_from = spawner
 
 func get_patrol_position() -> Vector3:
+	if !is_instance_valid(spawned_from):
+		return Vector3.ZERO
 	var pos = spawned_from.position
 	pos.x += randf_range(-4, 4)
 	pos.z += randf_range(-4, 4)

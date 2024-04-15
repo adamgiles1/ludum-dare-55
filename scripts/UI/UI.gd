@@ -147,7 +147,7 @@ func cancel_preview():
 #UI Control	
 func _process(delta: float):
 	for button in [worker_summoner_button, warrior_summoner_button, double_movement_button, spawner_upgrade_button, serpent_upgrade_button, worker_upgrade_button]:
-		if button:
+		if button && is_instance_valid(button):
 			button.disabled = wood_count.quantity < button.wood_cost or stone_count.quantity < button.stone_cost or metal_count.quantity < button.metal_cost or preview_mode
 	
 	# cheat codes

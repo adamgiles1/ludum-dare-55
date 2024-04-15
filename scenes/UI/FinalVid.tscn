@@ -5,6 +5,7 @@
 
 [node name="VideoPlayer" type="Node2D"]
 script = ExtResource("1_xruyt")
+causes_credits = true
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 offset_left = 943.0

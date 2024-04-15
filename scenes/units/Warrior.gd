@@ -16,6 +16,9 @@ func _process(delta):
 	if stun_time_left > 0:
 		return
 	
+	if current_state == STATE.IDLE:
+		pass
+	
 	if current_state == STATE.INTERACTING:
 		if interacting_with == null || !is_instance_valid(interacting_with) || interacting_with.is_dead:
 			interacting_with = null

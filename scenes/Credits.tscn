@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://wfyrgbl5rfsg"]
+
+[ext_resource type="Script" path="res://scenes/Credits.gd" id="1_4e6ng"]
+[ext_resource type="FontFile" uid="uid://dt72o1r0t534h" path="res://assets/font/CourierPrime-Regular.ttf" id="1_ja1yn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2rsli"]
+font = ExtResource("1_ja1yn")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0sot5"]
+font_size = 8
+
+[node name="Credits" type="Node3D"]
+script = ExtResource("1_4e6ng")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 1278.0
+offset_bottom = 718.0
+text = "Real Time Demoning
+
+- Made by -
+Adam Giles
+Anson Rutherford
+
+- Made for -
+ Ludum Dare Game Jam 55
+
+April 15th 2024
+"
+label_settings = SubResource("LabelSettings_2rsli")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1140.0
+offset_top = 693.0
+offset_right = 1371.0
+offset_bottom = 716.0
+text = "Don't forget to file your taxes!"
+label_settings = SubResource("LabelSettings_0sot5")
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 530.0
+offset_right = 689.0
+offset_bottom = 561.0
+theme_override_fonts/font = ExtResource("1_ja1yn")
+text = "Main Menu"

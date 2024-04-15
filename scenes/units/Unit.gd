@@ -73,7 +73,10 @@ func calc_dir(delta: float):
 	velocity = dir * speed * UI.get_unit_speed()
 
 func send_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing, offset: Vector3):
-	walk_to(location, true)
+	if type == Globals.COMMAND.INTERACT && thing != null && thing.is_in_group("attackable"):
+		pass
+	else:
+		walk_to(location, true)
 	handle_command(location, type, thing, offset)
 
 func handle_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing, offset: Vector3):
@@ -98,11 +101,12 @@ func start_interaction(thing: InteractableThing):
 func play_sound(sound_name: String):
 	if GameManager.unit_sounds_per_second > 10:
 		return
+	var volume = -5 if GameManager.video_playing else 1.0
 	GameManager.unit_sounds_per_second += 1
 	var sounds: Node = get_node(sound_name)
 	var num = randi_range(0, sounds.get_children().size() - 1)
 	var audio: AudioStreamPlayer3D = sounds.get_child(num)
-	#audio.pitch_scale = 1 + randf_range(-.2, .2)
+	audio.volume_db = volume
 	audio.play()
 
 func select():

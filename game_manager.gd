@@ -22,12 +22,18 @@ var camps_down := 0
 
 var summoners: Array[EnemySpawner] = []
 
+var video_playing := false
+
 func _ready():
 	pass
 
 func _process(delta):
 	if Input.is_action_just_pressed("1"):
 		Signals.GAME_WON.emit()
+		pass
+	
+	if Input.is_action_just_pressed("video_skip"):
+		Signals.VIDEO_IS_PLAYING.emit()
 	
 	time_till_sound_wipe -= delta
 	if time_till_sound_wipe <= 0:

@@ -5,6 +5,7 @@ extends Node3D
 @onready var exit_butt: Button = $%ExitButton
 @onready var back_butt: Button = $%BackButton
 @onready var menu_holder: Control = $%MenuHolder
+@onready var credits_butt: Button = $%CreditsButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +13,7 @@ func _ready():
 	options_butt.connect("pressed", options)
 	exit_butt.connect("pressed", exit)
 	back_butt.connect("pressed", back)
-
+	credits_butt.connect("pressed", view_credits)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -33,3 +34,7 @@ func exit():
 func switch_menu(menu: String):
 	for child: Control in menu_holder.get_children():
 		child.visible = child.name == menu
+
+func view_credits():
+	
+	get_tree().change_scene_to_file("res://scenes/Credits.tscn")
