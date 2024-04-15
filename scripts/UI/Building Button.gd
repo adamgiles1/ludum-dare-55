@@ -9,15 +9,15 @@ class_name BuildingButton
 
 var wood_cost: float:
 	get:
-		return base_wood_cost * purchases
+		return base_wood_cost * pow(2, purchases)
 var stone_cost: float:
 	get:
-		return base_stone_cost * purchases
+		return base_stone_cost * pow(2, purchases)
 var metal_cost: float:
 	get:
-		return base_metal_cost * purchases
+		return base_metal_cost * pow(2, purchases)
 
-var purchases: int = 1
+var purchases: int = 0
 
 func purchase():
 	purchases += 1
