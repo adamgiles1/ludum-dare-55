@@ -15,12 +15,12 @@ grow_vertical = 2
 
 [node name="Double Speed Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 281.0
-offset_right = 296.0
-offset_bottom = 361.0
+offset_left = 12.0
+offset_top = 268.0
+offset_right = 132.0
+offset_bottom = 348.0
 theme_override_fonts/font = ExtResource("1_rnlts")
-text = "Dubspeed"
+text = "aaaa"
 script = ExtResource("2_srois")
 wood_cost = 5.0
 
@@ -56,7 +56,7 @@ offset_top = 521.0
 offset_right = 305.0
 offset_bottom = 601.0
 theme_override_fonts/font = ExtResource("1_rnlts")
-text = "Worker Upgrade"
+text = "Spawner Upgrade"
 script = ExtResource("2_srois")
 upgrade = 3
 wood_cost = 50.0

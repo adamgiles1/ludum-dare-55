@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://uwa2ii2d8jgs"]
 
 [ext_resource type="Script" path="res://scenes/units/BaseUnit.gd" id="1_58tdd"]
-[ext_resource type="ArrayMesh" uid="uid://d38baydy2lnim" path="res://assets/models/Imp.obj" id="2_kyius"]
+[ext_resource type="ArrayMesh" uid="uid://d2cli4vnkcp5o" path="res://assets/models/Imp.obj" id="2_kyius"]
 [ext_resource type="AudioStream" uid="uid://c1yo00vlbdn5" path="res://assets/audio/voice-lines/okogg.ogg" id="2_npswq"]
 [ext_resource type="Material" uid="uid://bsg7cs4f36068" path="res://assets/materials/Disabled.tres" id="3_c5ltp"]
 [ext_resource type="AudioStream" uid="uid://kmnq6wxk5yd2" path="res://assets/audio/voice-lines/on-my-way.ogg" id="3_t1uhw"]

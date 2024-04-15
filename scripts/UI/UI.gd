@@ -68,7 +68,7 @@ func register_upgrade_button(upgrade_button: UpgradeButton):
 			spawner_upgrade_button = upgrade_button
 			spawner_upgrade_button.connect("pressed", buy_spawner_upgrade)
 			
-	upgrade_button.visible = false
+	#upgrade_button.visible = false
 
 #Utility		
 func reset():

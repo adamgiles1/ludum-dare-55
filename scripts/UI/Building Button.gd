@@ -28,5 +28,5 @@ func _ready():
 	
 func _process(delta):
 	match building_type:
-		UI.BuildingEnum:
+		UI.BuildingEnum.WORKER_SUMMONER:
 			set_text("Worker Summoner (" + str(wood_cost) + ", 0, 0)")

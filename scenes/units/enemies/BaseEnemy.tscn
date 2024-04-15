@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://s2jus682jfj1"]
+[gd_scene load_steps=12 format=3 uid="uid://s2jus682jfj1"]
 
 [ext_resource type="Script" path="res://scenes/units/enemies/Enemy.gd" id="1_mkkbc"]
-[ext_resource type="ArrayMesh" uid="uid://d4doedu63a8qd" path="res://assets/models/demon.obj" id="2_obrhu"]
+[ext_resource type="ArrayMesh" uid="uid://5wp3bj3w1uac" path="res://assets/models/demon.obj" id="2_obrhu"]
+[ext_resource type="Texture2D" uid="uid://3dgxaawspaqw" path="res://assets/models/Textures/enemy colors.png" id="3_fc2at"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o8w80"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijyug"]
+albedo_texture = ExtResource("3_fc2at")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4ayd4"]
 height = 1.0
@@ -69,6 +73,7 @@ shape = SubResource("CapsuleShape3D_o8w80")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = ExtResource("2_obrhu")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_ijyug")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
