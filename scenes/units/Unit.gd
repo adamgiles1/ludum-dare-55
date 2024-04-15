@@ -73,7 +73,6 @@ func calc_dir(delta: float):
 	velocity = dir * speed * UI.get_unit_speed()
 
 func send_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing, offset: Vector3):
-	set_outline(NO_OUTLINE);
 	walk_to(location, true)
 	handle_command(location, type, thing, offset)
 
@@ -118,6 +117,9 @@ func hover():
 
 func dehover():
 	set_outline(NO_OUTLINE);
+	
+func dehover_selected():
+	set_outline(SELECTED);
 	
 func set_outline(material: Material):
 	%Outline.set_surface_override_material(0, material)

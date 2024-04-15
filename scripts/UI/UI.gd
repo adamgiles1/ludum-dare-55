@@ -1,7 +1,5 @@
 extends Node
 
-@onready var worker_summoner = load("res://scenes/level_pieces/base_unit_summoner.tscn")
-
 var camera: MainCamera
 
 enum ResourceEnum { WOOD, STONE, METAL, UNIT_CAP };
@@ -26,10 +24,7 @@ var purchased_upgrades: Array[UpgradeEnum] = []
 var ui_zones: Array[Control] = [];
 
 #Temporary values associated with a building when we're previewing it and trying to place it
-var preview_wood_cost: int = 0
-var preview_stone_cost: int = 0
-var preview_metal_cost: int = 0
-var preview_object: PackedScene = null
+var previewed_button: BuildingButton
 var preview_mode: bool = false
 
 func _ready():
@@ -52,7 +47,7 @@ func register_resource_count(resource_count: ResourceCount):
 
 func register_building_button(building_button: BuildingButton):
 	ui_zones.append(building_button)
-	match building_button.building:
+	match building_button.building_type:
 		BuildingEnum.WORKER_SUMMONER:
 			worker_summoner_button = building_button
 			worker_summoner_button.connect("pressed", buy_worker_summoner)
@@ -93,16 +88,19 @@ func mouse_in_ui(mouse_position: Vector2) -> bool:
 #Buy Buildings	
 func buy_worker_summoner():
 	camera.begin_preview()
-	preview_wood_cost = 5
-	preview_object = worker_summoner
+	previewed_button = worker_summoner_button
 	preview_mode = true
 
 #Buy Upgrades
 func buy_double_movement():
-	print("buying double movement")
-	wood_count.quantity -= 5
-	purchased_upgrades.append(UpgradeEnum.DOUBLE_MOVEMENT)
-	double_movement_button.visible = false
+	buy_upgrade(double_movement_button)
+
+func buy_upgrade(upgrade_button: UpgradeButton):
+	wood_count.quantity -= upgrade_button.wood_cost
+	stone_count.quantity -= upgrade_button.stone_cost
+	metal_count.quantity -= upgrade_button.metal_cost
+	purchased_upgrades.append(upgrade_button.upgrade)
+	upgrade_button.visible = false
 
 func buy_serpent_upgrade():
 	print("buying serpent upgrade hiss")
@@ -112,19 +110,17 @@ func buy_serpent_upgrade():
 
 #Building Preview
 func confirm_preview(position: Vector3):
-	wood_count.quantity -= preview_wood_cost
-	stone_count.quantity -= preview_stone_cost
-	metal_count.quantity -= preview_metal_cost
-	var build = preview_object.instantiate()
+	wood_count.quantity -= previewed_button.wood_cost
+	stone_count.quantity -= previewed_button.stone_cost
+	metal_count.quantity -= previewed_button.metal_cost
+	var build = previewed_button.building_scene.instantiate()
 	camera.get_parent().add_child(build)
 	build.global_position = position
+	previewed_button.purchase()
 	cancel_preview()
 
 func cancel_preview():
-	preview_object = null
-	preview_wood_cost = 0
-	preview_stone_cost = 0
-	preview_metal_cost = 0
+	previewed_button = null
 	preview_mode = false
 
 #UI Control	
@@ -140,6 +136,9 @@ func _process(delta: float):
 	
 	if worker_upgrade_button:
 		worker_upgrade_button.disabled = stone_count.quantity < 50 or preview_mode
+	for button in [worker_summoner_button, double_movement_button]:
+		if button:
+			button.disabled = wood_count.quantity < button.wood_cost or stone_count.quantity < button.stone_cost or metal_count.quantity < button.metal_cost or preview_mode
 
 #Gather Resources
 func increase_wood(amount: float):
