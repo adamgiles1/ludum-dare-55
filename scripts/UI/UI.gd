@@ -149,6 +149,14 @@ func _process(delta: float):
 	for button in [worker_summoner_button, warrior_summoner_button, double_movement_button, spawner_upgrade_button, serpent_upgrade_button, worker_upgrade_button]:
 		if button:
 			button.disabled = wood_count.quantity < button.wood_cost or stone_count.quantity < button.stone_cost or metal_count.quantity < button.metal_cost or preview_mode
+	
+	# cheat codes
+	if Input.is_action_pressed("ctrl") && Input.is_action_pressed("shift") && Input.is_action_just_pressed("1"):
+		increase_wood(10)
+	if Input.is_action_pressed("ctrl") && Input.is_action_pressed("shift") && Input.is_action_just_pressed("2"):
+		increase_stone(10)
+	if Input.is_action_pressed("ctrl") && Input.is_action_pressed("shift") && Input.is_action_just_pressed("3"):
+		increase_metal(10)
 
 #Gather Resources
 func increase_wood(amount: float):
