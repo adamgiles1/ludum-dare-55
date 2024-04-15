@@ -10,6 +10,7 @@ var time_till_next_attack := 0.0
 func _ready():
 	anim_overriden = true
 	GameManager.unit_created()
+	Signals.SELECT_ALL.connect(all_select)
 
 func _process(delta):
 	time_till_next_attack -= delta
@@ -74,3 +75,6 @@ func find_new_target() -> bool:
 	else:
 		current_state = STATE.IDLE
 		return false
+
+func all_select():
+	GameManager.select_all_units_role_call(self)

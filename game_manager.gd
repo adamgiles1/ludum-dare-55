@@ -28,8 +28,8 @@ func _ready():
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("1"):
-		Signals.GAME_WON.emit()
+	if Input.is_action_just_pressed("q"):
+		Signals.SELECT_ALL.emit()
 		pass
 	
 	if Input.is_action_just_pressed("video_skip"):
@@ -60,6 +60,10 @@ func select(units: Array[Unit]):
 	active_units = units
 	for unit in units:
 		unit.select()
+
+func select_all_units_role_call(unit: Unit):
+	active_units.append(unit)
+	unit.select()
 
 func hover(hovers: Array[CollisionObject3D]):
 	for hover in active_hovers:
