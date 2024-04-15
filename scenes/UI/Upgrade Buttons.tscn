@@ -20,5 +20,6 @@ offset_top = 281.0
 offset_right = 296.0
 offset_bottom = 361.0
 theme_override_fonts/font = ExtResource("1_rnlts")
-text = "Double Speed"
+text = "Dubspeed"
 script = ExtResource("2_srois")
+wood_cost = 5.0

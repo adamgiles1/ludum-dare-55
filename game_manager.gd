@@ -45,12 +45,21 @@ func select(units: Array[Unit]):
 
 func hover(hovers: Array[CollisionObject3D]):
 	for hover in active_hovers:
-		if is_instance_valid(hover) and (hover is Unit or hover is BaseInteract):
-			hover.dehover()
+		if is_instance_valid(hover):
+			if hover is Unit:
+				if hover in active_units:
+					hover.dehover_selected()
+				else:
+					hover.dehover()
+			elif hover.get_parent() is BaseInteract:
+				hover.get_parent().dehover()
 	active_hovers = hovers
 	for hover in hovers:
-		if is_instance_valid(hover) and (hover is Unit or hover is BaseInteract):
-			hover.hover()
+		if is_instance_valid(hover):
+			if hover is Unit:
+				hover.hover()
+			elif hover.get_parent() is BaseInteract:
+				hover.get_parent().hover()
 
 func spawn_hover_arrow(location: Vector3):
 	Signals.HOVER_ARROW_SPAWNED.emit()
