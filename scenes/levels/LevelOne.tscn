@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://by3bqe6ijfx0p"]
+[gd_scene load_steps=26 format=3 uid="uid://by3bqe6ijfx0p"]
 
 [ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
 [ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://b8rbix4uljxaw" path="res://scenes/level_pieces/InteractableThing.tscn" id="6_cps07"]
 [ext_resource type="PackedScene" uid="uid://dqjfdli3511dj" path="res://scenes/level_pieces/base_unit_summoner.tscn" id="7_rkko5"]
 [ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://assets/materials/Hovered.tres" id="10_e20s7"]
-[ext_resource type="PackedScene" uid="uid://co0hacth5elo5" path="res://scenes/level_pieces/warrior_summoner.tscn" id="10_kipc5"]
 [ext_resource type="Script" path="res://scenes/levels/Selection Area.gd" id="11_yetwi"]
 [ext_resource type="PackedScene" uid="uid://bcbla1pf3udgb" path="res://scenes/level_pieces/archer_summoner.tscn" id="12_5h7km"]
 [ext_resource type="PackedScene" uid="uid://dn6xget4o555i" path="res://scenes/level_pieces/EnemySummoner.tscn" id="12_r0ss6"]
@@ -82,9 +81,6 @@ current = true
 
 [node name="BaseUnitSummoner" parent="." instance=ExtResource("7_rkko5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0.5, 0)
-
-[node name="BaseUnitSummoner2" parent="." instance=ExtResource("10_kipc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.712, 0.5, 8.00369)
 
 [node name="SelectionArea" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108, 1, 0)
@@ -200,9 +196,6 @@ team_id = 4
 summon_type = ExtResource("13_wcaf8")
 max_units = 12
 is_ranged = true
-
-[node name="BaseUnitSummoner3" parent="." instance=ExtResource("12_5h7km")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.644, 0.5, 6.91848)
 
 [node name="PlacementPreview" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.6, 2.6)

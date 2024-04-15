@@ -20,7 +20,7 @@ offset_top = 264.0
 offset_right = 97.0
 offset_bottom = 344.0
 theme_override_fonts/font = ExtResource("1_rnlts")
-text = "aaaa"
+text = "aaaa "
 script = ExtResource("2_srois")
 wood_cost = 5.0
 

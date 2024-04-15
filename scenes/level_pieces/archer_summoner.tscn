@@ -29,8 +29,9 @@ collision_mask = 8
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("CylinderShape3D_5iggk")
 
-[node name="Decal" type="Decal" parent="."]
-size = Vector3(3, 3, 3)
-texture_albedo = ExtResource("3_h7cn3")
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.01, 0)
+pixel_size = 0.1
+texture = ExtResource("3_h7cn3")
