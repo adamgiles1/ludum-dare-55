@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diygt8g73kjos"
-path.s3tc="res://.godot/imported/serpent.png-78fc8510532cd1983264d889a00bc7da.s3tc.ctex"
+uid="uid://cedux4y0ssi5x"
+path="res://.godot/imported/serpent.png-78fc8510532cd1983264d889a00bc7da.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/models/Textures/serpent.png"
-dest_files=["res://.godot/imported/serpent.png-78fc8510532cd1983264d889a00bc7da.s3tc.ctex"]
+dest_files=["res://.godot/imported/serpent.png-78fc8510532cd1983264d889a00bc7da.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

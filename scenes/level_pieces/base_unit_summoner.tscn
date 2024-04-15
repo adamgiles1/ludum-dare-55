@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqjfdli3511dj"]
+[gd_scene load_steps=7 format=3 uid="uid://dqjfdli3511dj"]
 
 [ext_resource type="Script" path="res://scenes/level_pieces/unit_summon_script.gd" id="1_dggm3"]
 [ext_resource type="PackedScene" uid="uid://uwa2ii2d8jgs" path="res://scenes/units/BaseUnit.tscn" id="2_c0haw"]
+[ext_resource type="Texture2D" uid="uid://cn6m8iokxbkh2" path="res://assets/textures/worker portal.png" id="3_15hnv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07g5w"]
 albedo_color = Color(0.411765, 1, 0.294118, 1)
@@ -18,6 +19,7 @@ unit_to_summon = ExtResource("2_c0haw")
 is_worker = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_2d1pu")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -27,3 +29,7 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("CylinderShape3D_slg7s")
+
+[node name="Decal" type="Decal" parent="."]
+size = Vector3(3, 3, 3)
+texture_albedo = ExtResource("3_15hnv")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://2sl0nis0iswv"]
+[gd_scene load_steps=3 format=3 uid="uid://2sl0nis0iswv"]
 
 [ext_resource type="Script" path="res://scripts/UI/Building Button.gd" id="1_02x6n"]
+[ext_resource type="FontFile" uid="uid://cykqnkkml7l1s" path="res://assets/font/CourierPrime-Bold.ttf" id="1_dxvee"]
 
 [node name="Building Buttons" type="Control"]
 layout_mode = 3
@@ -18,5 +19,6 @@ offset_left = 22.0
 offset_top = 97.0
 offset_right = 172.0
 offset_bottom = 177.0
+theme_override_fonts/font = ExtResource("1_dxvee")
 text = "Buy Worker Portal"
 script = ExtResource("1_02x6n")
