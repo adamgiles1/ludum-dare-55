@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://by3bqe6ijfx0p"]
+[gd_scene load_steps=29 format=3 uid="uid://by3bqe6ijfx0p"]
 
 [ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
 [ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
@@ -15,7 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://breihy2in4f0" path="res://scenes/units/enemies/ArcherEnemy.tscn" id="13_wcaf8"]
 [ext_resource type="Script" path="res://scenes/levels/PlacementPreview.gd" id="14_1jnww"]
 [ext_resource type="PackedScene" uid="uid://dcbb35bbiiq5a" path="res://scenes/level_pieces/Rock.tscn" id="16_d2iv3"]
+[ext_resource type="PackedScene" uid="uid://cpof7y2yo1smp" path="res://win particle system.tscn" id="17_34ipc"]
 [ext_resource type="PackedScene" uid="uid://c5f7boa4e0bwo" path="res://scenes/level_pieces/Mammal.tscn" id="17_auqis"]
+[ext_resource type="Script" path="res://win particle system.gd" id="18_nkgqp"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_mmttv"]
 vertices = PackedVector3Array(-249, 1, -16, -122, 1, -16, -122, 1, -17.75, -249, 1, -16, -122, 1, -17.75, -120, 1, -19.25, -120, 1, -249, -249, 1, -249, -118, 1, -14.5, -101.75, 1, -3, -100.75, 1, -3, -118, 1, -17.75, -120, 1, -249, -100, 1, -2.25, -99.75, 1, -0.25, 249, 1, -0.5, 249, 1, -249, -120, 1, -249, -120, 1, -19.25, -118, 1, -17.75, -120, 1, -249, -118, 1, -17.75, -100.75, 1, -3, -120, 1, -249, -100.75, 1, -3, -100, 1, -2.25, -120.25, 1, 8.75, -120, 1, -13, -120.75, 1, -13, -121.5, 1, 9.5, -122, 1, -14.25, -122, 1, -16, -249, 1, -16, -121.5, 1, 9.5, -120.75, 1, -13, -122, 1, -14.25, -249, 1, -16, -249, 1, 11.5, -121.75, 1, 11.5, -120.25, 1, 8.75, -119.75, 1, 8.75, -103, 1, 2, -103, 1, -1.5, -119.25, 1, -13, -120, 1, -13, -103, 1, -1.5, -101.75, 1, -3, -118, 1, -14.5, -119.25, 1, -13, -99.75, 1, -0.25, -99.75, 1, 0.75, 249, 1, 1, 249, 1, -0.5, -100.75, 1, 3.25, -101.75, 1, 3.25, -118.75, 1, 9.75, -118.5, 1, 15, -99.75, 1, 2.25, -100.75, 1, 3.25, -120, 1, 249, 249, 1, 249, 249, 1, 1, -100.75, 1, 3.25, -118.5, 1, 15, -119.25, 1, 15.75, -120, 1, 249, -119.25, 1, 15.75, -120, 1, 15.75, -120, 1, 249, 249, 1, 1, -99.75, 1, 0.75, -99.75, 1, 2.25, -118.75, 1, 9.75, -101.75, 1, 3.25, -103, 1, 2, -119.75, 1, 8.75, -121.75, 1, 13.5, -121.75, 1, 11.5, -249, 1, 11.5, -249, 1, 13.75, -121.75, 1, 15, -121.75, 1, 13.5, -249, 1, 13.75, -121, 1, 15.75, -121.75, 1, 15, -249, 1, 13.75, -249, 1, 249, -120, 1, 249, -120, 1, 249, -120, 1, 15.75, -121, 1, 15.75)
@@ -46,6 +48,10 @@ material = SubResource("StandardMaterial3D_g3ghr")
 inner_radius = 100.0
 outer_radius = 99.0
 rings = 5
+
+[sub_resource type="Curve" id="Curve_x8b6r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="LevelOne" type="Node3D"]
 script = ExtResource("1_377d4")
@@ -275,3 +281,15 @@ team_id = 4
 
 [node name="BaseUnitSummoner2" parent="." instance=ExtResource("12_5h7km")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.28, 0.5, -6.90615)
+
+[node name="Node3D" parent="." instance=ExtResource("17_34ipc")]
+transform = Transform3D(0.948711, -0.316146, -1.38192e-08, 0, -4.37114e-08, 1, -0.316146, -0.948711, -4.14695e-08, 0, 1.25881, 0)
+emitting = false
+amount = 200
+lifetime = 2.25
+explosiveness = 0.0
+randomness = 0.5
+direction = Vector3(1, 0, 0)
+spread = 0.0
+scale_amount_curve = SubResource("Curve_x8b6r")
+script = ExtResource("18_nkgqp")
