@@ -19,7 +19,9 @@ const pentagram_end: Vector3 = Vector3(-10, 130, 0)
 const pentagram_rot_end: Vector3 = Vector3(-1.57, 1.57, 0)
 var pentagram_rot_start: Vector3
 var pentagram_time = false
+var video_sent
 const time_till_pentagram = 5.0
+var time_till_video = 6.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,13 +31,17 @@ func _ready():
 func _process(delta):
 	if pentagram_time:
 		pentagram_lerp_time += delta
+		time_till_video -= delta
 		if pentagram_lerp_time > time_till_pentagram:
 			pentagram_lerp_time = time_till_pentagram
 		position = lerp(pentagram_start, pentagram_end, pentagram_lerp_time / time_till_pentagram)
 		rotation = lerp(pentagram_rot_start, pentagram_rot_end, pentagram_lerp_time / time_till_pentagram)
+		if time_till_video <= 0 && !video_sent:
+			video_sent = true
+			GameManager.play_final_video()
 	
 	GameManager.hover(hovers)
-		
+	
 	var vel = Vector3.ZERO
 	if Input.is_action_pressed("camera_down") && position.x > -200:
 		vel.x = -1

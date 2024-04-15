@@ -2,10 +2,12 @@ extends Node
 
 @onready var hover_arrow_scen: PackedScene = preload("res://scenes/effects/ClickedArrow.tscn")
 @onready var intro_video: PackedScene = preload("res://scenes/UI/FirstVideo.tscn")
-@onready var one_camp_vid: PackedScene = preload("res://scenes/UI/FirstVideo.tscn")
-@onready var two_camp_vid: PackedScene = preload("res://scenes/UI/FirstVideo.tscn")
-@onready var three_camp_vid: PackedScene = preload("res://scenes/UI/FirstVideo.tscn")
-@onready var final_vid: PackedScene = preload("res://scenes/UI/FirstVideo.tscn")
+@onready var one_camp_vid: PackedScene = preload("res://scenes/UI/1camp.tscn")
+@onready var two_camp_vid: PackedScene = preload("res://scenes/UI/2camp.tscn")
+@onready var three_camp_vid: PackedScene = preload("res://scenes/UI/3camp.tscn")
+@onready var final_vid: PackedScene = preload("res://scenes/UI/FinalVid.tscn")
+
+var play_videos = false
 
 var active_units: Array[Unit] = []
 var active_hovers: Array[CollisionObject3D] = []
@@ -21,11 +23,11 @@ var camps_down := 0
 var summoners: Array[EnemySpawner] = []
 
 func _ready():
-	play_video(intro_video)
+	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		play_video(intro_video)
+	if Input.is_action_just_pressed("1"):
+		Signals.GAME_WON.emit()
 	
 	time_till_sound_wipe -= delta
 	if time_till_sound_wipe <= 0:
@@ -125,6 +127,8 @@ func can_spawn_more_units() -> bool:
 	return total_units <= unit_cap
 
 func play_video(video: PackedScene):
+	if !play_videos:
+		return
 	var t = video.instantiate()
 	get_tree().root.add_child(t)
 
@@ -136,5 +140,11 @@ func play_camp_video():
 			play_video(two_camp_vid)
 		3:
 			play_video(three_camp_vid)
-		4:
-			play_video(final_vid)
+		_:
+			print("no video for this camp")
+
+func play_final_video():
+	play_video(final_vid)
+
+func play_first_video():
+	play_video(intro_video)

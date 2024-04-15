@@ -1,0 +1,274 @@
+[gd_scene load_steps=26 format=3 uid="uid://by3bqe6ijfx0p"]
+
+[ext_resource type="Script" path="res://scenes/levels/GameScript.gd" id="1_377d4"]
+[ext_resource type="PackedScene" uid="uid://bkpas823tjkr5" path="res://scenes/level_pieces/floor.tscn" id="1_e4awv"]
+[ext_resource type="PackedScene" uid="uid://dkcud0puxf2vo" path="res://scenes/UI/Resource Counts.tscn" id="2_uoyca"]
+[ext_resource type="PackedScene" uid="uid://2sl0nis0iswv" path="res://scenes/UI/Building Buttons.tscn" id="2_x3jxv"]
+[ext_resource type="PackedScene" uid="uid://c8o8ryo7nkn3g" path="res://scenes/Camera.tscn" id="3_ojmy0"]
+[ext_resource type="PackedScene" uid="uid://bti2e1ypog064" path="res://scenes/UI/Upgrade Buttons.tscn" id="4_45hki"]
+[ext_resource type="PackedScene" uid="uid://b8rbix4uljxaw" path="res://scenes/level_pieces/InteractableThing.tscn" id="6_cps07"]
+[ext_resource type="PackedScene" uid="uid://dqjfdli3511dj" path="res://scenes/level_pieces/base_unit_summoner.tscn" id="7_rkko5"]
+[ext_resource type="Material" uid="uid://bh718vux0wbi5" path="res://assets/materials/Hovered.tres" id="10_e20s7"]
+[ext_resource type="Script" path="res://scenes/levels/Selection Area.gd" id="11_yetwi"]
+[ext_resource type="PackedScene" uid="uid://bcbla1pf3udgb" path="res://scenes/level_pieces/archer_summoner.tscn" id="12_5h7km"]
+[ext_resource type="PackedScene" uid="uid://dn6xget4o555i" path="res://scenes/level_pieces/EnemySummoner.tscn" id="12_r0ss6"]
+[ext_resource type="PackedScene" uid="uid://breihy2in4f0" path="res://scenes/units/enemies/ArcherEnemy.tscn" id="13_wcaf8"]
+[ext_resource type="Script" path="res://scenes/levels/PlacementPreview.gd" id="14_1jnww"]
+[ext_resource type="PackedScene" uid="uid://dcbb35bbiiq5a" path="res://scenes/level_pieces/Rock.tscn" id="16_d2iv3"]
+[ext_resource type="PackedScene" uid="uid://c5f7boa4e0bwo" path="res://scenes/level_pieces/Mammal.tscn" id="17_auqis"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_mmttv"]
+vertices = PackedVector3Array(-249, 1, -16, -122, 1, -16, -122, 1, -17.75, -249, 1, -16, -122, 1, -17.75, -120, 1, -19.25, -120, 1, -249, -249, 1, -249, -118, 1, -14.5, -101.75, 1, -3, -100.75, 1, -3, -118, 1, -17.75, -120, 1, -249, -100, 1, -2.25, -99.75, 1, -0.25, 249, 1, -0.5, 249, 1, -249, -120, 1, -249, -120, 1, -19.25, -118, 1, -17.75, -120, 1, -249, -118, 1, -17.75, -100.75, 1, -3, -120, 1, -249, -100.75, 1, -3, -100, 1, -2.25, -120.25, 1, 8.75, -120, 1, -13, -120.75, 1, -13, -121.5, 1, 9.5, -122, 1, -14.25, -122, 1, -16, -249, 1, -16, -121.5, 1, 9.5, -120.75, 1, -13, -122, 1, -14.25, -249, 1, -16, -249, 1, 11.5, -121.75, 1, 11.5, -120.25, 1, 8.75, -119.75, 1, 8.75, -103, 1, 2, -103, 1, -1.5, -119.25, 1, -13, -120, 1, -13, -103, 1, -1.5, -101.75, 1, -3, -118, 1, -14.5, -119.25, 1, -13, -99.75, 1, -0.25, -99.75, 1, 0.75, 249, 1, 1, 249, 1, -0.5, -100.75, 1, 3.25, -101.75, 1, 3.25, -118.75, 1, 9.75, -118.5, 1, 15, -99.75, 1, 2.25, -100.75, 1, 3.25, -120, 1, 249, 249, 1, 249, 249, 1, 1, -100.75, 1, 3.25, -118.5, 1, 15, -119.25, 1, 15.75, -120, 1, 249, -119.25, 1, 15.75, -120, 1, 15.75, -120, 1, 249, 249, 1, 1, -99.75, 1, 0.75, -99.75, 1, 2.25, -118.75, 1, 9.75, -101.75, 1, 3.25, -103, 1, 2, -119.75, 1, 8.75, -121.75, 1, 13.5, -121.75, 1, 11.5, -249, 1, 11.5, -249, 1, 13.75, -121.75, 1, 15, -121.75, 1, 13.5, -249, 1, 13.75, -121, 1, 15.75, -121.75, 1, 15, -249, 1, 13.75, -249, 1, 249, -120, 1, 249, -120, 1, 249, -120, 1, 15.75, -121, 1, 15.75)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(6, 3, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(15, 12, 16), PackedInt32Array(19, 18, 17), PackedInt32Array(22, 21, 20), PackedInt32Array(25, 24, 23), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29), PackedInt32Array(32, 31, 30), PackedInt32Array(34, 33, 35), PackedInt32Array(35, 33, 38), PackedInt32Array(35, 38, 37), PackedInt32Array(35, 37, 36), PackedInt32Array(40, 39, 41), PackedInt32Array(41, 39, 42), PackedInt32Array(42, 39, 43), PackedInt32Array(43, 39, 44), PackedInt32Array(48, 47, 45), PackedInt32Array(45, 47, 46), PackedInt32Array(49, 52, 50), PackedInt32Array(50, 52, 51), PackedInt32Array(54, 53, 55), PackedInt32Array(55, 53, 56), PackedInt32Array(58, 57, 59), PackedInt32Array(59, 57, 61), PackedInt32Array(59, 61, 60), PackedInt32Array(63, 62, 64), PackedInt32Array(64, 62, 65), PackedInt32Array(68, 67, 66), PackedInt32Array(71, 70, 69), PackedInt32Array(75, 74, 72), PackedInt32Array(72, 74, 73), PackedInt32Array(77, 76, 78), PackedInt32Array(78, 76, 79), PackedInt32Array(82, 81, 80), PackedInt32Array(84, 83, 85), PackedInt32Array(85, 83, 86), PackedInt32Array(86, 83, 87), PackedInt32Array(90, 89, 88)]
+agent_height = 2.0
+agent_radius = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_jfl7i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dl4yg"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_gacok"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bmxer"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smub6"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r3u0y"]
+material = SubResource("StandardMaterial3D_smub6")
+size = Vector2(189, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3ghr"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_pofsu"]
+material = SubResource("StandardMaterial3D_g3ghr")
+inner_radius = 100.0
+outer_radius = 99.0
+rings = 5
+
+[node name="LevelOne" type="Node3D"]
+script = ExtResource("1_377d4")
+
+[node name="Building Buttons" parent="." instance=ExtResource("2_x3jxv")]
+
+[node name="Resource Counts" parent="." instance=ExtResource("2_uoyca")]
+
+[node name="Upgrade Buttons" parent="." instance=ExtResource("4_45hki")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_mmttv")
+
+[node name="Floor" parent="NavigationRegion3D" instance=ExtResource("1_e4awv")]
+
+[node name="CharacterBody3D" parent="NavigationRegion3D" instance=ExtResource("16_d2iv3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 1, -16)
+
+[node name="InteractableThing" parent="NavigationRegion3D" instance=ExtResource("6_cps07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.046, 1.5, 12.3702)
+
+[node name="CharacterBody3D2" parent="NavigationRegion3D" instance=ExtResource("17_auqis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.338, 1.6, 0.0881498)
+
+[node name="Camera" parent="." instance=ExtResource("3_ojmy0")]
+transform = Transform3D(2.18557e-08, 0.866025, -0.5, 3.78552e-08, 0.5, 0.866025, 1, -3.78552e-08, -2.18557e-08, -131, 16.2795, 0)
+doppler_tracking = 1
+current = true
+
+[node name="BaseUnitSummoner" parent="." instance=ExtResource("7_rkko5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0.5, 0)
+
+[node name="SelectionArea" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108, 1, 0)
+mesh = SubResource("BoxMesh_jfl7i")
+skeleton = NodePath("Area3D")
+surface_material_override/0 = ExtResource("10_e20s7")
+script = ExtResource("11_yetwi")
+
+[node name="Area3D" type="Area3D" parent="SelectionArea"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SelectionArea/Area3D"]
+shape = SubResource("BoxShape3D_dl4yg")
+
+[node name="EnemySummoner2" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, -105.449)
+max_units = 2
+
+[node name="EnemySummoner3" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, -102.449)
+max_units = 2
+
+[node name="EnemySummoner7" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.636, 0.5, -105.449)
+max_units = 2
+
+[node name="EnemySummoner8" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, -108.449)
+max_units = 2
+
+[node name="EnemySummoner9" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.636, 0.5, -105.449)
+max_units = 2
+
+[node name="EnemySummoner10" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, 104.551)
+team_id = 2
+max_units = 5
+
+[node name="EnemySummoner11" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, 107.551)
+team_id = 2
+max_units = 5
+
+[node name="EnemySummoner12" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.636, 0.5, 104.551)
+team_id = 2
+summon_type = ExtResource("13_wcaf8")
+max_units = 5
+is_ranged = true
+
+[node name="EnemySummoner13" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.636, 0.5, 101.551)
+team_id = 2
+max_units = 5
+
+[node name="EnemySummoner14" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.636, 0.5, 104.551)
+team_id = 2
+max_units = 5
+
+[node name="EnemySummoner15" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, 65.5508)
+team_id = 3
+max_units = 9
+
+[node name="EnemySummoner16" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, 68.5508)
+team_id = 3
+summon_type = ExtResource("13_wcaf8")
+max_units = 9
+is_ranged = true
+
+[node name="EnemySummoner17" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.364, 0.5, 65.5508)
+team_id = 3
+summon_type = ExtResource("13_wcaf8")
+max_units = 9
+is_ranged = true
+
+[node name="EnemySummoner18" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, 62.5508)
+team_id = 3
+max_units = 9
+
+[node name="EnemySummoner19" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.364, 0.5, 65.5508)
+team_id = 3
+max_units = 9
+
+[node name="EnemySummoner20" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, -65.4492)
+team_id = 4
+max_units = 11
+
+[node name="EnemySummoner21" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, -62.4492)
+team_id = 4
+max_units = 11
+
+[node name="EnemySummoner22" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.364, 0.5, -65.4492)
+team_id = 4
+summon_type = ExtResource("13_wcaf8")
+max_units = 11
+is_ranged = true
+
+[node name="EnemySummoner23" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.364, 0.5, -68.4492)
+team_id = 4
+summon_type = ExtResource("13_wcaf8")
+max_units = 11
+is_ranged = true
+
+[node name="EnemySummoner24" parent="." instance=ExtResource("12_r0ss6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.364, 0.5, -65.4492)
+team_id = 4
+summon_type = ExtResource("13_wcaf8")
+max_units = 11
+is_ranged = true
+
+[node name="PlacementPreview" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.6, 2.6)
+mesh = SubResource("QuadMesh_gacok")
+surface_material_override/0 = ExtResource("10_e20s7")
+script = ExtResource("14_1jnww")
+
+[node name="Collision Area" type="Area3D" parent="PlacementPreview"]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlacementPreview/Collision Area"]
+shape = SubResource("CylinderShape3D_bmxer")
+
+[node name="Link Area" type="Area3D" parent="PlacementPreview"]
+transform = Transform3D(8, 0, 0, 0, -3.49691e-07, -8, 0, 8, -3.49691e-07, 0, 0, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlacementPreview/Link Area"]
+shape = SubResource("CylinderShape3D_bmxer")
+
+[node name="PentagramLine1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.948324, 0, 0.317305, 0, 1, 0, -0.317305, 0, 0.948324, -9.47249, 1, -29.3335)
+visible = false
+mesh = SubResource("PlaneMesh_r3u0y")
+
+[node name="PentagramLine2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.953717, 0, -0.300706, 0, 1, 0, 0.300706, 0, 0.953717, -9.47249, 1, 28.9911)
+visible = false
+mesh = SubResource("PlaneMesh_r3u0y")
+
+[node name="PentagramLine3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.596365, 0, -0.802713, 0, 1, 0, 0.802713, 0, 0.596365, 24.4168, 1, -18.9474)
+visible = false
+mesh = SubResource("PlaneMesh_r3u0y")
+
+[node name="PentagramLine5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.574834, 0, 0.81827, 0, 1, 0, -0.81827, 0, 0.574834, 25.3882, 1, 17.4822)
+visible = false
+mesh = SubResource("PlaneMesh_r3u0y")
+
+[node name="PentagramLine4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0106463, 0, -0.999943, 0, 1, 0, 0.999943, 0, 0.0106463, -31.0184, 1, -0.817674)
+visible = false
+mesh = SubResource("PlaneMesh_r3u0y")
+
+[node name="PentagramOutline" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.948904, 0, 0.315566, 0, 1, 0, -0.315566, 0, 0.948904, 0, 0.02, 0)
+mesh = SubResource("TorusMesh_pofsu")
+
+[node name="BaseUnitSummoner4" parent="." instance=ExtResource("12_5h7km")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5657, 0.5, -105.44)
+is_unlock = true
+team_id = 1
+
+[node name="BaseUnitSummoner5" parent="." instance=ExtResource("12_5h7km")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.597, 0.5, 104.569)
+is_unlock = true
+team_id = 2
+
+[node name="BaseUnitSummoner6" parent="." instance=ExtResource("12_5h7km")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.3618, 0.5, 65.5073)
+is_unlock = true
+team_id = 3
+
+[node name="BaseUnitSummoner7" parent="." instance=ExtResource("12_5h7km")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.3326, 0.5, -65.4778)
+is_unlock = true
+team_id = 4

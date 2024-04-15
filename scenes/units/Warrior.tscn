@@ -1,19 +1,20 @@
-[gd_scene load_steps=22 format=3 uid="uid://dt8njlpe6sama"]
+[gd_scene load_steps=23 format=3 uid="uid://dt8njlpe6sama"]
 
 [ext_resource type="Script" path="res://scenes/units/Warrior.gd" id="1_hb22l"]
 [ext_resource type="ArrayMesh" uid="uid://d4doedu63a8qd" path="res://assets/models/demon.obj" id="2_81gvt"]
-[ext_resource type="AudioStream" uid="uid://c1yo00vlbdn5" path="res://assets/audio/voice-lines/okogg.ogg" id="3_v74cb"]
 [ext_resource type="Material" uid="uid://bsg7cs4f36068" path="res://assets/materials/Disabled.tres" id="3_wig4t"]
-[ext_resource type="AudioStream" uid="uid://kmnq6wxk5yd2" path="res://assets/audio/voice-lines/on-my-way.ogg" id="4_xgu71"]
-[ext_resource type="AudioStream" uid="uid://borg6bi6u24uu" path="res://assets/audio/voice-lines/you-got-it.ogg" id="5_xsam7"]
-[ext_resource type="AudioStream" uid="uid://bs7yovimpl60g" path="res://assets/audio/voice-lines/yes-question-mark.ogg" id="6_w1mvk"]
-[ext_resource type="AudioStream" uid="uid://b5die2v1jr51y" path="res://assets/audio/voice-lines/yeahogg.ogg" id="7_by6s8"]
-[ext_resource type="AudioStream" uid="uid://0xer7vpwvuhq" path="res://assets/audio/voice-lines/aaaah.ogg" id="8_ykhx8"]
-[ext_resource type="AudioStream" uid="uid://pbv3u0h5lylx" path="res://assets/audio/voice-lines/oof.ogg" id="9_ro0wh"]
-[ext_resource type="AudioStream" uid="uid://b8ejeogots466" path="res://assets/audio/voice-lines/OOOF.ogg" id="10_vm5cq"]
-[ext_resource type="AudioStream" uid="uid://c5voisno7diqs" path="res://assets/audio/voice-lines/charge.ogg" id="11_5u2pn"]
-[ext_resource type="AudioStream" uid="uid://62falebqpyns" path="res://assets/audio/voice-lines/kill.ogg" id="12_vwf01"]
-[ext_resource type="AudioStream" uid="uid://boiksvx6fsrpx" path="res://assets/audio/voice-lines/for-glory.ogg" id="13_n1ywq"]
+[ext_resource type="AudioStream" uid="uid://dft3ggrkvvyu4" path="res://assets/audio/voice-lines/demon-ok.ogg" id="4_bd6e4"]
+[ext_resource type="AudioStream" uid="uid://dmcp7iwtou1r5" path="res://assets/audio/voice-lines/demon-on-my-way.ogg" id="5_311sk"]
+[ext_resource type="AudioStream" uid="uid://0vp7huf5hunq" path="res://assets/audio/voice-lines/demon-you-got-it.ogg" id="6_nwmby"]
+[ext_resource type="AudioStream" uid="uid://csomi4m25hwey" path="res://assets/audio/voice-lines/demon-what.ogg" id="7_bu70o"]
+[ext_resource type="AudioStream" uid="uid://b3a0vh35rpjv5" path="res://assets/audio/voice-lines/demon-yeah.ogg" id="8_mt25g"]
+[ext_resource type="AudioStream" uid="uid://cxbk41m7e672v" path="res://assets/audio/voice-lines/demon-yes.ogg" id="9_228tr"]
+[ext_resource type="AudioStream" uid="uid://c1gc8j26blxye" path="res://assets/audio/voice-lines/demon-agg.ogg" id="10_fnyo6"]
+[ext_resource type="AudioStream" uid="uid://cfpa7eirbngwi" path="res://assets/audio/voice-lines/demon-ahh.ogg" id="11_dvqi4"]
+[ext_resource type="AudioStream" uid="uid://cyumtpmiajj2v" path="res://assets/audio/voice-lines/demon-no.ogg" id="12_a7vjk"]
+[ext_resource type="AudioStream" uid="uid://dusbs0dndbrf" path="res://assets/audio/voice-lines/demon-attack.ogg" id="12_sthfm"]
+[ext_resource type="AudioStream" uid="uid://ba161yh7hunw7" path="res://assets/audio/voice-lines/demon-charge.ogg" id="13_vbs1k"]
+[ext_resource type="AudioStream" uid="uid://di75betovp7qx" path="res://assets/audio/voice-lines/demon-for-glory.ogg" id="14_e3i4n"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8unc7"]
 _surfaces = [{
@@ -96,43 +97,58 @@ shape = SubResource("CapsuleShape3D_8pjdd")
 [node name="Walk" type="Node3D" parent="."]
 
 [node name="Ok1" type="AudioStreamPlayer3D" parent="Walk"]
-stream = ExtResource("3_v74cb")
+stream = ExtResource("4_bd6e4")
+pitch_scale = 0.8
 
 [node name="Ok2" type="AudioStreamPlayer3D" parent="Walk"]
-stream = ExtResource("4_xgu71")
+stream = ExtResource("5_311sk")
+pitch_scale = 0.8
 
 [node name="Ok3" type="AudioStreamPlayer3D" parent="Walk"]
-stream = ExtResource("5_xsam7")
+stream = ExtResource("6_nwmby")
+pitch_scale = 0.8
 
 [node name="Select" type="Node3D" parent="."]
 
 [node name="Select1" type="AudioStreamPlayer3D" parent="Select"]
-stream = ExtResource("6_w1mvk")
+stream = ExtResource("7_bu70o")
+pitch_scale = 0.8
 
 [node name="Select2" type="AudioStreamPlayer3D" parent="Select"]
-stream = ExtResource("7_by6s8")
+stream = ExtResource("8_mt25g")
+pitch_scale = 0.8
+
+[node name="Select3" type="AudioStreamPlayer3D" parent="Select"]
+stream = ExtResource("9_228tr")
+pitch_scale = 0.8
 
 [node name="Die" type="Node3D" parent="."]
 
 [node name="Die1" type="AudioStreamPlayer3D" parent="Die"]
-stream = ExtResource("8_ykhx8")
+stream = ExtResource("10_fnyo6")
+pitch_scale = 0.7
 
 [node name="Die2" type="AudioStreamPlayer3D" parent="Die"]
-stream = ExtResource("9_ro0wh")
+stream = ExtResource("11_dvqi4")
+pitch_scale = 0.65
 
 [node name="Die3" type="AudioStreamPlayer3D" parent="Die"]
-stream = ExtResource("10_vm5cq")
+stream = ExtResource("12_a7vjk")
+pitch_scale = 0.7
 
 [node name="Attack" type="Node3D" parent="."]
 
 [node name="Attack1" type="AudioStreamPlayer3D" parent="Attack"]
-stream = ExtResource("11_5u2pn")
+stream = ExtResource("12_sthfm")
+pitch_scale = 0.8
 
 [node name="Attack2" type="AudioStreamPlayer3D" parent="Attack"]
-stream = ExtResource("12_vwf01")
+stream = ExtResource("13_vbs1k")
+pitch_scale = 0.75
 
 [node name="Attack3" type="AudioStreamPlayer3D" parent="Attack"]
-stream = ExtResource("13_n1ywq")
+stream = ExtResource("14_e3i4n")
+pitch_scale = 0.8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
