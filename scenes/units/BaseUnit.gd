@@ -22,7 +22,7 @@ func _process(delta):
 				var look_dir = transform.origin + toward
 				look_at(look_dir, Vector3.UP)
 				interacting_with.interact_with()
-			time_till_next_resource = 3
+			time_till_next_resource = 3 * UI.get_worker_res_time_mult()
 
 func handle_command(location: Vector3, type: Globals.COMMAND, thing: InteractableThing, offset: Vector3):
 	# todo should check if this is thing we can interact with first

@@ -40,7 +40,7 @@ func _process(delta):
 	timer -= delta
 	if timer <= 0:
 		spawn_unit()
-		timer = time_between_summons
+		timer = time_between_summons * UI.get_spawner_time_mult()
 
 func spawn_unit():
 	if !GameManager.can_spawn_more_units() || !is_enabled:
